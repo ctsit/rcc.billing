@@ -736,3 +736,13 @@
 #' }
 #' @details DETAILS
 "cleanup_project_ownership_test_data"
+
+#' @title clean_processed_payment_data_from_email_test_data
+#' @description A named list of dataframes used to test the function clean_processed_payment_data_from_email_test_data
+#' @format A named list of 2 dataframes:
+#' \describe{
+#'   \item{\code{input}}{a dataframe of test data as returned from get_processed_payment_data_from_email}
+#'   \item{\code{output}}{a dataframe of test data corresponding to the input data frame}
+#' }
+#' @details DETAILS
+"clean_processed_payment_data_from_email_test_data"

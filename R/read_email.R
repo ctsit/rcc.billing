@@ -89,3 +89,38 @@ get_processed_payment_data_from_email <- function(username,
 
   return(data_from_emails)
 }
+
+#' Clean the output of get_processed_payment_data_from_email and format for alignment
+#' with invoice_line_item data
+#'
+#' @param processed_payment_data_from_email, the dataframe output of get_processed_payment_data_from_email
+#'
+#' @return The inpout data frame reformatted for alignment with invoice_line_item
+#'
+#' @importFrom magrittr "%>%"
+#' @importFrom rlang .data
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' processed_payment_data <- clean_processed_payment_data_from_email(
+#'   processed_payment_data_from_email
+#' )
+#' }
+clean_processed_payment_data_from_email <- function(processed_payment_data_from_email) {
+  result <- processed_payment_data_from_email %>%
+    dplyr::rename(name_of_service = .data$study_name) %>%
+    dplyr::mutate(crc_number = as.numeric(.data$crc_number)) %>%
+    dplyr::mutate(ids_number = dplyr::na_if(.data$ids_number, "")) %>%
+    dplyr::mutate(ocr_number = dplyr::na_if(.data$ocr_number, "")) %>%
+    dplyr::mutate(invoice_number = stringr::str_replace(.data$invoice_number, " .*", "")) %>%
+    dplyr::mutate(amount_paid_sign = dplyr::if_else(stringr::str_detect(.data$amount_paid, "\\(.*\\)"), -1, 1)) %>%
+    dplyr::mutate(amount_paid = .data$amount_paid_sign * readr::parse_number(
+      .data$amount_paid,
+      locale = readr::locale(decimal_mark = ".", grouping_mark = ",")
+    )) %>%
+    dplyr::select(-.data$amount_paid_sign) %>%
+    dplyr::mutate(je_posting_date = lubridate::mdy(.data$je_posting_date))
+
+  return(result)
+}
