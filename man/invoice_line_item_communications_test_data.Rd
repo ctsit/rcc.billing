@@ -17,6 +17,7 @@ A data frame with 26 rows and 31 variables:
   \item{\code{price_of_service}}{double: price of the service, in US dollars}
   \item{\code{qty_provided}}{double: quantity provided}
   \item{\code{amount_due}}{double: amount due, in US dollars}
+  \item{\code{amount_paid}}{double: amount paid, in US dollars}
   \item{\code{fiscal_year}}{character: fiscal year of the invoice}
   \item{\code{month_invoiced}}{character: month of the invoice}
   \item{\code{pi_last_name}}{character: last name of the person invoiced}

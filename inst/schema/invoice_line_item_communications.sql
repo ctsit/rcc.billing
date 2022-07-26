@@ -12,6 +12,7 @@ CREATE TABLE `invoice_line_item_communications` (
   `price_of_service` double DEFAULT NULL,
   `qty_provided` double DEFAULT NULL,
   `amount_due` double DEFAULT NULL,
+  `amount_paid` double DEFAULT NULL,
   `fiscal_year` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `month_invoiced` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `pi_last_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,

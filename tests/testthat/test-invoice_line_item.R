@@ -1,4 +1,4 @@
-test_that("service_type sqlite schema is created and correct test data is returned", {
+testthat::test_that("service_type sqlite schema is created and correct test data is returned", {
   table_name <- "invoice_line_item"
   test_data <- get0(paste0(table_name, "_test_data"))
   conn <- DBI::dbConnect(RSQLite::SQLite(), dbname = ":memory:")
@@ -15,5 +15,5 @@ test_that("service_type sqlite schema is created and correct test data is return
   ) %>% fix_data_in_invoice_line_item()
 
   DBI::dbDisconnect(conn)
-  expect_identical(test_data, dplyr::as_tibble(results))
+  testthat::expect_identical(test_data, dplyr::as_tibble(results))
 })

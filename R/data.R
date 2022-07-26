@@ -12,6 +12,7 @@
 #'   \item{\code{price_of_service}}{price of the service, in US dollars}
 #'   \item{\code{qty_provided}}{quantity provided}
 #'   \item{\code{amount_due}}{amount due, in US dollars}
+#'   \item{\code{amount_paid}}{amount paid, in US dollars}
 #'   \item{\code{fiscal_year}}{fiscal year of the invoice}
 #'   \item{\code{month_invoiced}}{month of the invoice}
 #'   \item{\code{pi_last_name}}{last name of the person invoiced}
@@ -73,6 +74,7 @@
 #'   \item{\code{price_of_service}}{double: price of the service, in US dollars}
 #'   \item{\code{qty_provided}}{double: quantity provided}
 #'   \item{\code{amount_due}}{double: amount due, in US dollars}
+#'   \item{\code{amount_paid}}{double: amount paid, in US dollars}
 #'   \item{\code{fiscal_year}}{character: fiscal year of the invoice}
 #'   \item{\code{month_invoiced}}{character: month of the invoice}
 #'   \item{\code{pi_last_name}}{character: last name of the person invoiced}
