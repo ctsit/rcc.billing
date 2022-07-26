@@ -9,9 +9,20 @@
 #' @param messages_since_date The sent date of the oldest message that should be inspected
 #'
 #' @return A dataframe of processed payment facts
-#' ##\itemize{
-#' ##  \item email - stuff and things
-#' ##}
+#' \itemize{
+#'   \item{\code{study_name}}{character Study Name}
+#'   \item{\code{crc_number}}{character Clinical Research Center Number}
+#'   \item{\code{ids_number}}{character Investigative Drug Service Number}
+#'   \item{\code{ocr_number}}{character Office of Clinical Research Number}
+#'   \item{\code{invoice_number}}{character Invoice Number}
+#'   \item{\code{amount_paid}}{character amount paid on an invoice}
+#'   \item{\code{je_number}}{character Journal Entry number}
+#'   \item{\code{je_posting_date}}{character Journal Entry Posting Date}
+#'   \item{\code{ctsi_study_id}}{character CTSI numeric identifier for a service applied to a study}
+#'   \item{\code{sender}}{character email sender}
+#'   \item{\code{recipient}}{character email recipient}
+#'   \item{\code{date_sent}}{POSIX_CT data the email was sent}
+#' }
 #' @export
 #' @importFrom magrittr "%>%"
 #' @importFrom rlang .data
@@ -58,11 +69,29 @@ get_processed_payment_data_from_email <- function(username,
 
   if (length(emails_found) > 0) {
     for (email in emails_found) {
-      ctsi_study_id <- email %>%
-        imap_con$fetch_header() %>%
+      email_header <- email %>%
+        imap_con$fetch_header()
+
+      ctsi_study_id <- email_header %>%
         stringr::str_extract_all("Subject.*:.*\r\n") %>%
         sub(".*CTSI Study ", "", .) %>%
         sub(" has been processed.*", "", .)
+
+      sender <- email_header %>%
+        stringr::str_extract_all("From:.*\r\n") %>%
+        sub("From: ", "", .) %>%
+        sub("\r\n", "", .)
+
+      recipient <- email_header %>%
+        stringr::str_extract_all("To:.*\r\n") %>%
+        sub("To: ", "", .) %>%
+        sub("\r\n", "", .)
+
+      date_sent <- email_header %>%
+        stringr::str_extract_all("Date:.*\r\n") %>%
+        sub("Date: ", "", .) %>%
+        sub("\r\n", "", .) %>%
+        lubridate::dmy_hms(.)
 
       data_row <- email %>%
         imap_con$fetch_text() %>%
@@ -82,7 +111,12 @@ get_processed_payment_data_from_email <- function(username,
           values_from = "V2"
         ) %>%
         janitor::clean_names() %>%
-        dplyr::mutate(ctsi_study_id = ctsi_study_id)
+        dplyr::mutate(
+          ctsi_study_id = ctsi_study_id,
+          sender = sender,
+          recipient = recipient,
+          date_sent = date_sent
+          )
       data_from_emails <- dplyr::bind_rows(data_from_emails, data_row)
     }
   }

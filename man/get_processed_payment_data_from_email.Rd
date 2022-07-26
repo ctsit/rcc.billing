@@ -22,9 +22,20 @@ get_processed_payment_data_from_email(
 }
 \value{
 A dataframe of processed payment facts
-##\itemize{
-##  \item email - stuff and things
-##}
+\itemize{
+  \item{\code{study_name}}{character Study Name}
+  \item{\code{crc_number}}{character Clinical Research Center Number}
+  \item{\code{ids_number}}{character Investigative Drug Service Number}
+  \item{\code{ocr_number}}{character Office of Clinical Research Number}
+  \item{\code{invoice_number}}{character Invoice Number}
+  \item{\code{amount_paid}}{character amount paid on an invoice}
+  \item{\code{je_number}}{character Journal Entry number}
+  \item{\code{je_posting_date}}{character Journal Entry Posting Date}
+  \item{\code{ctsi_study_id}}{character CTSI numeric identifier for a service applied to a study}
+  \item{\code{sender}}{character email sender}
+  \item{\code{recipient}}{character email recipient}
+  \item{\code{date_sent}}{POSIX_CT data the email was sent}
+}
 }
 \description{
 Connect to an imap mailbox, identify processed payment emails sent

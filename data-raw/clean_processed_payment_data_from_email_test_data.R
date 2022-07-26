@@ -12,6 +12,9 @@ input <- tribble(
   ~je_number,
   ~je_posting_date,
   ~ctsi_study_id,
+  ~sender,
+  ~recipient,
+  ~date_sent,
   # record 1
   "Your Cool Study",
   1234,
@@ -22,6 +25,9 @@ input <- tribble(
   "CTSI060822",
   "6/10/2022",
   2929,
+  "billing-team@example.org",
+  "ctsit@example.org",
+  lubridate::ymd_hms("2022-06-10 11:50:00"),
   # record 2
   "YANCS",
   NA,
@@ -31,7 +37,10 @@ input <- tribble(
   "$100.00",
   "CTSI060822",
   "6/10/2022",
-  3030
+  3030,
+  "billing-team@example.org",
+  "ctsit@example.org",
+  lubridate::ymd_hms("2022-06-10 11:50:00")
 )
 
 
@@ -55,6 +64,9 @@ output <- tribble(
   "CTSI060822",
   lubridate::ymd("2022-06-10"),
   2929,
+  "billing-team@example.org",
+  "ctsit@example.org",
+  lubridate::ymd_hms("2022-06-10 11:50:00"),
   # record 2
   "YANCS",
   as.numeric(NA),
@@ -64,7 +76,10 @@ output <- tribble(
   100,
   "CTSI060822",
   lubridate::ymd("2022-06-10"),
-  3030
+  3030,
+  "billing-team@example.org",
+  "ctsit@example.org",
+  lubridate::ymd_hms("2022-06-10 11:50:00")
 )
 
 clean_processed_payment_data_from_email_test_data <- list(
