@@ -32,9 +32,11 @@ A dataframe of processed payment facts
   \item{\code{je_number}}{character Journal Entry number}
   \item{\code{je_posting_date}}{character Journal Entry Posting Date}
   \item{\code{ctsi_study_id}}{character CTSI numeric identifier for a service applied to a study}
+  \item{\code{month_invoiced}}{character the month the invoice was sent, e.g., "April"}
+  \item{\code{fiscal_year}}{character the fiscal year in wich the invoice was sent, e.g. "2021-2022"}
   \item{\code{sender}}{character email sender}
   \item{\code{recipient}}{character email recipient}
-  \item{\code{date_sent}}{POSIX_CT data the email was sent}
+  \item{\code{date_sent}}{POSIX_CT date the email was sent}
 }
 }
 \description{

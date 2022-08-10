@@ -19,9 +19,11 @@
 #'   \item{\code{je_number}}{character Journal Entry number}
 #'   \item{\code{je_posting_date}}{character Journal Entry Posting Date}
 #'   \item{\code{ctsi_study_id}}{character CTSI numeric identifier for a service applied to a study}
+#'   \item{\code{month_invoiced}}{character the month the invoice was sent, e.g., "April"}
+#'   \item{\code{fiscal_year}}{character the fiscal year in wich the invoice was sent, e.g. "2021-2022"}
 #'   \item{\code{sender}}{character email sender}
 #'   \item{\code{recipient}}{character email recipient}
-#'   \item{\code{date_sent}}{POSIX_CT data the email was sent}
+#'   \item{\code{date_sent}}{POSIX_CT date the email was sent}
 #' }
 #' @export
 #' @importFrom magrittr "%>%"
@@ -48,8 +50,8 @@ get_processed_payment_data_from_email <- function(username,
 
   imap_con$select_folder("INBOX")
   emails_by_subject_search <- imap_con$search_string(expr = "Your payment for CTSI Study", where = "SUBJECT")
-  messages_since_date <- imap_con$search_since(date_char = format(messages_since_date, format = "%d-%b-%Y"))
-  emails_found <- dplyr::intersect(emails_by_subject_search, messages_since_date)
+  emails_by_since_search <- imap_con$search_since(date_char = format(messages_since_date, format = "%d-%b-%Y"))
+  emails_found <- dplyr::intersect(emails_by_subject_search, emails_by_since_search)
 
   patterns <- c(
     "Study Name:.*\r\n",
@@ -93,8 +95,25 @@ get_processed_payment_data_from_email <- function(username,
         sub("\r\n", "", .) %>%
         lubridate::dmy_hms(.)
 
-      data_row <- email %>%
-        imap_con$fetch_text() %>%
+      email_text <- email %>%
+        imap_con$fetch_text()
+
+      invoice_date <-
+        email_text %>%
+        stringr::str_extract("Your invoice for.*has been processed.") %>%
+        sub("Your invoice for ", "", .) %>%
+        sub(" has been processed.", "", .) %>%
+        stringr::str_split(" ") %>%
+        as.data.frame() %>%
+        t() %>%
+        as.data.frame() %>%
+        dplyr::mutate(
+          month_invoiced = .data$V1,
+          fiscal_year = .data$V2
+        ) %>%
+        dplyr::select(.data$month_invoiced, .data$fiscal_year)
+
+      data_row <- email_text %>%
         stringr::str_extract_all(patterns) %>%
         # remove html encoded < and > characters
         sub("&lt;.*&gt;", "", .) %>%
@@ -113,6 +132,8 @@ get_processed_payment_data_from_email <- function(username,
         janitor::clean_names() %>%
         dplyr::mutate(
           ctsi_study_id = ctsi_study_id,
+          month_invoiced = invoice_date$month_invoiced,
+          fiscal_year = invoice_date$fiscal_year,
           sender = sender,
           recipient = recipient,
           date_sent = date_sent
