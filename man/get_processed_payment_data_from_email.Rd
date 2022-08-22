@@ -31,7 +31,7 @@ A dataframe of processed payment facts
   \item{\code{amount_paid}}{character amount paid on an invoice}
   \item{\code{je_number}}{character Journal Entry number}
   \item{\code{je_posting_date}}{character Journal Entry Posting Date}
-  \item{\code{ctsi_study_id}}{character CTSI numeric identifier for a service applied to a study}
+  \item{\code{ctsi_study_id}}{numeric CTSI numeric identifier for a service applied to a study}
   \item{\code{month_invoiced}}{character the month the invoice was sent, e.g., "April"}
   \item{\code{fiscal_year}}{character the fiscal year in wich the invoice was sent, e.g. "2021-2022"}
   \item{\code{sender}}{character email sender}
