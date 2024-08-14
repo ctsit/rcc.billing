@@ -1,6 +1,3 @@
-# rcc.billing 1.41.4 (released 2024-08-14)
-- Update github workflows to allow R to correctly access the PAT (@saipavan10-git)
-
 # rcc.billing 1.41.3 (released 2024-08-14)
 - Update github workflows to address missing dependencies (@pbchase)
 
