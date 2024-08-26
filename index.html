@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>REDCap Custodian Billing • rcc.billing</title>
+<title>REDCap Automated Billing • rcc.billing</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="REDCap Custodian Billing">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="REDCap Automated Billing">
 <meta name="description" content="Automated, data-driven service billing implemented on REDCap Custodian.">
 <meta property="og:description" content="Automated, data-driven service billing implemented on REDCap Custodian.">
 </head>
@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.41.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.42.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,25 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/cleanup_bad_email_addresses.html">cleanup_bad_email_addresses</a></li>
+<li><a class="dropdown-item" href="articles/billable_candidates.html">billable_candidates</a></li>
+    <li><a class="dropdown-item" href="articles/billing_for_support.html">Billing for REDCap support work</a></li>
+    <li><a class="dropdown-item" href="articles/cleanup_bad_email_addresses.html">cleanup_bad_email_addresses</a></li>
+    <li><a class="dropdown-item" href="articles/cleanup_bad_project_pi_email_addresses.html">cleanup_bad_project_pi_email_addresses</a></li>
+    <li><a class="dropdown-item" href="articles/cleanup_project_ownership_table.html">cleanup_project_ownership_table</a></li>
+    <li><a class="dropdown-item" href="articles/create_and_send_new_invoice_line_items.html">create_and_send_new_invoice_line_items</a></li>
+    <li><a class="dropdown-item" href="articles/delete_abandoned_projects.html">delete_abandoned_projects</a></li>
+    <li><a class="dropdown-item" href="articles/novel_concepts.html">Novel Concepts</a></li>
+    <li><a class="dropdown-item" href="articles/remind_owners_to_review_ownership.html">remind_owners_to_review_ownership</a></li>
+    <li><a class="dropdown-item" href="articles/request_correction_of_bad_ownership_data.html">request_correction_of_bad_ownership_data</a></li>
+    <li><a class="dropdown-item" href="articles/revenue_status_and_projections.html">revenue_status_and_projections</a></li>
+    <li><a class="dropdown-item" href="articles/sequester_orphans.html">sequester_orphans</a></li>
+    <li><a class="dropdown-item" href="articles/sequester_unpaid_projects.html">sequester_unpaid_projects</a></li>
+    <li><a class="dropdown-item" href="articles/update_free_support_time_remaining.html">update_free_support_time_remaining</a></li>
+    <li><a class="dropdown-item" href="articles/update_invoice_line_items_with_invoicing_details.html">update_invoice_line_items_with_invoicing_details</a></li>
+    <li><a class="dropdown-item" href="articles/update_probono_service_request_records.html">update_probono_service_request_records</a></li>
+    <li><a class="dropdown-item" href="articles/update_project_billable_attribute.html">update_project_billable_attribute</a></li>
+    <li><a class="dropdown-item" href="articles/warn_owners_of_impending_bill.html">warn_owners_of_impending_bill</a></li>
+    <li><a class="dropdown-item" href="articles/when_jobs_run.html">When jobs run</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -57,7 +75,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>REDCap Automated Billing is a automated, data-driven service billing system for a REDCap system.</p>
+<p>REDCap Automated Billing is an automated, data-driven service billing system for a REDCap system.</p>
 <p>To turn our REDCap system from a cost center into a revenue generator and address the proliferation of orphaned REDCap projects, the University of Florida’s CTS-IT charges a modest annual fee for each project. To do this we created REDCap Automated Billing. It generates revenue, reduces data privacy risks by incentivizing the deletion of abandoned projects, and improves the quality of research productivity metrics. This requires us to improve our investigator and project metadata, partner with fiscal staff, and automate novel data workflows.</p>
 </div>
 <div class="section level2">
@@ -84,63 +102,74 @@
 </ul>
 </div>
 <div class="section level2">
+<h2 id="novel-concepts">Novel Concepts<a class="anchor" aria-label="anchor" href="#novel-concepts"></a>
+</h2>
+<p>REDCap Automated Billing introduces some concepts outside the normal scope of a REDCap system. These are described in <a href="https://ctsit.github.io/rcc.billing/articles/novel_concepts.html">Novel Concepts</a></p>
+</div>
+<div class="section level2">
+<h2 id="billing-for-support-work">Billing for support work<a class="anchor" aria-label="anchor" href="#billing-for-support-work"></a>
+</h2>
+<p>The complexities of billing for REDCap support work are described in <a href="https://ctsit.github.io/rcc.billing/articles/billing_for_support.html">Billing for REDCap support work</a></p>
+</div>
+<div class="section level2">
 <h2 id="business-workflows">Business workflows<a class="anchor" aria-label="anchor" href="#business-workflows"></a>
 </h2>
 <ul>
 <li>Cleaning person data
 <ul>
 <li><a href="https://ctsit.github.io/rcc.billing/articles/cleanup_bad_email_addresses.html">cleanup_bad_email_addresses</a></li>
-<li>cleanup_bad_project_pi_email_addresses</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/cleanup_bad_project_pi_email_addresses.html">cleanup_bad_project_pi_email_addresses</a></li>
 </ul>
 </li>
 <li>Cleaning ownership data
 <ul>
-<li>cleanup_project_ownership_table</li>
-<li>Ban accounts/emails of people who left your institution. (See update_invoice_line_items_with_invoicing_details)</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/cleanup_project_ownership_table.html">cleanup_project_ownership_table</a></li>
+<li>Ban accounts/emails of people who left your institution. See <a href="https://ctsit.github.io/rcc.billing/articles/update_invoice_line_items_with_invoicing_details.html">update_invoice_line_items_with_invoicing_details</a>
+</li>
 </ul>
 </li>
-<li>Exempt special people and special projects from billing.
+<li>Exempt special people and special projects from billing
 <ul>
-<li>update_project_billable_attribute</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/update_project_billable_attribute.html">update_project_billable_attribute</a></li>
 </ul>
 </li>
 <li>Manage abandoned projects
 <ul>
-<li>delete_abandoned_projects</li>
-<li>sequester_orphans</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/delete_abandoned_projects.html">delete_abandoned_projects</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/sequester_orphans.html">sequester_orphans</a></li>
 </ul>
 </li>
 <li>Create &amp; Manage charging records
 <ul>
-<li>create_and_send_new_invoice_line_items</li>
-<li>update_invoice_line_items_with_invoicing_details</li>
-<li>sequester_unpaid_projects</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/create_and_send_new_invoice_line_items.html">create_and_send_new_invoice_line_items</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/update_invoice_line_items_with_invoicing_details.html">update_invoice_line_items_with_invoicing_details</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/sequester_unpaid_projects.html">sequester_unpaid_projects</a></li>
 <li>cancel_invoice_line_items (Ad hoc)</li>
 </ul>
 </li>
 <li>Manage organizational data
 <ul>
-<li>write_uf_fiscal_orgs_to_org_hierarchies</li>
-<li>write_uf_fiscal_orgs_to_person_org</li>
+<li>write_uf_fiscal_orgs_to_org_hierarchies (temporarily disabled)</li>
+<li>write_uf_fiscal_orgs_to_person_org (temporarily disabled)</li>
 </ul>
 </li>
 <li>Manage pro bono service request work
 <ul>
-<li>update_free_support_time_remaining</li>
-<li>update_probono_service_request_records</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/update_free_support_time_remaining.html">update_free_support_time_remaining</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/update_probono_service_request_records.html">update_probono_service_request_records</a></li>
 </ul>
 </li>
 <li>Internal reporting
 <ul>
-<li>billable_candidates</li>
-<li>revenue_status_and_projections</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/billable_candidates.html">billable_candidates</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/revenue_status_and_projections.html">revenue_status_and_projections</a></li>
 </ul>
 </li>
 <li>Manage customer communications
 <ul>
-<li>remind_owners_to_review_ownership</li>
-<li>request_correction_of_bad_ownership_data</li>
-<li>warn_owners_of_impending_bill</li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/remind_owners_to_review_ownership.html">remind_owners_to_review_ownership</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/request_correction_of_bad_ownership_data.html">request_correction_of_bad_ownership_data</a></li>
+<li><a href="https://ctsit.github.io/rcc.billing/articles/warn_owners_of_impending_bill.html">warn_owners_of_impending_bill</a></li>
 </ul>
 </li>
 </ul>
@@ -148,7 +177,7 @@
 <div class="section level2">
 <h2 id="when-jobs-run">When jobs run<a class="anchor" aria-label="anchor" href="#when-jobs-run"></a>
 </h2>
-<p>Most ETLs and reports are run in a regular basis via Cron. The schedul of those events can be found at <a href="https://docs.google.com/document/d/1a5Zfsi4us32uIRTZ49TQbvH7OrIRTUXFeYZdMWU3g44/edit#heading=h.b18i1tfzijre" class="external-link">When jobs run</a></p>
+<p>Most ETLs and reports are run in a regular basis via Cron. The schedule of those events can be found at <a href="https://ctsit.github.io/rcc.billing/articles/when_jobs_run.html">When jobs run</a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
@@ -170,10 +199,10 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Philip Chase <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Laurence James-Woodley <br><small class="roles"> Author </small>  </li>
-<li>Kyle Chesney <br><small class="roles"> Author </small>  </li>
-<li>Bentz Michael <br><small class="roles"> Author </small>  </li>
+<li>Philip Chase <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5318-9420" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Laurence James-Woodley <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-6418-2742" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Kyle Chesney <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-0479-7251" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Michael Bentz <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-5790-4268" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Sai Pavan Kamma <br><small class="roles"> Author </small>  </li>
 <li><a href="authors.html">More about authors...</a></li>
 </ul>
@@ -186,7 +215,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Philip Chase, Laurence James-Woodley, Kyle Chesney, Bentz Michael, Sai Pavan Kamma.</p>
+  <p>Developed by Philip Chase, Laurence James-Woodley, Kyle Chesney, Michael Bentz, Sai Pavan Kamma.</p>
 </div>
 
 <div class="pkgdown-footer-right">
