@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.42.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.43.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +53,16 @@
 
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.43.0" id="rccbilling-1430-released-2024-09-04">rcc.billing 1.43.0 (released 2024-09-04)<a class="anchor" aria-label="anchor" href="#rccbilling-1430-released-2024-09-04"></a></h2>
+<ul><li>Fix doc formatting for service_request_time() (@pbchase)</li>
+<li>Add Sai’s ORCID in DESCRIPTION (@pbchase)</li>
+<li>Add employees to ctsit_staff* data frames (@pbchase, #250)</li>
+<li>Refactor ctsit_staff.R to make it easier to maintain (@pbchase, #250)</li>
+<li>Update revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Add ‘REDCap consulting revenue’ section to revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Update vignettes (@pbchase)</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.42.1" id="rccbilling-1421-released-2024-08-26">rcc.billing 1.42.1 (released 2024-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-1421-released-2024-08-26"></a></h2>
 <ul><li>Remove unsuspended_high_privilege_faculty from cleanup_project_ownership_table.R (@pbchase)</li>
@@ -168,515 +178,301 @@
 <li>Remove ‘Payments Rates and Projections’ section.</li>
 <li>Remove ‘Report summary’ section.</li>
 </ul></li>
-</ul><div class="section level3">
-<h3 id="id_1332---1-34-0">[1.33.2] - 2024-03-15<a class="anchor" aria-label="anchor" href="#id_1332---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0"></a></h4>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.33.2" id="rccbilling-1332-released-2024-03-15">rcc.billing 1.33.2 (released 2024-03-15)<a class="anchor" aria-label="anchor" href="#rccbilling-1332-released-2024-03-15"></a></h2>
 <ul><li>Fix NA in average_portion_paid in revenue_status_and_projections.qmd (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1331---1-34-0">[1.33.1] - 2024-03-12<a class="anchor" aria-label="anchor" href="#id_1331---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-1">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-1"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.33.1" id="rccbilling-1331-released-2024-03-12">rcc.billing 1.33.1 (released 2024-03-12)<a class="anchor" aria-label="anchor" href="#rccbilling-1331-released-2024-03-12"></a></h2>
 <ul><li>Fix bad collect() syntax (@pbchase)</li>
 <li>Fix crashes in sequester_unpaid_projects.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1330---1-34-0">[1.33.0] - 2024-02-27<a class="anchor" aria-label="anchor" href="#id_1330---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.33.0" id="rccbilling-1330-released-2024-02-27">rcc.billing 1.33.0 (released 2024-02-27)<a class="anchor" aria-label="anchor" href="#rccbilling-1330-released-2024-02-27"></a></h2>
 <ul><li>Add fiscal year reporting to revenue_status_and_projections.qmd (@pbchase)</li>
-</ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-2">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-2"></a></h4>
-<ul><li>Add revenue_description to red_team_auxiliary_revenue_actuals_redcap_apb.csv output in revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Add revenue_description to red_team_auxiliary_revenue_actuals_redcap_apb.csv output in revenue_status_and_projections.qmd (@pbchase)</li>
 <li>Control positioning in revenue_status_and_projections.qmd (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1320---1-34-0">[1.32.0] - 2024-02-14<a class="anchor" aria-label="anchor" href="#id_1320---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-1">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-1"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.32.0" id="rccbilling-1320-released-2024-02-14">rcc.billing 1.32.0 (released 2024-02-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1320-released-2024-02-14"></a></h2>
 <ul><li>Add owner’s org data to get_billable_candidates() output (@pbchase, @ChemiKyle)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1311---1-34-0">[1.31.1] - 2024-02-12<a class="anchor" aria-label="anchor" href="#id_1311---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-3">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-3"></a></h4>
-<p>Update update_invoice_line_items_with_invoicing_details.R to fix target table in service_instance_update. (@pbchase)</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="id_1310---1-34-0">[1.31.0] - 2024-02-08<a class="anchor" aria-label="anchor" href="#id_1310---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-2">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-2"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.31.1" id="rccbilling-1311-released-2024-02-12">rcc.billing 1.31.1 (released 2024-02-12)<a class="anchor" aria-label="anchor" href="#rccbilling-1311-released-2024-02-12"></a></h2>
+<ul><li>Update update_invoice_line_items_with_invoicing_details.R to fix target table in service_instance_update. (@pbchase)</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.31.0" id="rccbilling-1310-released-2024-02-08">rcc.billing 1.31.0 (released 2024-02-08)<a class="anchor" aria-label="anchor" href="#rccbilling-1310-released-2024-02-08"></a></h2>
 <ul><li>Curate and use CTSI Study IDs (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1300---1-34-0">[1.30.0] - 2024-01-12<a class="anchor" aria-label="anchor" href="#id_1300---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-3">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-3"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.30.0" id="rccbilling-1300-released-2024-01-12">rcc.billing 1.30.0 (released 2024-01-12)<a class="anchor" aria-label="anchor" href="#rccbilling-1300-released-2024-01-12"></a></h2>
 <ul><li>Fix typos in text of revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Update update_invoice_line_items_with_invoicing_details to handle do not bill reasons (@ChemiKyle)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-4">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-4"></a></h4>
-<ul><li>Update update_invoice_line_items_with_invoicing_details to handle do not bill reasons (@ChemiKyle)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1291---1-34-0">[1.29.1] - 2023-12-08<a class="anchor" aria-label="anchor" href="#id_1291---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-5">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-5"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.29.1" id="rccbilling-1291-released-2023-12-08">rcc.billing 1.29.1 (released 2023-12-08)<a class="anchor" aria-label="anchor" href="#rccbilling-1291-released-2023-12-08"></a></h2>
 <ul><li>Fix create_and_send_new_redcap_prod_per_project_line_items.R</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1290---1-34-0">[1.29.0] - 2023-11-21<a class="anchor" aria-label="anchor" href="#id_1290---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-6">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-6"></a></h4>
-<ul><li>Implement code changes required for the Fall 2023 rate increase (Philip Chase)</li>
-<li>Update revenue_status_and_projections.qmd adding revenue_by_month_received (Philip Chase, Laurence James-Woodley)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.29.0" id="rccbilling-1290-released-2023-11-21">rcc.billing 1.29.0 (released 2023-11-21)<a class="anchor" aria-label="anchor" href="#rccbilling-1290-released-2023-11-21"></a></h2>
+<ul><li>Implement code changes required for the Fall 2023 rate increase (@pbchase)</li>
+<li>Update revenue_status_and_projections.qmd adding revenue_by_month_received (@pbchase, @ljwoodley)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1280---1-34-0">[1.28.0] - 2023-11-01<a class="anchor" aria-label="anchor" href="#id_1280---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-7">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-7"></a></h4>
-<ul><li>Replace fig-revenue-by-month with fig-revenue-by-month-invoiced and fig-revenue-by-month-received in revenue_status_and_projections.qmd (Philip Chase)</li>
-<li>Add bar labels to fig-revenue-by-month-* figures in revenue_status_and_projections.qmd (Philip Chase)</li>
-<li>Adjust project revenue to use just the last 12 months and correct for the rate increase in revenue_status_and_projections.qmd (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.28.0" id="rccbilling-1280-released-2023-11-01">rcc.billing 1.28.0 (released 2023-11-01)<a class="anchor" aria-label="anchor" href="#rccbilling-1280-released-2023-11-01"></a></h2>
+<ul><li>Replace fig-revenue-by-month with fig-revenue-by-month-invoiced and fig-revenue-by-month-received in revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Add bar labels to fig-revenue-by-month-* figures in revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Adjust project revenue to use just the last 12 months and correct for the rate increase in revenue_status_and_projections.qmd (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1270---1-34-0">[1.27.0] - 2023-10-31<a class="anchor" aria-label="anchor" href="#id_1270---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-4">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-4"></a></h4>
-<ul><li>Add delete_abandoned_projects.R (Laurence James-Woodley)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.27.0" id="rccbilling-1270-released-2023-10-31">rcc.billing 1.27.0 (released 2023-10-31)<a class="anchor" aria-label="anchor" href="#rccbilling-1270-released-2023-10-31"></a></h2>
+<ul><li>Add delete_abandoned_projects.R (@ljwoodley)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1260---1-34-0">[1.26.0] - 2023-10-24<a class="anchor" aria-label="anchor" href="#id_1260---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-5">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-5"></a></h4>
-<ul><li>Add export_project_data_with_owner_org.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.26.0" id="rccbilling-1260-released-2023-10-24">rcc.billing 1.26.0 (released 2023-10-24)<a class="anchor" aria-label="anchor" href="#rccbilling-1260-released-2023-10-24"></a></h2>
+<ul><li>Add export_project_data_with_owner_org.R (@pbchase)</li>
+<li>Change annual project price from $100 to $130 in warning communications (@ChemiKyle)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-8">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-8"></a></h4>
-<ul><li>Change annual project price from $100 to $130 in warning communications (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.25.1" id="rccbilling-1251-released-2023-10-16">rcc.billing 1.25.1 (released 2023-10-16)<a class="anchor" aria-label="anchor" href="#rccbilling-1251-released-2023-10-16"></a></h2>
+<ul><li>Update broken Update Project Ownership links (@ChemiKyle)</li>
+<li>Prevent sequestered projects from receiving billing warnings (@ChemiKyle)</li>
+<li>Fix typo in revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Update broken link to document that details project deletion steps (@ChemiKyle)</li>
+<li>Update update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
+<li>Remove unused code from warn_owners_of_impending_bill.R (@pbchase)</li>
+<li>Update Roxygen version in DESCRIPTION (@pbchase)</li>
+<li>Update test-get_billable_candidates.R (@pbchase)</li>
+<li>Remove unused code from get_billable_candidates() (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1251---1-34-0">[1.25.1] - 2023-10-16<a class="anchor" aria-label="anchor" href="#id_1251---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-9">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-9"></a></h4>
-<ul><li>Update broken Update Project Ownership links (Kyle Chesney)</li>
-<li>Prevent sequestered projects from receiving billing warnings (Kyle Chesney)</li>
-<li>Fix typo in revenue_status_and_projections.qmd (Philip Chase)</li>
-<li>Update broken link to document that details project deletion steps (Kyle Chesney)</li>
-<li>Update update_invoice_line_items_with_invoicing_details.R (Philip Chase)</li>
-<li>Remove unused code from warn_owners_of_impending_bill.R (Philip Chase)</li>
-<li>Update Roxygen version in DESCRIPTION (Philip Chase)</li>
-<li>Update test-get_billable_candidates.R (Philip Chase)</li>
-<li>Remove unused code from get_billable_candidates() (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.25.0" id="rccbilling-1250-released-2023-08-29">rcc.billing 1.25.0 (released 2023-08-29)<a class="anchor" aria-label="anchor" href="#rccbilling-1250-released-2023-08-29"></a></h2>
+<ul><li>Update revenue_status_and_projections (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1250---1-34-0">[1.25.0] - 2023-08-29<a class="anchor" aria-label="anchor" href="#id_1250---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-10">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-10"></a></h4>
-<ul><li>Update revenue_status_and_projections (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.24.0" id="rccbilling-1240-released-2023-08-23">rcc.billing 1.24.0 (released 2023-08-23)<a class="anchor" aria-label="anchor" href="#rccbilling-1240-released-2023-08-23"></a></h2>
+<ul><li>Add write_uf_fiscal_orgs_to_person_org ETL (@ChemiKyle)</li>
+<li>add cron job for invoice line item creation (@ljwoodley)</li>
+<li>add test for df row count (@ljwoodley)</li>
+<li>Replace current_fiscal_year with fiscal_year_invoiced concept (@pbchase)</li>
+<li>create empty please_fix_log df (@ljwoodley)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1240---1-34-0">[1.24.0] - 2023-08-23<a class="anchor" aria-label="anchor" href="#id_1240---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-6">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-6"></a></h4>
-<ul><li>Add write_uf_fiscal_orgs_to_person_org ETL (Kyle Chesney)</li>
-<li>add cron job for invoice line item creation (Laurence James-Woodley)</li>
-<li>add test for df row count (Laurence James-Woodley)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.23.0" id="rccbilling-1230-released-2023-08-04">rcc.billing 1.23.0 (released 2023-08-04)<a class="anchor" aria-label="anchor" href="#rccbilling-1230-released-2023-08-04"></a></h2>
+<ul><li>Add reason to project sequestration messages (@pbchase)</li>
+<li>Add speed improvements to get_orphaned_projects (@pbchase)</li>
+<li>Replace NA character with NA string to prevent entire email from appearing as NA (@ChemiKyle)</li>
+<li>Refactor SQLite out of get_orphaned_projects and its tests (@pbchase)</li>
+<li>Update render report (@ljwoodley)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-11">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-11"></a></h4>
-<ul><li>Replace current_fiscal_year with fiscal_year_invoiced concept (Philip Chase)</li>
-<li>create empty please_fix_log df (Laurence James-Woodley)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.22.2" id="rccbilling-1222-released-2023-07-19">rcc.billing 1.22.2 (released 2023-07-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1222-released-2023-07-19"></a></h2>
+<ul><li>Accommodate very long project titles (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1230---1-34-0">[1.23.0] - 2023-08-04<a class="anchor" aria-label="anchor" href="#id_1230---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-7">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-7"></a></h4>
-<ul><li>Add reason to project sequestration messages (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.22.1" id="rccbilling-1221-released-2023-07-19">rcc.billing 1.22.1 (released 2023-07-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1221-released-2023-07-19"></a></h2>
+<ul><li>Accommodate very long project titles (@pbchase)</li>
+<li>Update revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Update update_invoice_line_items_with_invoicing_details.R to handle non-rccbilling data (@pbchase)</li>
+<li>Update report_on_projects_by_dept.R (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-12">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-12"></a></h4>
-<ul><li>Add speed improvements to get_orphaned_projects (Philip Chase)</li>
-<li>Replace NA character with NA string to prevent entire email from appearing as NA (Kyle Chesney)</li>
-<li>Refactor SQLite out of get_orphaned_projects and its tests (Philip Chase)</li>
-<li>Update render report (Laurence James-Woodley)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.22.0" id="rccbilling-1220-released-2023-06-23">rcc.billing 1.22.0 (released 2023-06-23)<a class="anchor" aria-label="anchor" href="#rccbilling-1220-released-2023-06-23"></a></h2>
+<ul><li>Add cancel_invoice_line_items.R (@pbchase)</li>
+<li>Add ban_people_from_ownership.R (@pbchase)</li>
+<li>Add report_on_projects_by_dept.R (@pbchase)</li>
+<li>Add get_billable_candidates() (@pbchase)</li>
+<li>Silence long path warnings relating to request_correction_of_bad_ownership_data.R (@pbchase)</li>
+<li>Refactor billable_candidates.R to use get_billable_candidates() (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1222---1-34-0">[1.22.2] - 2023-07-19<a class="anchor" aria-label="anchor" href="#id_1222---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-13">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-13"></a></h4>
-<ul><li>Accommodate very long project titles (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.21.2" id="rccbilling-1212-released-2023-06-07">rcc.billing 1.21.2 (released 2023-06-07)<a class="anchor" aria-label="anchor" href="#rccbilling-1212-released-2023-06-07"></a></h2>
+<ul><li>Update revenue_status_and_projections.qmd (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1221---1-34-0">[1.22.1] - 2023-07-19<a class="anchor" aria-label="anchor" href="#id_1221---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-14">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-14"></a></h4>
-<ul><li>Accommodate very long project titles (Philip Chase)</li>
-<li>Update revenue_status_and_projections.qmd (Philip Chase)</li>
-<li>Update update_invoice_line_items_with_invoicing_details.R to handle non-rccbilling data (Philip Chase)</li>
-<li>Update report_on_projects_by_dept.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.21.1" id="rccbilling-1211-released-2023-06-07">rcc.billing 1.21.1 (released 2023-06-07)<a class="anchor" aria-label="anchor" href="#rccbilling-1211-released-2023-06-07"></a></h2>
+<ul><li>Update cron file for new render_report.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1220---1-34-0">[1.22.0] - 2023-06-23<a class="anchor" aria-label="anchor" href="#id_1220---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-8">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-8"></a></h4>
-<ul><li>Add cancel_invoice_line_items.R (Philip Chase)</li>
-<li>Add ban_people_from_ownership.R (Philip Chase)</li>
-<li>Add report_on_projects_by_dept.R (Philip Chase)</li>
-<li>Add get_billable_candidates() (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.21.0" id="rccbilling-1210-released-2023-06-07">rcc.billing 1.21.0 (released 2023-06-07)<a class="anchor" aria-label="anchor" href="#rccbilling-1210-released-2023-06-07"></a></h2>
+<ul><li>Update render_report.R to add Quarto support (@pbchase)</li>
+<li>Ban PIs who left UF in update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-15">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-15"></a></h4>
-<ul><li>Silence long path warnings relating to request_correction_of_bad_ownership_data.R (Philip Chase)</li>
-<li>Refactor billable_candidates.R to use get_billable_candidates() (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.20.0" id="rccbilling-1200-released-2023-06-05">rcc.billing 1.20.0 (released 2023-06-05)<a class="anchor" aria-label="anchor" href="#rccbilling-1200-released-2023-06-05"></a></h2>
+<ul><li>Add revenue_status_and_projections.qmd (@pbchase)</li>
+<li>Update email templates (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1212---1-34-0">[1.21.2] - 2023-06-07<a class="anchor" aria-label="anchor" href="#id_1212---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-16">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-16"></a></h4>
-<ul><li>Update revenue_status_and_projections.qmd (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.19.0" id="rccbilling-1190-released-2023-05-24">rcc.billing 1.19.0 (released 2023-05-24)<a class="anchor" aria-label="anchor" href="#rccbilling-1190-released-2023-05-24"></a></h2>
+<ul><li>Add remind_owners_to_review_ownership.R (@pbchase)</li>
+<li>Update sequester_unpaid_projects.R (@pbchase)</li>
+<li>Add historic redcap admins to CTS-IT staff (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1211---1-34-0">[1.21.1] - 2023-06-07<a class="anchor" aria-label="anchor" href="#id_1211---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-17">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-17"></a></h4>
-<ul><li>Update cron file for new render_report.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.18.2" id="rccbilling-1182-released-2023-04-03">rcc.billing 1.18.2 (released 2023-04-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1182-released-2023-04-03"></a></h2>
+<ul><li>Filter out sequestered and deleted projects in sequester_unpaid_projects.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1210---1-34-0">[1.21.0] - 2023-06-07<a class="anchor" aria-label="anchor" href="#id_1210---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-18">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-18"></a></h4>
-<ul><li>Update render_report.R to add Quarto support (Philip Chase)</li>
-<li>Ban PIs who left UF in update_invoice_line_items_with_invoicing_details.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.18.1" id="rccbilling-1181-released-2023-04-03">rcc.billing 1.18.1 (released 2023-04-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1181-released-2023-04-03"></a></h2>
+<ul><li>Fix NEWS.md (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1200---1-34-0">[1.20.0] - 2023-06-05<a class="anchor" aria-label="anchor" href="#id_1200---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-9">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-9"></a></h4>
-<ul><li>Add revenue_status_and_projections.qmd (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.18.0" id="rccbilling-1180-released-2023-04-03">rcc.billing 1.18.0 (released 2023-04-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1180-released-2023-04-03"></a></h2>
+<ul><li>Add sequester_unpaid_projects ETL (@ChemiKyle)</li>
+<li>Set date_sent when creating invoice line items (@pbchase)</li>
+<li>Fix cron for write_uf_fiscal_orgs_to_org_hierarchies.R again (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-19">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-19"></a></h4>
-<ul><li>Update email templates (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.17.0" id="rccbilling-1170-released-2023-03-17">rcc.billing 1.17.0 (released 2023-03-17)<a class="anchor" aria-label="anchor" href="#rccbilling-1170-released-2023-03-17"></a></h2>
+<ul><li>Add ETL to write to org_hierachies from VIVO Add schema for org_hierarchies (@ChemiKyle)</li>
+<li>Add cron’d runs of sequester_orphans.R (@pbchase)</li>
+<li>Simplify manual sequestration in sequester_orphans.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1190---1-34-0">[1.19.0] - 2023-05-24<a class="anchor" aria-label="anchor" href="#id_1190---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-10">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-10"></a></h4>
-<ul><li>Add remind_owners_to_review_ownership.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.16.0" id="rccbilling-1160-released-2023-03-03">rcc.billing 1.16.0 (released 2023-03-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1160-released-2023-03-03"></a></h2>
+<ul><li>Add banned_owners rule to get_orphaned_projects function Add banned_owners schema (@ChemiKyle)</li>
+<li>Embrace subdirectories for db specific tables in testing data (@ChemiKyle)</li>
+<li>Rename <em><em>conn to mem</em></em>_conn in get_orphaned_projects test (@ChemiKyle)</li>
+<li>Prevent blank emails on new invoice line items (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-20">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-20"></a></h4>
-<ul><li>Update sequester_unpaid_projects.R (Philip Chase)</li>
-<li>Add historic redcap admins to CTS-IT staff (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.15.0" id="rccbilling-1150-released-2023-02-27">rcc.billing 1.15.0 (released 2023-02-27)<a class="anchor" aria-label="anchor" href="#rccbilling-1150-released-2023-02-27"></a></h2>
+<ul><li>Add unit test for get_orphaned_projects() (@pbchase)</li>
+<li>Add unresolvable_ownership_issues to get_orphans function (@ChemiKyle)</li>
+<li>Add request_correction_of_bad_ownership_data report (@ChemiKyle)</li>
+<li>Add erasure of project ownership identification columns to cleanup_project_ownership_table (@ChemiKyle)</li>
+<li>Use variable instead of hardcoding in send_alert_email (@ChemiKyle)</li>
+<li>Prevent emails RE: unresolvable_ownership_issues in sequester_orphans (@ChemiKyle)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1182---1-34-0">[1.18.2] - 2023-04-03<a class="anchor" aria-label="anchor" href="#id_1182---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-21">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-21"></a></h4>
-<ul><li>Filter out sequestered and deleted projects in sequester_unpaid_projects.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.14.0" id="rccbilling-1140-released-2023-01-27">rcc.billing 1.14.0 (released 2023-01-27)<a class="anchor" aria-label="anchor" href="#rccbilling-1140-released-2023-01-27"></a></h2>
+<ul><li>Add complete_but_non_sequestered rule to get_orphaned_projects (@pbchase)</li>
+<li>Add warn_completers_of_impending_sequestration.R (@pbchase)</li>
+<li>Update version numbers in NEWS.md to conform to tagging error on 2022-12-19 (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1181---1-34-0">[1.18.1] - 2023-04-03<a class="anchor" aria-label="anchor" href="#id_1181---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-11">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-11"></a></h4>
-<ul><li>Fix NEWS.md (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.13.0" id="rccbilling-1130-released-2023-01-24">rcc.billing 1.13.0 (released 2023-01-24)<a class="anchor" aria-label="anchor" href="#rccbilling-1130-released-2023-01-24"></a></h2>
+<ul><li>Update get_orphaned_projects reducing the horizon from 12 to 11 months (@pbchase)</li>
+<li>Move warn_owners_of_impending_bill.R back to the default dates (@pbchase)</li>
+<li>Update update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
+<li>Revert error in sequester_orphans.R (@pbchase)</li>
+<li>Sync invoice_line_item table to RC DB during update_invoice_line_items_with_invoicing_details (@ChemiKyle)</li>
+<li>Mark CTSIT-owned projects as non-billable in update_project_billable_attribute.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1180---1-34-0">[1.18.0] - 2023-04-03<a class="anchor" aria-label="anchor" href="#id_1180---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-12">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-12"></a></h4>
-<ul><li>Add sequester_unpaid_projects ETL (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.12.1" id="rccbilling-1121-released-2022-12-19">rcc.billing 1.12.1 (released 2022-12-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1121-released-2022-12-19"></a></h2>
+<ul><li>Load rcc.billing library in cleanup_bad_email_addresses.R (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-22">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-22"></a></h4>
-<ul><li>Set date_sent when creating invoice line items (Philip Chase)</li>
-<li>Fix cron for write_uf_fiscal_orgs_to_org_hierarchies.R again (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.12.0" id="rccbilling-1120-released-2022-12-19">rcc.billing 1.12.0 (released 2022-12-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1120-released-2022-12-19"></a></h2>
+<ul><li>Port cleanup_bad_email_addresses from rcc.ctsit (@ChemiKyle)</li>
+<li>Create get_bad_emails_from_log (@ChemiKyle)</li>
+<li>Update billable_candidates.R (@pbchase)</li>
+<li>Ignore timestamp updates in update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1170---1-34-0">[1.17.0] - 2023-03-17<a class="anchor" aria-label="anchor" href="#id_1170---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-13">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-13"></a></h4>
-<ul><li>Add ETL to write to org_hierachies from VIVO Add schema for org_hierarchies (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.11.1" id="rccbilling-0111-released-2022-12-07">rcc.billing 0.11.1 (released 2022-12-07)<a class="anchor" aria-label="anchor" href="#rccbilling-0111-released-2022-12-07"></a></h2>
+<ul><li>Temporarily move warn_owners_of_impending_bill to the 3rd and 14th of the month (@pbchase)</li>
+<li>Add a comment to guide manual orphan sequestration (@pbchase)</li>
+<li>Fix new row IDs in create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-23">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-23"></a></h4>
-<ul><li>Add cron’d runs of sequester_orphans.R (Philip Chase)</li>
-<li>Simplify manual sequestration in sequester_orphans.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.11.0" id="rccbilling-0110-released-2022-11-14">rcc.billing 0.11.0 (released 2022-11-14)<a class="anchor" aria-label="anchor" href="#rccbilling-0110-released-2022-11-14"></a></h2>
+<ul><li>Set invoice_line_item status conditionally based on date_of_pmt presence when loading data from CSBT (@ChemiKyle)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1160---1-34-0">[1.16.0] - 2023-03-03<a class="anchor" aria-label="anchor" href="#id_1160---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-14">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-14"></a></h4>
-<ul><li>Add banned_owners rule to get_orphaned_projects function Add banned_owners schema (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.10.0" id="rccbilling-0100-released-2022-11-02">rcc.billing 0.10.0 (released 2022-11-02)<a class="anchor" aria-label="anchor" href="#rccbilling-0100-released-2022-11-02"></a></h2>
+<ul><li>Include project_irb_number in report/billable_candidates (@ChemiKyle)</li>
+<li>Add invoice facts to billable candidates (@pbchase)</li>
+<li>Re-enable empty_and_inactive_projects in get_orphaned_projects (@pbchase)</li>
+<li>Adjust the id column in new_invoice_line_item_communications to avoid collisions (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-24">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-24"></a></h4>
-<ul><li>Embrace subdirectories for db specific tables in testing data (Kyle Chesney)</li>
-<li>Rename <em><em>conn to mem</em></em>_conn in get_orphaned_projects test (Kyle Chesney)</li>
-<li>Prevent blank emails on new invoice line items (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.1" id="rccbilling-091-released-2022-10-28">rcc.billing 0.9.1 (released 2022-10-28)<a class="anchor" aria-label="anchor" href="#rccbilling-091-released-2022-10-28"></a></h2>
+<ul><li>Execute named lists construction with lst (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1150---1-34-0">[1.15.0] - 2023-02-27<a class="anchor" aria-label="anchor" href="#id_1150---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-15">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-15"></a></h4>
-<ul><li>Add unit test for get_orphaned_projects() (Philip Chase)</li>
-<li>Add unresolvable_ownership_issues to get_orphans function (Kyle Chesney)</li>
-<li>Add request_correction_of_bad_ownership_data report (Kyle Chesney)</li>
-<li>Add erasure of project ownership identification columns to cleanup_project_ownership_table (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.0" id="rccbilling-090-released-2022-10-28">rcc.billing 0.9.0 (released 2022-10-28)<a class="anchor" aria-label="anchor" href="#rccbilling-090-released-2022-10-28"></a></h2>
+<ul><li>Add transform_invoice_line_items_for_ctsit (@ChemiKyle)</li>
+<li>Add update_invoice_line_items_with_invoicing_details (@ChemiKyle)</li>
+<li>Add rule inactive_projects_with_no_viable_users to get_orphaned_projects() (@pbchase)</li>
+<li>Add orphaned_projects to logged data in sequester_orphans.R (@pbchase)</li>
+<li>Show user_lastlogin in billable_candidates.R (@pbchase)</li>
+<li>Use full month name instead of abbreviation in create_and_send_new_redcap_prod_per_project_line_items (@ChemiKyle)</li>
+<li>Associate month_invoiced with project’s birth month rather than script run month (@ChemiKyle)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-25">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-25"></a></h4>
-<ul><li>Use variable instead of hardcoding in send_alert_email (Kyle Chesney)</li>
-<li>Prevent emails RE: unresolvable_ownership_issues in sequester_orphans (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.8.1" id="rccbilling-081-released-2022-10-21">rcc.billing 0.8.1 (released 2022-10-21)<a class="anchor" aria-label="anchor" href="#rccbilling-081-released-2022-10-21"></a></h2>
+<ul><li>Include GITHUB_PAT in docker build step (@pbchase)</li>
+<li>Pass project_id vector to sequester_projects (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1140---1-34-0">[1.14.0] - 2023-01-27<a class="anchor" aria-label="anchor" href="#id_1140---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-16">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-16"></a></h4>
-<ul><li>Add complete_but_non_sequestered rule to get_orphaned_projects (Philip Chase)</li>
-<li>Add warn_completers_of_impending_sequestration.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.8.0" id="rccbilling-080-released-2022-10-21">rcc.billing 0.8.0 (released 2022-10-21)<a class="anchor" aria-label="anchor" href="#rccbilling-080-released-2022-10-21"></a></h2>
+<ul><li>Activate sequester_orphans.R (@pbchase)</li>
+<li>Add filter for no viable users to get_orphaned_projects (@ChemiKyle)</li>
+<li>Add get_user_rights_and_info (@pbchase)</li>
+<li>Install rcc.ctsit in Dockerfile using a GitHub PAT (@pbchase)</li>
+<li>Make PIs and faculty project owners (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-26">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-26"></a></h4>
-<ul><li>Update version numbers in NEWS.md to conform to tagging error on 2022-12-19 (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.7.1" id="rccbilling-071-released-2022-10-04">rcc.billing 0.7.1 (released 2022-10-04)<a class="anchor" aria-label="anchor" href="#rccbilling-071-released-2022-10-04"></a></h2>
+<ul><li>Update create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1130---1-34-0">[1.13.0] - 2023-01-24<a class="anchor" aria-label="anchor" href="#id_1130---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-27">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-27"></a></h4>
-<ul><li>Update get_orphaned_projects reducing the horizon from 12 to 11 months (Philip Chase)</li>
-<li>Move warn_owners_of_impending_bill.R back to the default dates (Philip Chase)</li>
-<li>Update update_invoice_line_items_with_invoicing_details.R (Philip Chase)</li>
-<li>Revert error in sequester_orphans.R (Philip Chase)</li>
-<li>Sync invoice_line_item table to RC DB during update_invoice_line_items_with_invoicing_details (Kyle Chesney)</li>
-<li>Mark CTSIT-owned projects as non-billable in update_project_billable_attribute.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.7.0" id="rccbilling-070-released-2022-10-04">rcc.billing 0.7.0 (released 2022-10-04)<a class="anchor" aria-label="anchor" href="#rccbilling-070-released-2022-10-04"></a></h2>
+<ul><li>Add get_orphaned_projects() (@pbchase)</li>
+<li>Add sequester_orphans (@pbchase)</li>
+<li>Add sequester_projects() (@pbchase)</li>
+<li>Fix service_type in service_type_test_data (@pbchase)</li>
+<li>Update csbt column output names CTSI IT ID -&gt; CTSIT ID (@ChemiKyle)</li>
+<li>Filter out non-sequestered projects in create_and_send_new_redcap_prod_per_project_line_items (@ChemiKyle)</li>
+<li>Include project_ownership user identifiers in create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1121---1-34-0">[1.12.1] - 2022-12-19<a class="anchor" aria-label="anchor" href="#id_1121---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-28">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-28"></a></h4>
-<ul><li>Load rcc.billing library in cleanup_bad_email_addresses.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.1" id="rccbilling-061-released-2022-09-28">rcc.billing 0.6.1 (released 2022-09-28)<a class="anchor" aria-label="anchor" href="#rccbilling-061-released-2022-09-28"></a></h2>
+<ul><li>Run billable_candidates.R weekly (@pbchase)</li>
+<li>Fix subject, body, and from in billable_candidates.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_1120---1-34-0">[1.12.0] - 2022-12-19<a class="anchor" aria-label="anchor" href="#id_1120---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-17">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-17"></a></h4>
-<ul><li>Port cleanup_bad_email_addresses from rcc.ctsit (Kyle Chesney)</li>
-<li>Create get_bad_emails_from_log (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.0" id="rccbilling-060-released-2022-09-28">rcc.billing 0.6.0 (released 2022-09-28)<a class="anchor" aria-label="anchor" href="#rccbilling-060-released-2022-09-28"></a></h2>
+<ul><li>Create billable_candidates report (@ChemiKyle)</li>
+<li>Add deleted projects filter and fix birthday_in_previous_month filter when creating invoice line items(@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-29">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-29"></a></h4>
-<ul><li>Update billable_candidates.R (Philip Chase)</li>
-<li>Ignore timestamp updates in update_invoice_line_items_with_invoicing_details.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.5.0" id="rccbilling-050-released-2022-09-22">rcc.billing 0.5.0 (released 2022-09-22)<a class="anchor" aria-label="anchor" href="#rccbilling-050-released-2022-09-22"></a></h2>
+<ul><li>Run warn_owners_of_impending_bill.R on 1st and 23rd of the month (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_0111---1-34-0">[0.11.1] - 2022-12-07<a class="anchor" aria-label="anchor" href="#id_0111---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-30">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-30"></a></h4>
-<ul><li>Temporarily move warn_owners_of_impending_bill to the 3rd and 14th of the month (Philip Chase)</li>
-<li>Add a comment to guide manual orphan sequestration (Philip Chase)</li>
-<li>Fix new row IDs in create_and_send_new_redcap_prod_per_project_line_items.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="rccbilling-040-released-2022-09-07">rcc.billing 0.4.0 (released 2022-09-07)<a class="anchor" aria-label="anchor" href="#rccbilling-040-released-2022-09-07"></a></h2>
+<ul><li>Activate warn_owners_of_impending_bill.R (@pbchase)</li>
+<li>Add correct_project_pi_emails (@ChemiKyle)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_0110---1-34-0">[0.11.0] - 2022-11-14<a class="anchor" aria-label="anchor" href="#id_0110---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-18">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-18"></a></h4>
-<ul><li>Set invoice_line_item status conditionally based on date_of_pmt presence when loading data from CSBT (Kyle Chesney)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.1" id="rccbilling-031-released-2022-09-06">rcc.billing 0.3.1 (released 2022-09-06)<a class="anchor" aria-label="anchor" href="#rccbilling-031-released-2022-09-06"></a></h2>
+<ul><li>Catch and log all errors and successes in warn_owners_of_impending_bill.R (@ChemiKyle, @pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_0100---1-34-0">[0.10.0] - 2022-11-02<a class="anchor" aria-label="anchor" href="#id_0100---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-19">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-19"></a></h4>
-<ul><li>Include project_irb_number in report/billable_candidates (Kyle Chesney)</li>
-<li>Add invoice facts to billable candidates (Philip Chase)</li>
-<li>Re-enable empty_and_inactive_projects in get_orphaned_projects (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="rccbilling-030-released-2022-09-01">rcc.billing 0.3.0 (released 2022-09-01)<a class="anchor" aria-label="anchor" href="#rccbilling-030-released-2022-09-01"></a></h2>
+<ul><li>Add warn_owners_of_impending_bill.R (@ChemiKyle, @pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-31">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-31"></a></h4>
-<ul><li>Adjust the id column in new_invoice_line_item_communications to avoid collisions (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0" id="rccbilling-020-released-2022-08-30">rcc.billing 0.2.0 (released 2022-08-30)<a class="anchor" aria-label="anchor" href="#rccbilling-020-released-2022-08-30"></a></h2>
+<ul><li>Add warn_owners_of_impending_bill.R (@ChemiKyle)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_091---1-34-0">[0.9.1] - 2022-10-28<a class="anchor" aria-label="anchor" href="#id_091---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-32">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-32"></a></h4>
-<ul><li>Execute named lists construction with lst (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.2" id="rccbilling-012-released-2022-08-26">rcc.billing 0.1.2 (released 2022-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-012-released-2022-08-26"></a></h2>
+<ul><li>Fix paths in cron files (@pbchase)</li>
+<li>Load rcc.billing in update_project_billable_attribute.R (@pbchase)</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_090---1-34-0">[0.9.0] - 2022-10-28<a class="anchor" aria-label="anchor" href="#id_090---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-20">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-20"></a></h4>
-<ul><li>Add transform_invoice_line_items_for_ctsit (Kyle Chesney)</li>
-<li>Add update_invoice_line_items_with_invoicing_details (Kyle Chesney)</li>
-<li>Add rule inactive_projects_with_no_viable_users to get_orphaned_projects() (Philip Chase)</li>
-<li>Add orphaned_projects to logged data in sequester_orphans.R (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.1" id="rccbilling-011-released-2022-08-26">rcc.billing 0.1.1 (released 2022-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-011-released-2022-08-26"></a></h2>
+<ul><li>Build rcc.billing in Dockerfile (@pbchase)</li>
 </ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-33">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-33"></a></h4>
-<ul><li>Show user_lastlogin in billable_candidates.R (Philip Chase)</li>
-<li>Use full month name instead of abbreviation in create_and_send_new_redcap_prod_per_project_line_items (Kyle Chesney)</li>
-<li>Associate month_invoiced with project’s birth month rather than script run month (Kyle Chesney)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_081---1-34-0">[0.8.1] - 2022-10-21<a class="anchor" aria-label="anchor" href="#id_081---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-34">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-34"></a></h4>
-<ul><li>Include GITHUB_PAT in docker build step (Philip Chase)</li>
-<li>Pass project_id vector to sequester_projects (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_080---1-34-0">[0.8.0] - 2022-10-21<a class="anchor" aria-label="anchor" href="#id_080---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-21">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-21"></a></h4>
-<ul><li>Activate sequester_orphans.R (Philip Chase)</li>
-<li>Add filter for no viable users to get_orphaned_projects (Kyle Chesney)</li>
-<li>Add get_user_rights_and_info (Philip Chase)</li>
-<li>Install rcc.ctsit in Dockerfile using a GitHub PAT (Philip Chase)</li>
-</ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-35">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-35"></a></h4>
-<ul><li>Make PIs and faculty project owners (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_071---1-34-0">[0.7.1] - 2022-10-04<a class="anchor" aria-label="anchor" href="#id_071---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-36">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-36"></a></h4>
-<ul><li>Update create_and_send_new_redcap_prod_per_project_line_items.R (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_070---1-34-0">[0.7.0] - 2022-10-04<a class="anchor" aria-label="anchor" href="#id_070---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-22">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-22"></a></h4>
-<ul><li>Add get_orphaned_projects() (Philip Chase)</li>
-<li>Add sequester_orphans (Philip Chase)</li>
-<li>Add sequester_projects() (Philip Chase)</li>
-</ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-37">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-37"></a></h4>
-<ul><li>Fix service_type in service_type_test_data (Philip Chase)</li>
-<li>Update csbt column output names CTSI IT ID -&gt; CTSIT ID (Kyle Chesney)</li>
-<li>Filter out non-sequestered projects in create_and_send_new_redcap_prod_per_project_line_items (Kyle Chesney)</li>
-<li>Include project_ownership user identifiers in create_and_send_new_redcap_prod_per_project_line_items.R (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_061---1-34-0">[0.6.1] - 2022-09-28<a class="anchor" aria-label="anchor" href="#id_061---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-23">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-23"></a></h4>
-<ul><li>Run billable_candidates.R weekly (Philip Chase)</li>
-</ul></div>
-<div class="section level4">
-<h4 id="changed-1-34-0-38">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-38"></a></h4>
-<ul><li>Fix subject, body, and from in billable_candidates.R (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_060---1-34-0">[0.6.0] - 2022-09-28<a class="anchor" aria-label="anchor" href="#id_060---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-24">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-24"></a></h4>
-<ul><li>Create billable_candidates report (Kyle Chesney)</li>
-<li>Add deleted projects filter and fix birthday_in_previous_month filter when creating invoice line items(Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_050---1-34-0">[0.5.0] - 2022-09-22<a class="anchor" aria-label="anchor" href="#id_050---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-25">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-25"></a></h4>
-<ul><li>Run warn_owners_of_impending_bill.R on 1st and 23rd of the month (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_040---1-34-0">[0.4.0] - 2022-09-07<a class="anchor" aria-label="anchor" href="#id_040---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-26">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-26"></a></h4>
-<ul><li>Activate warn_owners_of_impending_bill.R (Philip Chase)</li>
-<li>Add correct_project_pi_emails (Kyle Chesney)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_031---1-34-0">[0.3.1] - 2022-09-06<a class="anchor" aria-label="anchor" href="#id_031---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-27">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-27"></a></h4>
-<ul><li>Catch and log all errors and successes in warn_owners_of_impending_bill.R (Kyle Chesney, Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_030---1-34-0">[0.3.0] - 2022-09-01<a class="anchor" aria-label="anchor" href="#id_030---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-28">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-28"></a></h4>
-<ul><li>Add warn_owners_of_impending_bill.R (Kyle Chesney, Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_020---1-34-0">[0.2.0] - 2022-08-30<a class="anchor" aria-label="anchor" href="#id_020---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-29">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-29"></a></h4>
-<ul><li>Add warn_owners_of_impending_bill.R (Kyle Chesney)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_012---1-34-0">[0.1.2] - 2022-08-26<a class="anchor" aria-label="anchor" href="#id_012---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-39">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-39"></a></h4>
-<ul><li>Fix paths in cron files (Philip Chase)</li>
-<li>Load rcc.billing in update_project_billable_attribute.R (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_011---1-34-0">[0.1.1] - 2022-08-26<a class="anchor" aria-label="anchor" href="#id_011---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="changed-1-34-0-40">Changed<a class="anchor" aria-label="anchor" href="#changed-1-34-0-40"></a></h4>
-<ul><li>Build rcc.billing in Dockerfile (Philip Chase)</li>
-</ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_010---1-34-0">[0.1.0] - 2022-08-25<a class="anchor" aria-label="anchor" href="#id_010---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-30">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-30"></a></h4>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.0" id="rccbilling-010-released-2022-08-25">rcc.billing 0.1.0 (released 2022-08-25)<a class="anchor" aria-label="anchor" href="#rccbilling-010-released-2022-08-25"></a></h2>
 <ul><li>Add function connect_to_rcc_billing_db</li>
 <li>Add function convert_schema_to_sqlite</li>
 <li>Add function create_and_load_test_table</li>
@@ -727,15 +523,10 @@
 <li>Add dataset service_instance_test_data</li>
 <li>Add dataset service_type_test_data</li>
 </ul></div>
-</div>
-<div class="section level3">
-<h3 id="id_000---1-34-0">[0.0.0] - 2022-03-21<a class="anchor" aria-label="anchor" href="#id_000---1-34-0"></a></h3>
-<div class="section level4">
-<h4 id="added-1-34-0-31">Added<a class="anchor" aria-label="anchor" href="#added-1-34-0-31"></a></h4>
-<ul><li>Initial commit of rcc.billing, an automated, data-driven service billing system implemented on REDCap Custodian (Philip Chase)</li>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.0" id="rccbilling-000-released-2022-03-21">rcc.billing 0.0.0 (released 2022-03-21)<a class="anchor" aria-label="anchor" href="#rccbilling-000-released-2022-03-21"></a></h2>
+<ul><li>Initial commit of rcc.billing, an automated, data-driven service billing system implemented on REDCap Custodian (@pbchase)</li>
 </ul></div>
-</div>
-</div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
