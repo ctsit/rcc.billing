@@ -21,7 +21,7 @@ articles:
   update_project_billable_attribute: update_project_billable_attribute.html
   warn_owners_of_impending_bill: warn_owners_of_impending_bill.html
   when_jobs_run: when_jobs_run.html
-last_built: 2024-09-09T14:52Z
+last_built: 2024-09-09T15:42Z
 urls:
   reference: https://ctsit.github.io/rcc.billing/reference
   article: https://ctsit.github.io/rcc.billing/articles
