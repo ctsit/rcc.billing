@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.44.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.44.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +60,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ctsit/rcc.billing/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -69,21 +70,20 @@
 
 
 
-
-<div class="row">
+<script src="cleanup_bad_email_addresses_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="cleanup_bad_email_addresses_files/d3-3.3.8/d3.min.js"></script><script src="cleanup_bad_email_addresses_files/dagre-0.4.0/dagre-d3.min.js"></script><link href="cleanup_bad_email_addresses_files/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="cleanup_bad_email_addresses_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="cleanup_bad_email_addresses_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="cleanup_bad_email_addresses_files/chromatography-0.1/chromatography.js"></script><script src="cleanup_bad_email_addresses_files/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>cleanup_bad_email_addresses</h1>
             
       
-
+      <small class="dont-index">Source: <a href="https://github.com/ctsit/rcc.billing/blob/main/vignettes/cleanup_bad_email_addresses.Rmd" class="external-link"><code>vignettes/cleanup_bad_email_addresses.Rmd</code></a></small>
       <div class="d-none name"><code>cleanup_bad_email_addresses.Rmd</code></div>
     </div>
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ctsit.github.io/rcc.billing/">rcc.billing</a></span><span class="op">)</span></span></code></pre></div>
 <p>Note: this script can no longer read mailboxes. This started in
 October 2022 when UF moved its Office 365 service to OAuth2. The script
 will throw warnings about this issue, but it still runs.</p>
@@ -97,29 +97,8 @@ message body to locate bad email addresses. It searches UF person data
 for a suitable replacement email address. If it finds one it replaces
 the bad address where it occurs. Otherwise it erases the bad email
 address from REDCap.</p>
-<p><em>TODO: Insert a SIPOC diagram here. Create it in mermaid using the
-data below</em></p>
-<div class="section level2">
-<h2 id="inputs">Inputs<a class="anchor" aria-label="anchor" href="#inputs"></a>
-</h2>
-<ul>
-<li>redcap database tables: redcap_user_information</li>
-<li>email stream from the sender of automated messages</li>
-<li>rcc billing database tables: rcc_job_log to get log records about
-email address rejected by the mail host</li>
-<li>vivo database tables: WH_UFDIR_PERSON_MDM, WH_GL_ACCT</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="outputs">Outputs<a class="anchor" aria-label="anchor" href="#outputs"></a>
-</h2>
-<ul>
-<li>redcap database tables: redcap_user_information</li>
-<li>rcc billing tables: rcc_job_log</li>
-</ul>
-</div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
-    </nav></aside>
+<div id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:700px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"diagram":"graph TD\n    subgraph Suppliers\n        S1[REDCap Database]\n        S2[Email System]\n        S3[RCC Billing Database]\n        S4[VIVO Database]\n    end\n\n    subgraph Inputs\n        I1[REDCap User Information]\n        I2[Bounced Email Messages]\n        I3[RCC Job Log]\n        I4[UF Person Data]\n    end\n\n    subgraph Process\n        P1[Read Dummy Inbox]\n        P2[Parse Message Body]\n        P3[Locate Bad UF Addresses]\n        P4[Search for Replacement]\n        P5[Update or Erase Address]\n        P6[Disable Accounts]\n    end\n\n    subgraph Outputs\n        O1[Updated REDCap User Information]\n        O2[Updated RCC Job Log]\n    end\n\n    subgraph Customers\n        C1[REDCap Users]\n        C2[RCC Billing System]\n    end\n\n    S1 --> I1\n    S2 --> I2\n    S3 --> I3\n    S4 --> I4\n\n    I1 --> P1\n    I2 --> P1\n    P1 --> P2\n    P2 --> P3\n    I3 --> P3\n    I4 --> P4\n    P3 --> P4\n    P4 --> P5\n    P5 --> P6\n\n    P6 --> O1\n    P6 --> O2\n\n    O1 --> C1\n    O2 --> C2\n    "},"evals":[],"jsHooks":[]}</script></main>
 </div>
 
 

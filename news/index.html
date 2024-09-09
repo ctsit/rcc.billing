@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.44.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.44.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,7 @@
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ctsit/rcc.billing/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -50,142 +51,148 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-
+      <small>Source: <a href="https://github.com/ctsit/rcc.billing/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.44.2" id="rccbilling-1442-released-2024-09-09">rcc.billing 1.44.2 (released 2024-09-09)<a class="anchor" aria-label="anchor" href="#rccbilling-1442-released-2024-09-09"></a></h2>
+<ul><li>Add source code URL to URL param in DESCRIPTION (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/252" class="external-link">#252</a>)</li>
+<li>Update run-tests.yml (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/ctsit/rcc.billing/issues/252" class="external-link">#252</a>)</li>
+<li>Add SIPOC for cleanup_bad_email_addresses (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/252" class="external-link">#252</a>)</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.44.1" id="rccbilling-1441-released-2024-09-09">rcc.billing 1.44.1 (released 2024-09-09)<a class="anchor" aria-label="anchor" href="#rccbilling-1441-released-2024-09-09"></a></h2>
-<ul><li>Update .zenodo.json with references and creator edits (@pbchase)</li>
-<li>Add DOI to README.md (@pbchase)</li>
-<li>Move functions and data into test space (@pbchase, #251)</li>
-<li>Move cleanup_project_ownership_test_data into test space (@pbchase, #251)</li>
+<ul><li>Update .zenodo.json with references and creator edits (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add DOI to README.md (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Move functions and data into test space (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/251" class="external-link">#251</a>)</li>
+<li>Move cleanup_project_ownership_test_data into test space (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/251" class="external-link">#251</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.44.0" id="rccbilling-1440-released-2024-09-09">rcc.billing 1.44.0 (released 2024-09-09)<a class="anchor" aria-label="anchor" href="#rccbilling-1440-released-2024-09-09"></a></h2>
-<ul><li>Update docs for publication (@pbchase)</li>
-<li>Reactivate cron/create_and_send_new_invoice_line_items (@pbchase)</li>
+<ul><li>Update docs for publication (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Reactivate cron/create_and_send_new_invoice_line_items (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.43.1" id="rccbilling-1431-released-2024-09-04">rcc.billing 1.43.1 (released 2024-09-04)<a class="anchor" aria-label="anchor" href="#rccbilling-1431-released-2024-09-04"></a></h2>
-<ul><li>Deselect term_date_is_accurate in project functions (@pbchase)</li>
+<ul><li>Deselect term_date_is_accurate in project functions (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.43.0" id="rccbilling-1430-released-2024-09-04">rcc.billing 1.43.0 (released 2024-09-04)<a class="anchor" aria-label="anchor" href="#rccbilling-1430-released-2024-09-04"></a></h2>
-<ul><li>Fix doc formatting for service_request_time() (@pbchase)</li>
-<li>Add Sai’s ORCID in DESCRIPTION (@pbchase)</li>
-<li>Add employees to ctsit_staff* data frames (@pbchase, #250)</li>
-<li>Refactor ctsit_staff.R to make it easier to maintain (@pbchase, #250)</li>
-<li>Update revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Add ‘REDCap consulting revenue’ section to revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Update vignettes (@pbchase)</li>
+<ul><li>Fix doc formatting for service_request_time() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add Sai’s ORCID in DESCRIPTION (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add employees to ctsit_staff* data frames (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/250" class="external-link">#250</a>)</li>
+<li>Refactor ctsit_staff.R to make it easier to maintain (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/250" class="external-link">#250</a>)</li>
+<li>Update revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add ‘REDCap consulting revenue’ section to revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update vignettes (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.42.1" id="rccbilling-1421-released-2024-08-26">rcc.billing 1.42.1 (released 2024-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-1421-released-2024-08-26"></a></h2>
-<ul><li>Remove unsuspended_high_privilege_faculty from cleanup_project_ownership_table.R (@pbchase)</li>
+<ul><li>Remove unsuspended_high_privilege_faculty from cleanup_project_ownership_table.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.42.0" id="rccbilling-1420-released-2024-08-26">rcc.billing 1.42.0 (released 2024-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-1420-released-2024-08-26"></a></h2>
-<ul><li>Add ORCIDs in package authors (@pbchase, #249)</li>
-<li>Add vignettes for most ETLs and reports (@pbchase, @saipavan10-git, #244, #245, #246, #247)</li>
+<ul><li>Add ORCIDs in package authors (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/249" class="external-link">#249</a>)</li>
+<li>Add vignettes for most ETLs and reports (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/ctsit/rcc.billing/issues/244" class="external-link">#244</a>, <a href="https://github.com/ctsit/rcc.billing/issues/245" class="external-link">#245</a>, <a href="https://github.com/ctsit/rcc.billing/issues/246" class="external-link">#246</a>, <a href="https://github.com/ctsit/rcc.billing/issues/247" class="external-link">#247</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.41.4" id="rccbilling-1414-released-2024-08-15">rcc.billing 1.41.4 (released 2024-08-15)<a class="anchor" aria-label="anchor" href="#rccbilling-1414-released-2024-08-15"></a></h2>
-<ul><li>Update github workflows to allow R to correctly access the PAT (@saipavan10-git)</li>
-<li>Update description file to have a REMOTES section for ctsit packages (@saipavan10-git)</li>
-<li>Update dependency installation for pkgdown workflow (@saipavan10-git)</li>
+<ul><li>Update github workflows to allow R to correctly access the PAT (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>)</li>
+<li>Update description file to have a REMOTES section for ctsit packages (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>)</li>
+<li>Update dependency installation for pkgdown workflow (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.41.3" id="rccbilling-1413-released-2024-08-14">rcc.billing 1.41.3 (released 2024-08-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1413-released-2024-08-14"></a></h2>
-<ul><li>Update github workflows to address missing dependencies (@pbchase)</li>
+<ul><li>Update github workflows to address missing dependencies (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.41.2" id="rccbilling-1412-released-2024-08-14">rcc.billing 1.41.2 (released 2024-08-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1412-released-2024-08-14"></a></h2>
-<ul><li>Update image version in run-tests.yaml (@pbchase)</li>
-<li>Resequence dependencies in pkgdown.yaml (@pbchase)</li>
+<ul><li>Update image version in run-tests.yaml (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Resequence dependencies in pkgdown.yaml (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.41.1" id="rccbilling-1411-released-2024-08-14">rcc.billing 1.41.1 (released 2024-08-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1411-released-2024-08-14"></a></h2>
-<ul><li>Add dependencies in pkgdown.yaml (@pbchase)</li>
+<ul><li>Add dependencies in pkgdown.yaml (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.41.0" id="rccbilling-1410-released-2024-08-13">rcc.billing 1.41.0 (released 2024-08-13)<a class="anchor" aria-label="anchor" href="#rccbilling-1410-released-2024-08-13"></a></h2>
-<ul><li>Add first vignette, cleanup_bad_email_addresses (@pbchase)</li>
+<ul><li>Add first vignette, cleanup_bad_email_addresses (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.40.0" id="rccbilling-1400-released-2024-08-13">rcc.billing 1.40.0 (released 2024-08-13)<a class="anchor" aria-label="anchor" href="#rccbilling-1400-released-2024-08-13"></a></h2>
-<ul><li>Initialize pkgdown with usethis::use_pkgdown_github_pages() (@pbchase)</li>
-<li>Update README.md (@pbchase)</li>
-<li>Add schema upgrade scripts for release 1.39.0 (@pbchase)</li>
+<ul><li>Initialize pkgdown with usethis::use_pkgdown_github_pages() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update README.md (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add schema upgrade scripts for release 1.39.0 (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.39.1" id="rccbilling-1391-released-2024-08-13">rcc.billing 1.39.1 (released 2024-08-13)<a class="anchor" aria-label="anchor" href="#rccbilling-1391-released-2024-08-13"></a></h2>
-<ul><li>Add return_all_records param to get_service_request_lines() (@pbchase, #239)</li>
+<ul><li>Add return_all_records param to get_service_request_lines() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/239" class="external-link">#239</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.39.0" id="rccbilling-1390-released-2024-08-13">rcc.billing 1.39.0 (released 2024-08-13)<a class="anchor" aria-label="anchor" href="#rccbilling-1390-released-2024-08-13"></a></h2>
-<ul><li>Add fiscal_contact details to invoice_line_item (@saipavan10-git, @pbchase, #237, #238)</li>
+<ul><li>Add fiscal_contact details to invoice_line_item (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/237" class="external-link">#237</a>, <a href="https://github.com/ctsit/rcc.billing/issues/238" class="external-link">#238</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.38.1" id="rccbilling-1381-released-2024-08-01">rcc.billing 1.38.1 (released 2024-08-01)<a class="anchor" aria-label="anchor" href="#rccbilling-1381-released-2024-08-01"></a></h2>
-<ul><li>Read always_bill in update_probono_service_request_records.R (@pbchase)</li>
+<ul><li>Read always_bill in update_probono_service_request_records.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.38.0" id="rccbilling-1380-released-2024-08-01">rcc.billing 1.38.0 (released 2024-08-01)<a class="anchor" aria-label="anchor" href="#rccbilling-1380-released-2024-08-01"></a></h2>
-<ul><li>Deactivate create_and_send_new_invoice_line_items (@pbchase)</li>
-<li>Add support for always_bill in get_probono_service_request_updates() (@pbchase, #236)</li>
-<li>Fix duckdb disconnect warnings caused by tests (@pbchase, #235)</li>
-<li>Create and send service_request_line_items in create_and_send_new_invoice_line_items (@saipavan10-git, @pbchase, #235)</li>
-<li>Add get_service_request_lines() (@saipavan10-git, @pbchase, #233)</li>
-<li>Add get_service_request_line_items() (@saipavan10-git, @pbchase, #233)</li>
-<li>Add tests for get_project_details_for_billing() (@pbchase, #233)</li>
-<li>Fix tests for get_target_projects_to_invoice() (@pbchase, #233)</li>
-<li>Update docs for get_new_project_invoice_line_items() (@pbchase, #233)</li>
+<ul><li>Deactivate create_and_send_new_invoice_line_items (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add support for always_bill in get_probono_service_request_updates() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/236" class="external-link">#236</a>)</li>
+<li>Fix duckdb disconnect warnings caused by tests (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/235" class="external-link">#235</a>)</li>
+<li>Create and send service_request_line_items in create_and_send_new_invoice_line_items (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/235" class="external-link">#235</a>)</li>
+<li>Add get_service_request_lines() (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/233" class="external-link">#233</a>)</li>
+<li>Add get_service_request_line_items() (<a href="https://github.com/saipavan10-git" class="external-link">@saipavan10-git</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/233" class="external-link">#233</a>)</li>
+<li>Add tests for get_project_details_for_billing() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/233" class="external-link">#233</a>)</li>
+<li>Fix tests for get_target_projects_to_invoice() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/233" class="external-link">#233</a>)</li>
+<li>Update docs for get_new_project_invoice_line_items() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/233" class="external-link">#233</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.37.2" id="rccbilling-1372-released-2024-07-22">rcc.billing 1.37.2 (released 2024-07-22)<a class="anchor" aria-label="anchor" href="#rccbilling-1372-released-2024-07-22"></a></h2>
-<ul><li>Refactor create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase, #228, #230)</li>
-<li>Add get_new_project_invoice_line_items() (@pbchase, #228, #230).</li>
-<li>Add get_new_project_service_instances() (@pbchase, #228, #230).</li>
-<li>Add get_target_projects_to_invoice() (@pbchase, #228, #230).</li>
+<ul><li>Refactor create_and_send_new_redcap_prod_per_project_line_items.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/228" class="external-link">#228</a>, <a href="https://github.com/ctsit/rcc.billing/issues/230" class="external-link">#230</a>)</li>
+<li>Add get_new_project_invoice_line_items() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/228" class="external-link">#228</a>, <a href="https://github.com/ctsit/rcc.billing/issues/230" class="external-link">#230</a>).</li>
+<li>Add get_new_project_service_instances() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/228" class="external-link">#228</a>, <a href="https://github.com/ctsit/rcc.billing/issues/230" class="external-link">#230</a>).</li>
+<li>Add get_target_projects_to_invoice() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/228" class="external-link">#228</a>, <a href="https://github.com/ctsit/rcc.billing/issues/230" class="external-link">#230</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.37.1" id="rccbilling-1371-released-2024-07-01">rcc.billing 1.37.1 (released 2024-07-01)<a class="anchor" aria-label="anchor" href="#rccbilling-1371-released-2024-07-01"></a></h2>
-<ul><li>Fix bugs in revenue_status_and_projections.qmd (@pbchase)</li>
+<ul><li>Fix bugs in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.37.0" id="rccbilling-1370-released-2024-06-26">rcc.billing 1.37.0 (released 2024-06-26)<a class="anchor" aria-label="anchor" href="#rccbilling-1370-released-2024-06-26"></a></h2>
-<ul><li>Adjust run times for update_probono_service_request_records (@pbchase)</li>
-<li>Add update_free_support_time_remaining.R and a schema file for the empty table it needs (@pbchase, #224)</li>
-<li>Add people_with_rights_to_unpaid_invoice_line_items.R, get_project_flags(), and get_user_rights_and_info() (@pbchase, #220)</li>
-<li>Rename get_user_rights_and_info() to get_user_rights_and_info_v1() (@pbchase)</li>
+<ul><li>Adjust run times for update_probono_service_request_records (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add update_free_support_time_remaining.R and a schema file for the empty table it needs (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/224" class="external-link">#224</a>)</li>
+<li>Add people_with_rights_to_unpaid_invoice_line_items.R, get_project_flags(), and get_user_rights_and_info() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/220" class="external-link">#220</a>)</li>
+<li>Rename get_user_rights_and_info() to get_user_rights_and_info_v1() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.36.1" id="rccbilling-1361-released-2024-06-20">rcc.billing 1.36.1 (released 2024-06-20)<a class="anchor" aria-label="anchor" href="#rccbilling-1361-released-2024-06-20"></a></h2>
-<ul><li>Mount the credentials volume in cron/update_probono_service_request_records (@pbchase)</li>
+<ul><li>Mount the credentials volume in cron/update_probono_service_request_records (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.36.0" id="rccbilling-1360-released-2024-06-20">rcc.billing 1.36.0 (released 2024-06-20)<a class="anchor" aria-label="anchor" href="#rccbilling-1360-released-2024-06-20"></a></h2>
-<ul><li>Add single-use/backfill_billable_rate_in_service_request_records.R (@pbchase)</li>
-<li>Modernize_imports_and_conform_to_tidyselect (@pbchase, #223)</li>
-<li>Add get_service_request_lines() (@ljwoodley, @pbchase, #219, #205)</li>
-<li>Add update_invoice_line_items_to_correct_fiscal_year.R a script we used once in August 2023 (@pbchase)</li>
-<li>Add get_probono_service_request_records() (@ljwoodley, @pbchase, #218, #207)</li>
+<ul><li>Add single-use/backfill_billable_rate_in_service_request_records.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Modernize_imports_and_conform_to_tidyselect (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/223" class="external-link">#223</a>)</li>
+<li>Add get_service_request_lines() (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/219" class="external-link">#219</a>, <a href="https://github.com/ctsit/rcc.billing/issues/205" class="external-link">#205</a>)</li>
+<li>Add update_invoice_line_items_to_correct_fiscal_year.R a script we used once in August 2023 (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add get_probono_service_request_records() (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ctsit/rcc.billing/issues/218" class="external-link">#218</a>, <a href="https://github.com/ctsit/rcc.billing/issues/207" class="external-link">#207</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.35.0" id="rccbilling-1350-released-2024-05-23">rcc.billing 1.35.0 (released 2024-05-23)<a class="anchor" aria-label="anchor" href="#rccbilling-1350-released-2024-05-23"></a></h2>
-<ul><li>Set custom CC when running revenue_status_and_projections (@pbchase)</li>
-<li>Revise input file search and management in update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
-<li>Add get_ctsi_study_id_to_project_id_map (@ljwoodley, @pbchase, @ChemiKyle, #212)</li>
-<li>Reflow make_test_data_for_get_billable_candidates.R (@pbchase)</li>
+<ul><li>Set custom CC when running revenue_status_and_projections (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Revise input file search and management in update_invoice_line_items_with_invoicing_details.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add get_ctsi_study_id_to_project_id_map (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>, <a href="https://github.com/ctsit/rcc.billing/issues/212" class="external-link">#212</a>)</li>
+<li>Reflow make_test_data_for_get_billable_candidates.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.34.0" id="rccbilling-1340-released-2024-04-26">rcc.billing 1.34.0 (released 2024-04-26)<a class="anchor" aria-label="anchor" href="#rccbilling-1340-released-2024-04-26"></a></h2>
-<ul><li>Add draft_reports.qmd (@pbchase)</li>
-<li>Add get_project_details_for_billing (@ljwoodley)</li>
-<li>Add ‘REDCap consulting’ service_type to test data (@pbchase)</li>
-<li>CC REDCAP_BILLING_L in request_correction_of_bad_ownership_data.R (@pbchase)</li>
-<li>Update create_and_send_new_redcap_prod_per_project_line_items.R to prevent duplicates (@pbchase)</li>
-<li>Update revenue_status_and_projections.qmd (@pbchase)
+<ul><li>Add draft_reports.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add get_project_details_for_billing (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
+<li>Add ‘REDCap consulting’ service_type to test data (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>CC REDCAP_BILLING_L in request_correction_of_bad_ownership_data.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update create_and_send_new_redcap_prod_per_project_line_items.R to prevent duplicates (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)
 <ul><li>Add a note to Figure 3. ‘REDCap APB Revenue by FY with 12 months of projected revenue.’<br></li>
 <li>Add more aging brackets.</li>
 <li>Fix chit-chat about historic payment rate.</li>
@@ -197,35 +204,35 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.33.2" id="rccbilling-1332-released-2024-03-15">rcc.billing 1.33.2 (released 2024-03-15)<a class="anchor" aria-label="anchor" href="#rccbilling-1332-released-2024-03-15"></a></h2>
-<ul><li>Fix NA in average_portion_paid in revenue_status_and_projections.qmd (@pbchase)</li>
+<ul><li>Fix NA in average_portion_paid in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.33.1" id="rccbilling-1331-released-2024-03-12">rcc.billing 1.33.1 (released 2024-03-12)<a class="anchor" aria-label="anchor" href="#rccbilling-1331-released-2024-03-12"></a></h2>
-<ul><li>Fix bad collect() syntax (@pbchase)</li>
-<li>Fix crashes in sequester_unpaid_projects.R (@pbchase)</li>
+<ul><li>Fix bad collect() syntax (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Fix crashes in sequester_unpaid_projects.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.33.0" id="rccbilling-1330-released-2024-02-27">rcc.billing 1.33.0 (released 2024-02-27)<a class="anchor" aria-label="anchor" href="#rccbilling-1330-released-2024-02-27"></a></h2>
-<ul><li>Add fiscal year reporting to revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Add revenue_description to red_team_auxiliary_revenue_actuals_redcap_apb.csv output in revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Control positioning in revenue_status_and_projections.qmd (@pbchase)</li>
+<ul><li>Add fiscal year reporting to revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add revenue_description to red_team_auxiliary_revenue_actuals_redcap_apb.csv output in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Control positioning in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.32.0" id="rccbilling-1320-released-2024-02-14">rcc.billing 1.32.0 (released 2024-02-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1320-released-2024-02-14"></a></h2>
-<ul><li>Add owner’s org data to get_billable_candidates() output (@pbchase, @ChemiKyle)</li>
+<ul><li>Add owner’s org data to get_billable_candidates() output (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.31.1" id="rccbilling-1311-released-2024-02-12">rcc.billing 1.31.1 (released 2024-02-12)<a class="anchor" aria-label="anchor" href="#rccbilling-1311-released-2024-02-12"></a></h2>
-<ul><li>Update update_invoice_line_items_with_invoicing_details.R to fix target table in service_instance_update. (@pbchase)</li>
+<ul><li>Update update_invoice_line_items_with_invoicing_details.R to fix target table in service_instance_update. (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.31.0" id="rccbilling-1310-released-2024-02-08">rcc.billing 1.31.0 (released 2024-02-08)<a class="anchor" aria-label="anchor" href="#rccbilling-1310-released-2024-02-08"></a></h2>
-<ul><li>Curate and use CTSI Study IDs (@pbchase)</li>
+<ul><li>Curate and use CTSI Study IDs (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.30.0" id="rccbilling-1300-released-2024-01-12">rcc.billing 1.30.0 (released 2024-01-12)<a class="anchor" aria-label="anchor" href="#rccbilling-1300-released-2024-01-12"></a></h2>
-<ul><li>Fix typos in text of revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Update update_invoice_line_items_with_invoicing_details to handle do not bill reasons (@ChemiKyle)</li>
+<ul><li>Fix typos in text of revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update update_invoice_line_items_with_invoicing_details to handle do not bill reasons (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.29.1" id="rccbilling-1291-released-2023-12-08">rcc.billing 1.29.1 (released 2023-12-08)<a class="anchor" aria-label="anchor" href="#rccbilling-1291-released-2023-12-08"></a></h2>
@@ -233,259 +240,259 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.29.0" id="rccbilling-1290-released-2023-11-21">rcc.billing 1.29.0 (released 2023-11-21)<a class="anchor" aria-label="anchor" href="#rccbilling-1290-released-2023-11-21"></a></h2>
-<ul><li>Implement code changes required for the Fall 2023 rate increase (@pbchase)</li>
-<li>Update revenue_status_and_projections.qmd adding revenue_by_month_received (@pbchase, @ljwoodley)</li>
+<ul><li>Implement code changes required for the Fall 2023 rate increase (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update revenue_status_and_projections.qmd adding revenue_by_month_received (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>, <a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.28.0" id="rccbilling-1280-released-2023-11-01">rcc.billing 1.28.0 (released 2023-11-01)<a class="anchor" aria-label="anchor" href="#rccbilling-1280-released-2023-11-01"></a></h2>
-<ul><li>Replace fig-revenue-by-month with fig-revenue-by-month-invoiced and fig-revenue-by-month-received in revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Add bar labels to fig-revenue-by-month-* figures in revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Adjust project revenue to use just the last 12 months and correct for the rate increase in revenue_status_and_projections.qmd (@pbchase)</li>
+<ul><li>Replace fig-revenue-by-month with fig-revenue-by-month-invoiced and fig-revenue-by-month-received in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add bar labels to fig-revenue-by-month-* figures in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Adjust project revenue to use just the last 12 months and correct for the rate increase in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.27.0" id="rccbilling-1270-released-2023-10-31">rcc.billing 1.27.0 (released 2023-10-31)<a class="anchor" aria-label="anchor" href="#rccbilling-1270-released-2023-10-31"></a></h2>
-<ul><li>Add delete_abandoned_projects.R (@ljwoodley)</li>
+<ul><li>Add delete_abandoned_projects.R (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.26.0" id="rccbilling-1260-released-2023-10-24">rcc.billing 1.26.0 (released 2023-10-24)<a class="anchor" aria-label="anchor" href="#rccbilling-1260-released-2023-10-24"></a></h2>
-<ul><li>Add export_project_data_with_owner_org.R (@pbchase)</li>
-<li>Change annual project price from $100 to $130 in warning communications (@ChemiKyle)</li>
+<ul><li>Add export_project_data_with_owner_org.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Change annual project price from $100 to $130 in warning communications (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.25.1" id="rccbilling-1251-released-2023-10-16">rcc.billing 1.25.1 (released 2023-10-16)<a class="anchor" aria-label="anchor" href="#rccbilling-1251-released-2023-10-16"></a></h2>
-<ul><li>Update broken Update Project Ownership links (@ChemiKyle)</li>
-<li>Prevent sequestered projects from receiving billing warnings (@ChemiKyle)</li>
-<li>Fix typo in revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Update broken link to document that details project deletion steps (@ChemiKyle)</li>
-<li>Update update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
-<li>Remove unused code from warn_owners_of_impending_bill.R (@pbchase)</li>
-<li>Update Roxygen version in DESCRIPTION (@pbchase)</li>
-<li>Update test-get_billable_candidates.R (@pbchase)</li>
-<li>Remove unused code from get_billable_candidates() (@pbchase)</li>
+<ul><li>Update broken Update Project Ownership links (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Prevent sequestered projects from receiving billing warnings (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Fix typo in revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update broken link to document that details project deletion steps (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Update update_invoice_line_items_with_invoicing_details.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Remove unused code from warn_owners_of_impending_bill.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update Roxygen version in DESCRIPTION (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update test-get_billable_candidates.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Remove unused code from get_billable_candidates() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.25.0" id="rccbilling-1250-released-2023-08-29">rcc.billing 1.25.0 (released 2023-08-29)<a class="anchor" aria-label="anchor" href="#rccbilling-1250-released-2023-08-29"></a></h2>
-<ul><li>Update revenue_status_and_projections (@pbchase)</li>
+<ul><li>Update revenue_status_and_projections (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.24.0" id="rccbilling-1240-released-2023-08-23">rcc.billing 1.24.0 (released 2023-08-23)<a class="anchor" aria-label="anchor" href="#rccbilling-1240-released-2023-08-23"></a></h2>
-<ul><li>Add write_uf_fiscal_orgs_to_person_org ETL (@ChemiKyle)</li>
-<li>add cron job for invoice line item creation (@ljwoodley)</li>
-<li>add test for df row count (@ljwoodley)</li>
-<li>Replace current_fiscal_year with fiscal_year_invoiced concept (@pbchase)</li>
-<li>create empty please_fix_log df (@ljwoodley)</li>
+<ul><li>Add write_uf_fiscal_orgs_to_person_org ETL (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>add cron job for invoice line item creation (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
+<li>add test for df row count (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
+<li>Replace current_fiscal_year with fiscal_year_invoiced concept (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>create empty please_fix_log df (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.23.0" id="rccbilling-1230-released-2023-08-04">rcc.billing 1.23.0 (released 2023-08-04)<a class="anchor" aria-label="anchor" href="#rccbilling-1230-released-2023-08-04"></a></h2>
-<ul><li>Add reason to project sequestration messages (@pbchase)</li>
-<li>Add speed improvements to get_orphaned_projects (@pbchase)</li>
-<li>Replace NA character with NA string to prevent entire email from appearing as NA (@ChemiKyle)</li>
-<li>Refactor SQLite out of get_orphaned_projects and its tests (@pbchase)</li>
-<li>Update render report (@ljwoodley)</li>
+<ul><li>Add reason to project sequestration messages (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add speed improvements to get_orphaned_projects (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Replace NA character with NA string to prevent entire email from appearing as NA (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Refactor SQLite out of get_orphaned_projects and its tests (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update render report (<a href="https://github.com/ljwoodley" class="external-link">@ljwoodley</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.22.2" id="rccbilling-1222-released-2023-07-19">rcc.billing 1.22.2 (released 2023-07-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1222-released-2023-07-19"></a></h2>
-<ul><li>Accommodate very long project titles (@pbchase)</li>
+<ul><li>Accommodate very long project titles (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.22.1" id="rccbilling-1221-released-2023-07-19">rcc.billing 1.22.1 (released 2023-07-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1221-released-2023-07-19"></a></h2>
-<ul><li>Accommodate very long project titles (@pbchase)</li>
-<li>Update revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Update update_invoice_line_items_with_invoicing_details.R to handle non-rccbilling data (@pbchase)</li>
-<li>Update report_on_projects_by_dept.R (@pbchase)</li>
+<ul><li>Accommodate very long project titles (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update update_invoice_line_items_with_invoicing_details.R to handle non-rccbilling data (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update report_on_projects_by_dept.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.22.0" id="rccbilling-1220-released-2023-06-23">rcc.billing 1.22.0 (released 2023-06-23)<a class="anchor" aria-label="anchor" href="#rccbilling-1220-released-2023-06-23"></a></h2>
-<ul><li>Add cancel_invoice_line_items.R (@pbchase)</li>
-<li>Add ban_people_from_ownership.R (@pbchase)</li>
-<li>Add report_on_projects_by_dept.R (@pbchase)</li>
-<li>Add get_billable_candidates() (@pbchase)</li>
-<li>Silence long path warnings relating to request_correction_of_bad_ownership_data.R (@pbchase)</li>
-<li>Refactor billable_candidates.R to use get_billable_candidates() (@pbchase)</li>
+<ul><li>Add cancel_invoice_line_items.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add ban_people_from_ownership.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add report_on_projects_by_dept.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add get_billable_candidates() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Silence long path warnings relating to request_correction_of_bad_ownership_data.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Refactor billable_candidates.R to use get_billable_candidates() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.21.2" id="rccbilling-1212-released-2023-06-07">rcc.billing 1.21.2 (released 2023-06-07)<a class="anchor" aria-label="anchor" href="#rccbilling-1212-released-2023-06-07"></a></h2>
-<ul><li>Update revenue_status_and_projections.qmd (@pbchase)</li>
+<ul><li>Update revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.21.1" id="rccbilling-1211-released-2023-06-07">rcc.billing 1.21.1 (released 2023-06-07)<a class="anchor" aria-label="anchor" href="#rccbilling-1211-released-2023-06-07"></a></h2>
-<ul><li>Update cron file for new render_report.R (@pbchase)</li>
+<ul><li>Update cron file for new render_report.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.21.0" id="rccbilling-1210-released-2023-06-07">rcc.billing 1.21.0 (released 2023-06-07)<a class="anchor" aria-label="anchor" href="#rccbilling-1210-released-2023-06-07"></a></h2>
-<ul><li>Update render_report.R to add Quarto support (@pbchase)</li>
-<li>Ban PIs who left UF in update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
+<ul><li>Update render_report.R to add Quarto support (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Ban PIs who left UF in update_invoice_line_items_with_invoicing_details.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.20.0" id="rccbilling-1200-released-2023-06-05">rcc.billing 1.20.0 (released 2023-06-05)<a class="anchor" aria-label="anchor" href="#rccbilling-1200-released-2023-06-05"></a></h2>
-<ul><li>Add revenue_status_and_projections.qmd (@pbchase)</li>
-<li>Update email templates (@pbchase)</li>
+<ul><li>Add revenue_status_and_projections.qmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update email templates (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.19.0" id="rccbilling-1190-released-2023-05-24">rcc.billing 1.19.0 (released 2023-05-24)<a class="anchor" aria-label="anchor" href="#rccbilling-1190-released-2023-05-24"></a></h2>
-<ul><li>Add remind_owners_to_review_ownership.R (@pbchase)</li>
-<li>Update sequester_unpaid_projects.R (@pbchase)</li>
-<li>Add historic redcap admins to CTS-IT staff (@pbchase)</li>
+<ul><li>Add remind_owners_to_review_ownership.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update sequester_unpaid_projects.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add historic redcap admins to CTS-IT staff (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.18.2" id="rccbilling-1182-released-2023-04-03">rcc.billing 1.18.2 (released 2023-04-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1182-released-2023-04-03"></a></h2>
-<ul><li>Filter out sequestered and deleted projects in sequester_unpaid_projects.R (@pbchase)</li>
+<ul><li>Filter out sequestered and deleted projects in sequester_unpaid_projects.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.18.1" id="rccbilling-1181-released-2023-04-03">rcc.billing 1.18.1 (released 2023-04-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1181-released-2023-04-03"></a></h2>
-<ul><li>Fix NEWS.md (@pbchase)</li>
+<ul><li>Fix NEWS.md (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.18.0" id="rccbilling-1180-released-2023-04-03">rcc.billing 1.18.0 (released 2023-04-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1180-released-2023-04-03"></a></h2>
-<ul><li>Add sequester_unpaid_projects ETL (@ChemiKyle)</li>
-<li>Set date_sent when creating invoice line items (@pbchase)</li>
-<li>Fix cron for write_uf_fiscal_orgs_to_org_hierarchies.R again (@pbchase)</li>
+<ul><li>Add sequester_unpaid_projects ETL (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Set date_sent when creating invoice line items (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Fix cron for write_uf_fiscal_orgs_to_org_hierarchies.R again (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.17.0" id="rccbilling-1170-released-2023-03-17">rcc.billing 1.17.0 (released 2023-03-17)<a class="anchor" aria-label="anchor" href="#rccbilling-1170-released-2023-03-17"></a></h2>
-<ul><li>Add ETL to write to org_hierachies from VIVO Add schema for org_hierarchies (@ChemiKyle)</li>
-<li>Add cron’d runs of sequester_orphans.R (@pbchase)</li>
-<li>Simplify manual sequestration in sequester_orphans.R (@pbchase)</li>
+<ul><li>Add ETL to write to org_hierachies from VIVO Add schema for org_hierarchies (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add cron’d runs of sequester_orphans.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Simplify manual sequestration in sequester_orphans.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.16.0" id="rccbilling-1160-released-2023-03-03">rcc.billing 1.16.0 (released 2023-03-03)<a class="anchor" aria-label="anchor" href="#rccbilling-1160-released-2023-03-03"></a></h2>
-<ul><li>Add banned_owners rule to get_orphaned_projects function Add banned_owners schema (@ChemiKyle)</li>
-<li>Embrace subdirectories for db specific tables in testing data (@ChemiKyle)</li>
-<li>Rename <em><em>conn to mem</em></em>_conn in get_orphaned_projects test (@ChemiKyle)</li>
-<li>Prevent blank emails on new invoice line items (@pbchase)</li>
+<ul><li>Add banned_owners rule to get_orphaned_projects function Add banned_owners schema (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Embrace subdirectories for db specific tables in testing data (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Rename <em><em>conn to mem</em></em>_conn in get_orphaned_projects test (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Prevent blank emails on new invoice line items (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.15.0" id="rccbilling-1150-released-2023-02-27">rcc.billing 1.15.0 (released 2023-02-27)<a class="anchor" aria-label="anchor" href="#rccbilling-1150-released-2023-02-27"></a></h2>
-<ul><li>Add unit test for get_orphaned_projects() (@pbchase)</li>
-<li>Add unresolvable_ownership_issues to get_orphans function (@ChemiKyle)</li>
-<li>Add request_correction_of_bad_ownership_data report (@ChemiKyle)</li>
-<li>Add erasure of project ownership identification columns to cleanup_project_ownership_table (@ChemiKyle)</li>
-<li>Use variable instead of hardcoding in send_alert_email (@ChemiKyle)</li>
-<li>Prevent emails RE: unresolvable_ownership_issues in sequester_orphans (@ChemiKyle)</li>
+<ul><li>Add unit test for get_orphaned_projects() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add unresolvable_ownership_issues to get_orphans function (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add request_correction_of_bad_ownership_data report (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add erasure of project ownership identification columns to cleanup_project_ownership_table (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Use variable instead of hardcoding in send_alert_email (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Prevent emails RE: unresolvable_ownership_issues in sequester_orphans (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.14.0" id="rccbilling-1140-released-2023-01-27">rcc.billing 1.14.0 (released 2023-01-27)<a class="anchor" aria-label="anchor" href="#rccbilling-1140-released-2023-01-27"></a></h2>
-<ul><li>Add complete_but_non_sequestered rule to get_orphaned_projects (@pbchase)</li>
-<li>Add warn_completers_of_impending_sequestration.R (@pbchase)</li>
-<li>Update version numbers in NEWS.md to conform to tagging error on 2022-12-19 (@pbchase)</li>
+<ul><li>Add complete_but_non_sequestered rule to get_orphaned_projects (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add warn_completers_of_impending_sequestration.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update version numbers in NEWS.md to conform to tagging error on 2022-12-19 (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.13.0" id="rccbilling-1130-released-2023-01-24">rcc.billing 1.13.0 (released 2023-01-24)<a class="anchor" aria-label="anchor" href="#rccbilling-1130-released-2023-01-24"></a></h2>
-<ul><li>Update get_orphaned_projects reducing the horizon from 12 to 11 months (@pbchase)</li>
-<li>Move warn_owners_of_impending_bill.R back to the default dates (@pbchase)</li>
-<li>Update update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
-<li>Revert error in sequester_orphans.R (@pbchase)</li>
-<li>Sync invoice_line_item table to RC DB during update_invoice_line_items_with_invoicing_details (@ChemiKyle)</li>
-<li>Mark CTSIT-owned projects as non-billable in update_project_billable_attribute.R (@pbchase)</li>
+<ul><li>Update get_orphaned_projects reducing the horizon from 12 to 11 months (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Move warn_owners_of_impending_bill.R back to the default dates (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update update_invoice_line_items_with_invoicing_details.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Revert error in sequester_orphans.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Sync invoice_line_item table to RC DB during update_invoice_line_items_with_invoicing_details (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Mark CTSIT-owned projects as non-billable in update_project_billable_attribute.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.12.1" id="rccbilling-1121-released-2022-12-19">rcc.billing 1.12.1 (released 2022-12-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1121-released-2022-12-19"></a></h2>
-<ul><li>Load rcc.billing library in cleanup_bad_email_addresses.R (@pbchase)</li>
+<ul><li>Load rcc.billing library in cleanup_bad_email_addresses.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.12.0" id="rccbilling-1120-released-2022-12-19">rcc.billing 1.12.0 (released 2022-12-19)<a class="anchor" aria-label="anchor" href="#rccbilling-1120-released-2022-12-19"></a></h2>
-<ul><li>Port cleanup_bad_email_addresses from rcc.ctsit (@ChemiKyle)</li>
-<li>Create get_bad_emails_from_log (@ChemiKyle)</li>
-<li>Update billable_candidates.R (@pbchase)</li>
-<li>Ignore timestamp updates in update_invoice_line_items_with_invoicing_details.R (@pbchase)</li>
+<ul><li>Port cleanup_bad_email_addresses from rcc.ctsit (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Create get_bad_emails_from_log (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Update billable_candidates.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Ignore timestamp updates in update_invoice_line_items_with_invoicing_details.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.11.1" id="rccbilling-0111-released-2022-12-07">rcc.billing 0.11.1 (released 2022-12-07)<a class="anchor" aria-label="anchor" href="#rccbilling-0111-released-2022-12-07"></a></h2>
-<ul><li>Temporarily move warn_owners_of_impending_bill to the 3rd and 14th of the month (@pbchase)</li>
-<li>Add a comment to guide manual orphan sequestration (@pbchase)</li>
-<li>Fix new row IDs in create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase)</li>
+<ul><li>Temporarily move warn_owners_of_impending_bill to the 3rd and 14th of the month (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add a comment to guide manual orphan sequestration (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Fix new row IDs in create_and_send_new_redcap_prod_per_project_line_items.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.11.0" id="rccbilling-0110-released-2022-11-14">rcc.billing 0.11.0 (released 2022-11-14)<a class="anchor" aria-label="anchor" href="#rccbilling-0110-released-2022-11-14"></a></h2>
-<ul><li>Set invoice_line_item status conditionally based on date_of_pmt presence when loading data from CSBT (@ChemiKyle)</li>
+<ul><li>Set invoice_line_item status conditionally based on date_of_pmt presence when loading data from CSBT (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.0" id="rccbilling-0100-released-2022-11-02">rcc.billing 0.10.0 (released 2022-11-02)<a class="anchor" aria-label="anchor" href="#rccbilling-0100-released-2022-11-02"></a></h2>
-<ul><li>Include project_irb_number in report/billable_candidates (@ChemiKyle)</li>
-<li>Add invoice facts to billable candidates (@pbchase)</li>
-<li>Re-enable empty_and_inactive_projects in get_orphaned_projects (@pbchase)</li>
-<li>Adjust the id column in new_invoice_line_item_communications to avoid collisions (@pbchase)</li>
+<ul><li>Include project_irb_number in report/billable_candidates (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add invoice facts to billable candidates (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Re-enable empty_and_inactive_projects in get_orphaned_projects (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Adjust the id column in new_invoice_line_item_communications to avoid collisions (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.1" id="rccbilling-091-released-2022-10-28">rcc.billing 0.9.1 (released 2022-10-28)<a class="anchor" aria-label="anchor" href="#rccbilling-091-released-2022-10-28"></a></h2>
-<ul><li>Execute named lists construction with lst (@pbchase)</li>
+<ul><li>Execute named lists construction with lst (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.0" id="rccbilling-090-released-2022-10-28">rcc.billing 0.9.0 (released 2022-10-28)<a class="anchor" aria-label="anchor" href="#rccbilling-090-released-2022-10-28"></a></h2>
-<ul><li>Add transform_invoice_line_items_for_ctsit (@ChemiKyle)</li>
-<li>Add update_invoice_line_items_with_invoicing_details (@ChemiKyle)</li>
-<li>Add rule inactive_projects_with_no_viable_users to get_orphaned_projects() (@pbchase)</li>
-<li>Add orphaned_projects to logged data in sequester_orphans.R (@pbchase)</li>
-<li>Show user_lastlogin in billable_candidates.R (@pbchase)</li>
-<li>Use full month name instead of abbreviation in create_and_send_new_redcap_prod_per_project_line_items (@ChemiKyle)</li>
-<li>Associate month_invoiced with project’s birth month rather than script run month (@ChemiKyle)</li>
+<ul><li>Add transform_invoice_line_items_for_ctsit (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add update_invoice_line_items_with_invoicing_details (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add rule inactive_projects_with_no_viable_users to get_orphaned_projects() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add orphaned_projects to logged data in sequester_orphans.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Show user_lastlogin in billable_candidates.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Use full month name instead of abbreviation in create_and_send_new_redcap_prod_per_project_line_items (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Associate month_invoiced with project’s birth month rather than script run month (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.1" id="rccbilling-081-released-2022-10-21">rcc.billing 0.8.1 (released 2022-10-21)<a class="anchor" aria-label="anchor" href="#rccbilling-081-released-2022-10-21"></a></h2>
-<ul><li>Include GITHUB_PAT in docker build step (@pbchase)</li>
-<li>Pass project_id vector to sequester_projects (@pbchase)</li>
+<ul><li>Include GITHUB_PAT in docker build step (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Pass project_id vector to sequester_projects (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.0" id="rccbilling-080-released-2022-10-21">rcc.billing 0.8.0 (released 2022-10-21)<a class="anchor" aria-label="anchor" href="#rccbilling-080-released-2022-10-21"></a></h2>
-<ul><li>Activate sequester_orphans.R (@pbchase)</li>
-<li>Add filter for no viable users to get_orphaned_projects (@ChemiKyle)</li>
-<li>Add get_user_rights_and_info (@pbchase)</li>
-<li>Install rcc.ctsit in Dockerfile using a GitHub PAT (@pbchase)</li>
-<li>Make PIs and faculty project owners (@pbchase)</li>
+<ul><li>Activate sequester_orphans.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add filter for no viable users to get_orphaned_projects (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add get_user_rights_and_info (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Install rcc.ctsit in Dockerfile using a GitHub PAT (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Make PIs and faculty project owners (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.1" id="rccbilling-071-released-2022-10-04">rcc.billing 0.7.1 (released 2022-10-04)<a class="anchor" aria-label="anchor" href="#rccbilling-071-released-2022-10-04"></a></h2>
-<ul><li>Update create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase)</li>
+<ul><li>Update create_and_send_new_redcap_prod_per_project_line_items.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.0" id="rccbilling-070-released-2022-10-04">rcc.billing 0.7.0 (released 2022-10-04)<a class="anchor" aria-label="anchor" href="#rccbilling-070-released-2022-10-04"></a></h2>
-<ul><li>Add get_orphaned_projects() (@pbchase)</li>
-<li>Add sequester_orphans (@pbchase)</li>
-<li>Add sequester_projects() (@pbchase)</li>
-<li>Fix service_type in service_type_test_data (@pbchase)</li>
-<li>Update csbt column output names CTSI IT ID -&gt; CTSIT ID (@ChemiKyle)</li>
-<li>Filter out non-sequestered projects in create_and_send_new_redcap_prod_per_project_line_items (@ChemiKyle)</li>
-<li>Include project_ownership user identifiers in create_and_send_new_redcap_prod_per_project_line_items.R (@pbchase)</li>
+<ul><li>Add get_orphaned_projects() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add sequester_orphans (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add sequester_projects() (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Fix service_type in service_type_test_data (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Update csbt column output names CTSI IT ID -&gt; CTSIT ID (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Filter out non-sequestered projects in create_and_send_new_redcap_prod_per_project_line_items (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Include project_ownership user identifiers in create_and_send_new_redcap_prod_per_project_line_items.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.1" id="rccbilling-061-released-2022-09-28">rcc.billing 0.6.1 (released 2022-09-28)<a class="anchor" aria-label="anchor" href="#rccbilling-061-released-2022-09-28"></a></h2>
-<ul><li>Run billable_candidates.R weekly (@pbchase)</li>
-<li>Fix subject, body, and from in billable_candidates.R (@pbchase)</li>
+<ul><li>Run billable_candidates.R weekly (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Fix subject, body, and from in billable_candidates.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.0" id="rccbilling-060-released-2022-09-28">rcc.billing 0.6.0 (released 2022-09-28)<a class="anchor" aria-label="anchor" href="#rccbilling-060-released-2022-09-28"></a></h2>
-<ul><li>Create billable_candidates report (@ChemiKyle)</li>
-<li>Add deleted projects filter and fix birthday_in_previous_month filter when creating invoice line items(@pbchase)</li>
+<ul><li>Create billable_candidates report (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
+<li>Add deleted projects filter and fix birthday_in_previous_month filter when creating invoice line items(<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="rccbilling-050-released-2022-09-22">rcc.billing 0.5.0 (released 2022-09-22)<a class="anchor" aria-label="anchor" href="#rccbilling-050-released-2022-09-22"></a></h2>
-<ul><li>Run warn_owners_of_impending_bill.R on 1st and 23rd of the month (@pbchase)</li>
+<ul><li>Run warn_owners_of_impending_bill.R on 1st and 23rd of the month (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="rccbilling-040-released-2022-09-07">rcc.billing 0.4.0 (released 2022-09-07)<a class="anchor" aria-label="anchor" href="#rccbilling-040-released-2022-09-07"></a></h2>
-<ul><li>Activate warn_owners_of_impending_bill.R (@pbchase)</li>
-<li>Add correct_project_pi_emails (@ChemiKyle)</li>
+<ul><li>Activate warn_owners_of_impending_bill.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Add correct_project_pi_emails (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="rccbilling-031-released-2022-09-06">rcc.billing 0.3.1 (released 2022-09-06)<a class="anchor" aria-label="anchor" href="#rccbilling-031-released-2022-09-06"></a></h2>
-<ul><li>Catch and log all errors and successes in warn_owners_of_impending_bill.R (@ChemiKyle, @pbchase)</li>
+<ul><li>Catch and log all errors and successes in warn_owners_of_impending_bill.R (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="rccbilling-030-released-2022-09-01">rcc.billing 0.3.0 (released 2022-09-01)<a class="anchor" aria-label="anchor" href="#rccbilling-030-released-2022-09-01"></a></h2>
-<ul><li>Add warn_owners_of_impending_bill.R (@ChemiKyle, @pbchase)</li>
+<ul><li>Add warn_owners_of_impending_bill.R (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>, <a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="rccbilling-020-released-2022-08-30">rcc.billing 0.2.0 (released 2022-08-30)<a class="anchor" aria-label="anchor" href="#rccbilling-020-released-2022-08-30"></a></h2>
-<ul><li>Add warn_owners_of_impending_bill.R (@ChemiKyle)</li>
+<ul><li>Add warn_owners_of_impending_bill.R (<a href="https://github.com/ChemiKyle" class="external-link">@ChemiKyle</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="rccbilling-012-released-2022-08-26">rcc.billing 0.1.2 (released 2022-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-012-released-2022-08-26"></a></h2>
-<ul><li>Fix paths in cron files (@pbchase)</li>
-<li>Load rcc.billing in update_project_billable_attribute.R (@pbchase)</li>
+<ul><li>Fix paths in cron files (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Load rcc.billing in update_project_billable_attribute.R (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="rccbilling-011-released-2022-08-26">rcc.billing 0.1.1 (released 2022-08-26)<a class="anchor" aria-label="anchor" href="#rccbilling-011-released-2022-08-26"></a></h2>
-<ul><li>Build rcc.billing in Dockerfile (@pbchase)</li>
+<ul><li>Build rcc.billing in Dockerfile (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="rccbilling-010-released-2022-08-25">rcc.billing 0.1.0 (released 2022-08-25)<a class="anchor" aria-label="anchor" href="#rccbilling-010-released-2022-08-25"></a></h2>
@@ -541,7 +548,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.0" id="rccbilling-000-released-2022-03-21">rcc.billing 0.0.0 (released 2022-03-21)<a class="anchor" aria-label="anchor" href="#rccbilling-000-released-2022-03-21"></a></h2>
-<ul><li>Initial commit of rcc.billing, an automated, data-driven service billing system implemented on REDCap Custodian (@pbchase)</li>
+<ul><li>Initial commit of rcc.billing, an automated, data-driven service billing system implemented on REDCap Custodian (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
