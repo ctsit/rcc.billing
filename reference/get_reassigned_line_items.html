@@ -15,7 +15,7 @@ invoiced project. CTS-IT will update its tables and tell CSBT about the change."
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.44.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.45.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +85,7 @@ invoiced project. CTS-IT will update its tables and tell CSBT about the change.<
 
 
 <dt id="arg-rc-conn">rc_conn<a class="anchor" aria-label="anchor" href="#arg-rc-conn"></a></dt>
-<dd><p>- A REDCap database connection, e.g. the object returned from <code>connect_to_redcap_db</code></p></dd>
+<dd><p>- A REDCap database connection, e.g. the object returned from <code><a href="https://ctsit.github.io/redcapcustodian/reference/connect_to_redcap_db.html" class="external-link">connect_to_redcap_db</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -100,7 +100,7 @@ invoiced project. CTS-IT will update its tables and tell CSBT about the change.<
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="va">rc_conn</span> <span class="op">&lt;-</span> <span class="fu">connect_to_redcap_db</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rc_conn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ctsit.github.io/redcapcustodian/reference/connect_to_redcap_db.html" class="external-link">connect_to_redcap_db</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">rcc_billing_conn</span> <span class="op">&lt;-</span> <span class="fu"><a href="connect_to_rcc_billing_db.html">connect_to_rcc_billing_db</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">sent_line_items</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_unpaid_redcap_prod_per_project_line_items.html">get_unpaid_redcap_prod_per_project_line_items</a></span><span class="op">(</span><span class="va">rcc_billing_conn</span><span class="op">)</span></span></span>

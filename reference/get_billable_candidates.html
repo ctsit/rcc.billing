@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.44.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.45.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,11 +90,11 @@
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org" class="external-link">lubridate</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dbi.r-dbi.org" class="external-link">DBI</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/dotenv" class="external-link">dotenv</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">redcapcustodian</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ctsit.github.io/redcapcustodian/" class="external-link">redcapcustodian</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">init_etl</span><span class="op">(</span><span class="st">"billable_candidates"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://ctsit.github.io/redcapcustodian/reference/init_etl.html" class="external-link">init_etl</a></span><span class="op">(</span><span class="st">"billable_candidates"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">rc_conn</span> <span class="op">&lt;-</span> <span class="fu">connect_to_redcap_db</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rc_conn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ctsit.github.io/redcapcustodian/reference/connect_to_redcap_db.html" class="external-link">connect_to_redcap_db</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">rcc_billing_conn</span> <span class="op">&lt;-</span> <span class="fu"><a href="connect_to_rcc_billing_db.html">connect_to_rcc_billing_db</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">billable_candidates</span> <span class="op">&lt;-</span> <span class="fu">get_billable_candidates</span><span class="op">(</span><span class="va">rc_conn</span>, <span class="va">rcc_billing_conn</span><span class="op">)</span></span></span>
