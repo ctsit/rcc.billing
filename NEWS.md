@@ -1,3 +1,8 @@
+# rcc.billing 1.51.0 (released 2025-06-30)
+- Add support for the IRB number in invoice line items (@saipavan10-git, #280, #277, #278, #276, #275)
+- Replaces direct call to S3 method from bit64 (@saipavan10-git, #280, #267)
+- Re-add VERSION (@pbchase)
+
 # rcc.billing 1.50.1 (released 2025-06-23)
 - Remove VERSION file (@pbchase)
     - This is no longer needed because we are using gfrc to manage releases.
