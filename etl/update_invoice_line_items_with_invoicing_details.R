@@ -55,6 +55,8 @@ csbt_billable_details <- readxl::read_excel(latest_payment_file)
 
 billable_details <- transform_invoice_line_items_for_ctsit(csbt_billable_details) %>%
   janitor::clean_names() %>%
+  # The Billing Team changed date formats on us. Address the different data types we have seen
+  mutate(date_of_pmt = as.Date(lubridate::parse_date_time(date_of_pmt, orders = c("ymdHMS", "dmy"), truncated = 3))) |>
   # HACK: when testing, in-memory data for dates are converted to int upon collection
   mutate_columns_to_posixct(c("creation_time", "updated")) %>%
   filter(!is.na(service_instance_id))

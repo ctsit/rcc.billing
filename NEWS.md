@@ -1,3 +1,7 @@
+# rcc.billing 1.51.1 (released 2025-08-29)
+- Update update_invoice_line_items_with_invoicing_details.R (@pbchase)
+    - Accept multiple date forms for date_of_pmt.
+
 # rcc.billing 1.51.0 (released 2025-06-30)
 - Add support for the IRB number in invoice line items (@saipavan10-git, #280, #277, #278, #276, #275)
 - Replaces direct call to S3 method from bit64 (@saipavan10-git, #280, #267)
