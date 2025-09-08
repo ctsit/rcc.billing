@@ -41,9 +41,9 @@ rc_conn <- connect_to_redcap_db()
 # Read the data in the latest payment file in the directory ~/Downloads/
 payment_dir = "~/Downloads"
 latest_payment_file_info <-
-  fs::dir_ls(payment_dir) %>%
-  fs::file_info() %>%
-  arrange(desc(modification_time)) %>%
+  fs::dir_ls(payment_dir) |>
+  fs::file_info() |>
+  arrange(desc(modification_time)) |>
   filter(str_detect(path, "CTSIT.*xls")) |>
   head(n=1) |>
   select("path", "size", "modification_time")
@@ -53,17 +53,19 @@ latest_payment_file_info
 
 csbt_billable_details <- readxl::read_excel(latest_payment_file)
 
-billable_details <- transform_invoice_line_items_for_ctsit(csbt_billable_details) %>%
-  janitor::clean_names() %>%
+# csbt_billable_details <- readxl::read_excel("/Users/pbc/Downloads/CTSIT_Invoiceables_Paid_2025-09-02_2.xlsx")
+
+billable_details <- transform_invoice_line_items_for_ctsit(csbt_billable_details) |>
+  janitor::clean_names() |>
   # The Billing Team changed date formats on us. Address the different data types we have seen
-  mutate(date_of_pmt = as.Date(lubridate::parse_date_time(date_of_pmt, orders = c("ymdHMS", "dmy"), truncated = 3))) |>
+  mutate(date_of_pmt = as.Date(lubridate::parse_date_time(date_of_pmt, orders = c("ymdHMS", "mdy"), truncated = 3))) |>
   # HACK: when testing, in-memory data for dates are converted to int upon collection
-  mutate_columns_to_posixct(c("creation_time", "updated")) %>%
+  mutate_columns_to_posixct(c("creation_time", "updated")) |>
   filter(!is.na(service_instance_id))
 
 if(nrow(billable_details) > 0) {
 
-  initial_invoice_line_item <- tbl(rcc_billing_conn, "invoice_line_item") %>%
+  initial_invoice_line_item <- tbl(rcc_billing_conn, "invoice_line_item") |>
     collect() %>%
     mutate_columns_to_posixct(c("creation_time", "updated"))
 
