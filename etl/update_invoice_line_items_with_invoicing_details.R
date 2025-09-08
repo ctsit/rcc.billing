@@ -44,7 +44,7 @@ latest_payment_file_info <-
   fs::dir_ls(payment_dir) |>
   fs::file_info() |>
   arrange(desc(modification_time)) |>
-  filter(str_detect(path, "CTSIT.*xls")) |>
+  filter(str_detect(path, "/CTSIT.*xls")) |>
   head(n=1) |>
   select("path", "size", "modification_time")
 latest_payment_file <- latest_payment_file_info |>
@@ -52,8 +52,6 @@ latest_payment_file <- latest_payment_file_info |>
 latest_payment_file_info
 
 csbt_billable_details <- readxl::read_excel(latest_payment_file)
-
-# csbt_billable_details <- readxl::read_excel("/Users/pbc/Downloads/CTSIT_Invoiceables_Paid_2025-09-02_2.xlsx")
 
 billable_details <- transform_invoice_line_items_for_ctsit(csbt_billable_details) |>
   janitor::clean_names() |>
@@ -69,7 +67,12 @@ if(nrow(billable_details) > 0) {
     collect() %>%
     mutate_columns_to_posixct(c("creation_time", "updated"))
 
-  invoice_line_item_with_billable_details <- billable_details %>%
+  invoice_line_item_with_billable_details <- billable_details |>
+    # Remove redundant fields from the CSBT we don't listen to
+      select(-c(
+        "qty_provided",
+        "amount_due"
+      )) |>
     inner_join(
       initial_invoice_line_item,
       by = c("service_instance_id",
