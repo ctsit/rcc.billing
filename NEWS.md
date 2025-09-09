@@ -1,3 +1,13 @@
+# rcc.billing 1.52.0 (released 2025-09-09)
+- Update update_invoice_line_items_with_invoicing_details.R (@pbchase, #281)
+Refine input file detection.
+Remove redundant fields from the CSBT we don't listen to.
+Remove debug code.
+Fix date_of_pmt format
+
+- Update transform_invoice_line_items_for_ctsit() (@pbchase, #281)
+Add tests of the input file from the CSBT.
+
 # rcc.billing 1.51.1 (released 2025-08-29)
 - Update update_invoice_line_items_with_invoicing_details.R (@pbchase)
     - Accept multiple date forms for date_of_pmt.
