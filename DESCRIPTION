@@ -1,6 +1,6 @@
 Package: rcc.billing
 Title: REDCap Automated Billing
-Version: 1.51.1
+Version: 1.52.0
 Authors@R: c(
   person("Philip", "Chase",
         email = "pbc@ufl.edu",
@@ -46,7 +46,8 @@ Imports:
     stringr,
     tidyr,
     writexl,
-    RMariaDB
+    RMariaDB,
+    checkmate
 Suggests:
     RSQLite,
     DBI,

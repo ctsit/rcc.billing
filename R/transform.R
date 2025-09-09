@@ -255,6 +255,75 @@ transform_invoice_line_items_for_csbt <- function(invoice_line_items) {
 #' @seealso \code{\link{csbt_column_names}}
 transform_invoice_line_items_for_ctsit <- function(invoice_line_items) {
 
+  expected_columns <- c(
+    "CTSI Study ID",
+    "Other System Billing ID",
+    "Fiscal Year",
+    "Month Invoiced",
+    "Auxiliary Name",
+    "PI Last Name",
+    "PI First Name",
+    "Invoice #",
+    "Name of Service",
+    "Qty Provided",
+    "Cost of Service",
+    "Amount Due",
+    "Amt Paid",
+    "Do Not Bill",
+    "Do Not Bill Reason",
+    "Do Not Bill Invoice #",
+    "Deposit or JE #",
+    "Date of Pmt",
+    "FY Month Number",
+    "Charged to CTSI Voucher",
+    "CTSIT ID"
+  )
+
+  expected_months <- c(
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+    NA_character_
+  )
+
+  expected_fiscal_years <- c(rcc.billing::fiscal_years$csbt_label, NA)
+
+  checkmate::assert_names(names(invoice_line_items), permutation.of = expected_columns)
+  checkmate::assert_numeric(invoice_line_items$`CTSI Study ID`)                     #: num [1:41] 4678 466 5614 5594 5416 ...
+  checkmate::assert_character(invoice_line_items$`CTSIT ID`)                        #: chr [1:41] "1-8931" "1-5716" "1-13800" "1-15575" ...
+  checkmate::assert_character(invoice_line_items$`Other System Billing ID`)         #: chr [1:41] "1-8931" "1-5716" "1-13800" "1-15575" ...
+  checkmate::assert_subset(invoice_line_items$`Fiscal Year`, expected_fiscal_years) #: chr [1:41] "2025-2026" "2025-2026" "2025-2026" "2025-2026" ...
+  checkmate::assert_subset(invoice_line_items$`Month Invoiced`, expected_months)    #: chr [1:41] "July" "July" "July" "July" ...
+  checkmate::assert_subset(invoice_line_items$`Auxiliary Name`, c("CTS-IT", NA) )   #: chr [1:41] "CTS-IT" "CTS-IT" "CTS-IT" "CTS-IT" ...
+  checkmate::assert_character(invoice_line_items$`PI Last Name`)                    #: chr [1:41] "Merendino" "Staud" "Maile" "Strath" ...
+  checkmate::assert_character(invoice_line_items$`PI First Name`)                   #: chr [1:41] "Antony" "Roland" "Robert" "Larissa" ...
+  checkmate::assert_character(invoice_line_items$`Invoice #`)                       #: chr [1:41] "MerendinoA-4678-JUL25" "StaudR-466-JUL25" "MaileR-5614-JUL25" "StrathL-5594-JUL25" ...
+  checkmate::assert_character(invoice_line_items$`Name of Service`)                 #: chr [1:41] "Biomedical Informatics Consulting" "Biomedical Informatics Consulting" "Biomedical Informatics Consulting" "Biomedical Informatics Consulting" ...
+  checkmate::assert_numeric(invoice_line_items$`Qty Provided`)                      #: num [1:41] 1 1 1 1 5.75 1 1 1 1 1 ...
+  checkmate::assert_numeric(invoice_line_items$`Cost of Service`)                   #: num [1:41] 130 130 260 130 130 130 130 130 130 130 ...
+  checkmate::assert_numeric(invoice_line_items$`Amount Due`)                        #: num [1:41] 130 130 130 130 748 ...
+  checkmate::assert_numeric(invoice_line_items$`Amt Paid`)                          #: num [1:41] 130 130 130 130 748 ...
+  checkmate::assert_numeric(invoice_line_items$`Do Not Bill`)                       #: num [1:41] 0 0 0 0 0 0 0 0 0 0 ...
+  checkmate::assert_character(invoice_line_items$`Do Not Bill Reason`)              #: logi [1:41] NA NA NA NA NA NA ...
+  checkmate::assert_character(invoice_line_items$`Do Not Bill Invoice #`)           #: logi [1:41] NA NA NA NA NA NA ...
+  checkmate::assert_character(invoice_line_items$`Deposit or JE #`)                 #: chr [1:41] "CTSI082725" "CTSI082725" "CTSI082725" "CTSI082725" ...
+  checkmate::assert_true(
+    checkmate::test_posixct(invoice_line_items$`Date of Pmt`) |
+    checkmate::test_character(invoice_line_items$`Date of Pmt`)
+  )                                                                                 #: POSIXct[1:41], format: "2025-08-26" "2025-08-26" "2025-08-26" "2025-08-26" ...
+  checkmate::assert_numeric(invoice_line_items$`FY Month Number`)                   #: num [1:41] 1 1 1 1 1 1 1 1 1 1 ...
+  checkmate::assert_subset(invoice_line_items$`FY Month Number`, c(seq(1,12), NA))  #: num [1:41] 1 1 1 1 1 1 1 1 1 1 ...
+  checkmate::assert_logical(invoice_line_items$`Charged to CTSI Voucher`)           #: logi [1:41] FALSE FALSE FALSE FALSE FALSE FALSE ...
+
   new_names <- function(old_column_names) {
     rcc.billing::csbt_column_names |>
       dplyr::filter(.data$csbt %in% old_column_names) |>
@@ -334,3 +403,4 @@ service_request_time <- function(time_minutes, time_hours) {
 
   return(result)
 }
+
