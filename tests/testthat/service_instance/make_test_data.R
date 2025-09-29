@@ -1,4 +1,3 @@
-## code to prepare `service_instance` dataset goes here
 library(tibble)
 library(usethis)
 
@@ -19,4 +18,7 @@ service_instance_test_data <- tribble(
   "5-2345", 5, "2345", 787878, T
 )
 
-usethis::use_data(service_instance_test_data, overwrite = TRUE)
+saveRDS(
+  service_instance_test_data,
+  testthat::test_path("service_instance", "service_instance.rds")
+)
