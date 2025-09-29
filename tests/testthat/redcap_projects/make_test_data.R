@@ -1,5 +1,3 @@
-## Create redcap_projects_test_data from invoice_line_items_test_data
-
 library(redcapcustodian)
 library(rcc.billing)
 library(tidyverse)
@@ -7,6 +5,13 @@ library(lubridate)
 library(DBI)
 library(RMariaDB)
 library(dotenv)
+
+invoice_line_item_test_data <- readRDS(
+  file = testthat::test_path(
+    "invoice_line_item",
+    "invoice_line_item.rds"
+  )
+)
 
 project_table_cols <-
   invoice_line_item_test_data %>%
@@ -22,7 +27,11 @@ project_table_cols <-
   ) %>%
   mutate(project_id = as.numeric(project_id)) %>%
   mutate(project_name = gsub(" ", "_", tolower(app_title))) %>%
-  mutate(creation_time = ymd("2021-05-15") + ddays(c(-3.2, 5.5, -1.7, -7.4)) - years(c(0,3,2,1)))
+  mutate(
+    creation_time = ymd("2021-05-15") +
+      ddays(c(-3.2, 5.5, -1.7, -7.4)) -
+      years(c(0, 3, 2, 1))
+  )
 
 # # run this once against a test redcap to extract the part we need
 # conn <- connect_to_redcap_db()
@@ -36,7 +45,10 @@ project_table_cols <-
 #   collect() %>%
 #   mutate(across(colnames(project_table_cols), ~ NA))
 #
-# usethis::use_data(projects_table_fragment, overwrite = T)
+# saveRDS(
+#   projects_table_fragment,
+#   testthat::test_path("redcap_projects", "projects_table_fragment.rds")
+# )
 #
 # one_deleted_project_record <- projects %>%
 #   filter(project_id >= 15) %>%
@@ -49,13 +61,30 @@ project_table_cols <-
 #          creation_time = min(project_table_cols$creation_time) - ddays(2),
 #          date_deleted = creation_time + ddays(30)
 #   )
-# usethis::use_data(one_deleted_project_record, overwrite = T)
+# 
+# saveRDS(
+#   one_deleted_project_record,
+#   testthat::test_path("redcap_projects", "one_deleted_project_record.rds")
+# )
+
+projects_table_fragment <- readRDS(
+  file = testthat::test_path("redcap_projects", "projects_table_fragment.rds")
+)
+
+one_deleted_project_record <- readRDS(
+  file = testthat::test_path("redcap_projects", "one_deleted_project_record.rds")
+)
 
 redcap_projects_test_data <-
-  bind_cols(project_table_cols,
-            projects_table_fragment %>% select(-colnames(project_table_cols))) %>%
+  bind_cols(
+    project_table_cols,
+    projects_table_fragment %>% select(-colnames(project_table_cols))
+  ) %>%
   bind_rows(one_deleted_project_record) %>%
   select(colnames(projects_table_fragment)) %>%
   mutate(twilio_from_number = as.integer(NA))
 
-usethis::use_data(redcap_projects_test_data, overwrite = T)
+saveRDS(
+  redcap_projects_test_data,
+  file = testthat::test_path("redcap_projects", "redcap_projects_test_data.rds")
+)
