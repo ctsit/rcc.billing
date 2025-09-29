@@ -32,7 +32,6 @@
 <url><loc>https://ctsit.github.io/rcc.billing/reference/fiscal_years.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/fix_data_in_invoice_line_item.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/fix_data_in_invoice_line_item_communication.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/fix_data_in_redcap_log_event.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/fix_data_in_redcap_projects.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/fix_data_in_redcap_user_information.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/get_bad_emails_from_log.html</loc></url>
@@ -60,10 +59,7 @@
 <url><loc>https://ctsit.github.io/rcc.billing/reference/get_user_rights_and_info.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/get_user_rights_and_info_v1.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/index.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/invoice_line_item_communications_test_data.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/invoice_line_item_df_from.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/invoice_line_item_reasons.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/invoice_line_item_statuses.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/invoice_line_item_test_data.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/log_event_tables.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/mutate_columns_to_posixct.html</loc></url>
@@ -72,13 +68,8 @@
 <url><loc>https://ctsit.github.io/rcc.billing/reference/previous_month.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/previous_n_months.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/projects_table_fragment.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/redcap_log_event_test_data.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/redcap_rights_test_data.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/redcap_user_information_test_data.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/sequester_projects.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/service_instance_test_data.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/service_request_time.html</loc></url>
-<url><loc>https://ctsit.github.io/rcc.billing/reference/service_type_test_data.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/transform_invoice_line_items_for_csbt.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/transform_invoice_line_items_for_ctsit.html</loc></url>
 <url><loc>https://ctsit.github.io/rcc.billing/reference/update_billable_by_ownership.html</loc></url>
