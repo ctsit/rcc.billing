@@ -25,6 +25,11 @@ test_that("invoice_line_item_df_from invoice_line_item_communications works prop
 
 test_that("transform_invoice_line_items_for_csbt correctly converts all column names in CTSIT to CSBT format", {
 
+  invoice_line_item_test_data <- readRDS(file = testthat::test_path(
+      "invoice_line_item",
+      "invoice_line_item.rds"
+    ))
+
   initial_colnames <- invoice_line_item_test_data %>%
     colnames() %>%
     sort()
@@ -40,6 +45,11 @@ test_that("transform_invoice_line_items_for_csbt correctly converts all column n
 })
 
 test_that("transform_invoice_line_items_for_ctsit correctly converts all column names in CSBT to CTSIT format", {
+
+  invoice_line_item_test_data <- readRDS(file = testthat::test_path(
+      "invoice_line_item",
+      "invoice_line_item.rds"
+    ))
 
   csbt_test_data <- invoice_line_item_test_data %>%
     transform_invoice_line_items_for_csbt()
@@ -60,6 +70,12 @@ test_that("transform_invoice_line_items_for_ctsit correctly converts all column 
 
 
 test_that("draft_communication_record_from_line_item correctly adds requisite columns", {
+
+    invoice_line_item_test_data <- readRDS(file = testthat::test_path(
+      "invoice_line_item",
+      "invoice_line_item.rds"
+    ))
+
   csbt_line_items <- invoice_line_item_test_data %>%
     transform_invoice_line_items_for_csbt()
 
