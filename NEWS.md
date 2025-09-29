@@ -1,3 +1,11 @@
+# rcc.billing 1.52.1 (released 2025-09-29)
+- Move test data out of package space and remove tests of schema files (@pbchase, #282)
+    - Move test data from package scope to test scope.
+    - Remove 9 man pages for test data that movwed to test scope.
+    - Remove tests that were only testing schema files.
+    - Remove helpers used only by the removed tests.
+    - Fix tests that needed the rescoped test data.
+
 # rcc.billing 1.52.0 (released 2025-09-09)
 - Update update_invoice_line_items_with_invoicing_details.R (@pbchase, #281)
 Refine input file detection.
