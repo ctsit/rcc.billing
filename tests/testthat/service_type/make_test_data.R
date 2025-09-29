@@ -2,7 +2,7 @@
 library(tibble)
 library(usethis)
 
-service_type_test_data <- tribble(
+service_type <- tribble(
   ~service_type_code,
   ~service_type,
   ~price,
@@ -11,4 +11,10 @@ service_type_test_data <- tribble(
   2, 'REDCap consulting', 130, 0
 )
 
-usethis::use_data(service_type_test_data, overwrite = TRUE)
+saveRDS(
+  service_type,
+  testthat::test_path(
+    "service_type",
+    "service_type.rds"
+  )
+)

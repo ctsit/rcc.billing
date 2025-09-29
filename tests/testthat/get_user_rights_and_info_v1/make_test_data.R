@@ -10,10 +10,26 @@ redcap_user_information <- tbl(conn, "redcap_user_information") %>% collect()
 redcap_user_rights <- tbl(conn, "redcap_user_rights") %>% collect()
 redcap_user_roles <- tbl(conn, "redcap_user_roles") %>% collect()
 
-redcap_rights_test_data <- lst(
+saveRDS(
   redcap_user_information,
-  redcap_user_rights,
-  redcap_user_roles
+  testthat::test_path(
+    "get_user_rights_and_info_v1",
+    "redcap_user_information.rds"
+  )
 )
 
-usethis::use_data(redcap_rights_test_data, overwrite = TRUE)
+saveRDS(
+  redcap_user_rights,
+  testthat::test_path(
+    "get_user_rights_and_info_v1",
+    "redcap_user_rights.rds"
+  )
+)
+
+saveRDS(
+  redcap_user_roles,
+  testthat::test_path(
+    "get_user_rights_and_info_v1",
+    "redcap_user_roles.rds"
+  )
+)

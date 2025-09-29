@@ -1,10 +1,27 @@
 test_that("invoice_line_item_df_from invoice_line_item_communications works properly", {
+
+  invoice_line_item_test_data <- readRDS(file = testthat::test_path(
+      "invoice_line_item",
+      "invoice_line_item.rds"
+    ))
+
+  invoice_line_item_communications_test_data <- readRDS(file = testthat::test_path(
+      "invoice_line_item_communications",
+      "invoice_line_item_communications.rds"
+    )) |>
+    dplyr::mutate(dplyr::across(c(
+      "je_posting_date",
+      "date_sent",
+      "date_received",
+      "created",
+      "updated"
+    ), lubridate::ymd_hms))
+
     expect_identical(
         invoice_line_item_test_data,
         invoice_line_item_df_from(invoice_line_item_communications_test_data)
     )
 })
-
 
 test_that("transform_invoice_line_items_for_csbt correctly converts all column names in CTSIT to CSBT format", {
 
@@ -62,7 +79,7 @@ test_that("draft_communication_record_from_line_item correctly adds requisite co
   redcapcustodian::set_script_run_time()
 
   expect_true(
-    all( added_columns %in% colnames(communication_records) )
+    all(added_columns %in% colnames(communication_records))
   )
 })
 
