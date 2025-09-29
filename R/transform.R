@@ -175,39 +175,6 @@ fix_data_in_redcap_user_information <- function(data) {
   return(mutate_columns_to_posixct(data, time_columns))
 }
 
-#' fix_data_in_redcap_log_event
-#'
-#' Fixes column data types that can vary between MySQL/MariaDB and SQLite3.
-#' This allows testing in SQLite3 while production is MariaDB
-#'
-#' @param data - a dataframe containing data from the redcap_log_event tables
-#'
-#' @return The input dataframe with revised data types
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' fix_data_in_redcap_log_event(redcap_log_event_test_data)
-#' }
-fix_data_in_redcap_log_event <- function(data) {
-  integer64_columns <- c(
-    "ts"
-  )
-  if (nrow(data) == 0) { # zero-row SQLite3 tables get the wrong data type on ts
-    result <- data |>
-      dplyr::mutate(
-        dplyr::across(
-          dplyr::any_of(integer64_columns),
-          bit64::as.integer64
-        )
-      )
-  } else {
-    result <- data
-  }
-
-  return(result)
-}
-
 #' Renames columns of a dataframe from CTSIT format to CSBT format
 #'
 #' Excludes non-CSBT columns and renames CTSIT column names to the corresponding CSBT names.

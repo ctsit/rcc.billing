@@ -1,8 +1,30 @@
 testthat::test_that("get_user_rights_and_info_v1 works", {
+
+redcap_user_information <- readRDS(
+  testthat::test_path(
+    "get_user_rights_and_info_v1",
+    "redcap_user_information.rds"
+  )
+)
+
+redcap_user_rights <- readRDS(
+  testthat::test_path(
+    "get_user_rights_and_info_v1",
+    "redcap_user_rights.rds"
+  )
+)
+
+redcap_user_roles <- readRDS(
+  testthat::test_path(
+    "get_user_rights_and_info_v1",
+    "redcap_user_roles.rds"
+  )
+)
+
   result <- get_user_rights_and_info_v1(
-    redcap_user_rights = redcap_rights_test_data$redcap_user_rights,
-    redcap_user_roles = redcap_rights_test_data$redcap_user_roles,
-    redcap_user_information = redcap_rights_test_data$redcap_user_information
+    redcap_user_rights = redcap_user_rights,
+    redcap_user_roles = redcap_user_roles,
+    redcap_user_information = redcap_user_information
   )
 
   limited_result <- result %>%
