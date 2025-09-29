@@ -1,3 +1,9 @@
+# rcc.billing 1.52.2 (released 2025-09-29)
+- Move more test data to test scope (@pbchase, #283)
+    - Reconstruct make_test_data.R.
+    - Convert rda to rds as we move them to test scope.
+    - Delete 3 more man pages.
+
 # rcc.billing 1.52.1 (released 2025-09-29)
 - Move test data out of package space and remove tests of schema files (@pbchase, #282)
     - Move test data from package scope to test scope.
