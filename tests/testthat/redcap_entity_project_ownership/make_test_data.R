@@ -4,8 +4,7 @@ library(rcc.billing)
 library(tidyverse)
 library(lubridate)
 
-load(file = testthat::test_path("redcap_projects",
-                                "redcap_projects_test_data.rda"))
+redcap_projects_test_data <- readRDS(file = testthat::test_path("redcap_projects", "redcap_projects_test_data.rds"))
 
 redcap_entity_project_ownership_test_data <-
   redcap_projects_test_data %>%
