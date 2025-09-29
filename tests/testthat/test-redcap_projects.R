@@ -143,7 +143,7 @@ test_that("update_billable_by_ownership", {
   load(file = testthat::test_path("redcap_entity_project_ownership", "test_data.rda"))
   duckdb::duckdb_register(conn, "redcap_entity_project_ownership", redcap_entity_project_ownership_test_data)
 
-  load(file = testthat::test_path("redcap_projects", "redcap_projects_test_data.rda"))
+  redcap_projects_test_data <- readRDS(file = testthat::test_path("redcap_projects", "redcap_projects_test_data.rds"))
   duckdb::duckdb_register(conn, "redcap_projects", redcap_projects_test_data)
 
   output <- update_billable_by_ownership(conn)
@@ -176,7 +176,7 @@ test_that("update_billable_if_owned_by_ctsit", {
     statement = sql
     )
 
-  load(file = testthat::test_path("redcap_projects", "redcap_projects_test_data.rda"))
+  redcap_projects_test_data <- readRDS(file = testthat::test_path("redcap_projects", "redcap_projects_test_data.rds"))
   duckdb::dbWriteTable(conn, "redcap_projects", redcap_projects_test_data)
 
   output <- update_billable_if_owned_by_ctsit(conn)
