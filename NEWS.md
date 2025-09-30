@@ -1,3 +1,6 @@
+# rcc.billing 1.52.3 (released 2025-09-30)
+- Remove fix_* functions (@pbchase, #284)
+
 # rcc.billing 1.52.2 (released 2025-09-29)
 - Move more test data to test scope (@pbchase, #283)
     - Reconstruct make_test_data.R.
