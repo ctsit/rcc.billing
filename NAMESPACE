@@ -2,10 +2,6 @@
 
 export(connect_to_rcc_billing_db)
 export(draft_communication_record_from_line_item)
-export(fix_data_in_invoice_line_item)
-export(fix_data_in_invoice_line_item_communication)
-export(fix_data_in_redcap_projects)
-export(fix_data_in_redcap_user_information)
 export(get_bad_emails_from_log)
 export(get_billable_candidates)
 export(get_creators)
