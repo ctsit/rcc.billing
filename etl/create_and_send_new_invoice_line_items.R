@@ -134,7 +134,7 @@ new_invoice_line_items <- tbl(rcc_billing_conn, "invoice_line_item") %>%
 new_invoice_line_items_for_csbt <- transform_invoice_line_items_for_csbt(new_invoice_line_items)
 
 new_invoice_line_items_filename = "new_invoice_line_item_communications.xlsx"
-tmp_invoice_file <- paste0(tempdir(), new_invoice_line_items_filename)
+tmp_invoice_file <- paste0(tempdir(), "/", new_invoice_line_items_filename)
 
 new_invoice_line_items_for_csbt %>%
   writexl::write_xlsx(tmp_invoice_file)
