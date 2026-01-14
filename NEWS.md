@@ -1,3 +1,11 @@
+# rcc.billing 1.53.0 (released 2026-01-14)
+- Update revenue_status_and_projections.qmd (@pbchase, #289)
+    - Split free Contractual work from free Support work.
+    - Add 'Figure 5: Pro Bono costs in last FY as portion of revenue by service type'.
+    - Add paragraph to explain the role of the new Figure 5 in annual rate review.
+- Echo latest_payment_file_info at the end of update_invoice_line_items_with_invoicing_details.R (@pbchase)
+- Fix path to tmp_invoice_file in create_and_send_new_invoice_line_items.R (@pbchase)
+
 # rcc.billing 1.52.3 (released 2025-09-30)
 - Remove fix_* functions (@pbchase, #284)
 
