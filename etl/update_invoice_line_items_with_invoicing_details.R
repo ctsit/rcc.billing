@@ -268,3 +268,5 @@ if(nrow(billable_details) > 0) {
 
 DBI::dbDisconnect(rcc_billing_conn)
 DBI::dbDisconnect(rc_conn)
+
+latest_payment_file_info

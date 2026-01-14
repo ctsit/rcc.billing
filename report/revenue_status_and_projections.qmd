@@ -168,7 +168,7 @@ invoice_line_items_with_fy_and_month_paid <- invoice_status |>
 #| echo: false
 #| warning: false
 
-revenue_by_service_type <-
+revenue_by_fy_and_service_type <-
   invoice_line_items_with_fy_and_month_paid |>
   # Mutate service_type_code here to get 99s on contractual work
   left_join(contract_support |> select(record_id, contractual, service_type_code),
@@ -185,7 +185,10 @@ revenue_by_service_type <-
   )) |>
   group_by(FY, service_type) |>
   summarise(revenue = sum(amount_due, na.rm = T)) |>
-  ungroup() |>
+  ungroup()
+
+revenue_by_service_type <-
+  revenue_by_fy_and_service_type |>
   pivot_wider(
     id_cols = "FY",
     names_from = "service_type",
@@ -302,18 +305,23 @@ CTS-IT does not charge for all services. It offers a free consultation of up to 
 Table @fig-probono-summary-table shows the value of these services by fiscal year since CTS-IT started carefully accounting for charged and non-charged services. Figure @fig-probono-faceted shows the monthly detail underlying the annual figures. Support billing started 21 months after the annual project billing.
 
 ```{r}
-#| label: probono-support-prep
+#| label: probono-contractual-and-support-prep
 #| echo: false
 #| warning: false
 
 # Support billing - Pro Bono
-probono_support <- tbl(rcc_billing_conn, "invoice_line_item") |>
+probono_support <- 
+  tbl(rcc_billing_conn, "invoice_line_item") |>
   filter(service_type_code == 2, price_of_service == 0) |>
-  select(id, qty_provided, fiscal_year, month_invoiced, created) |>
+  select(id, service_identifier, qty_provided, fiscal_year, month_invoiced, created) |>
   collect() |>
+  left_join(contract_support, by = c("service_identifier" = "record_id")) |>
+  mutate(contractual = coalesce(contractual, FALSE)) |>
+  mutate(service_type_code = if_else(contractual, 99, service_type_code)) |>
   mutate(invoice_date = lubridate::floor_date(created - lubridate::dmonths(1), unit = "month")) |> 
   rename(month_invoiced_name = month_invoiced) |>
-  mutate(month_invoiced = match(month_invoiced_name, month.name))
+  mutate(month_invoiced = match(month_invoiced_name, month.name)) |>
+  select(-c("study_name", "study_complete"))
 
 normal_service_rate <- tbl(rcc_billing_conn, "invoice_line_item") |>
   filter(service_type_code == 2, price_of_service > 0) |>
@@ -331,8 +339,8 @@ normal_service_rate <- tbl(rcc_billing_conn, "invoice_line_item") |>
 probono_support_with_rate <- probono_support |>
   left_join(normal_service_rate, by = c("fiscal_year", "month_invoiced_name" = "month_invoiced")) |>
   mutate(value = qty_provided * price_of_service) |>
-  select(fiscal_year, month_invoiced, invoice_date, value) |>
-  mutate(revenue_source = "Support")
+  mutate(revenue_source = if_else(contractual, "Contractual", "Support")) |>
+  select(fiscal_year, month_invoiced, invoice_date, value, revenue_source)
 ```
 
 ```{r}
@@ -480,7 +488,7 @@ revenue_by_fy <- revenue_by_service_type |>
 probono_summary <- revenue_by_fy |>
   left_join(probono_by_fy, by = c("FY" = "fiscal_year")) |>
   mutate(
-    `Pro Bono Services as a portion of revenue` = `Value of Pro Bono Services` / Revenue
+      `Pro Bono Services as a portion of revenue` = coalesce(`Value of Pro Bono Services`, 0) / if_else(Revenue == 0, NA_real_, Revenue)
   ) |>
   select(
     FY,
@@ -520,6 +528,51 @@ probono_combined |>
     title = "Pro Bono Value by Month and Source"
   ) +
   theme(axis.text.x = element_text(angle = 30))
+```
+
+CTS-IT's annual rate review requires that we understand the proportion of our revenue that is given away as Pro Bono services so these costs can be accounted for in our rate calculations for the upcoming year. @fig-probono-last-fy-detail shows the breakdown of Pro Bono costs by service type for the last fiscal year.
+
+```{r}
+#| label: fig-probono-last-fy-detail
+#| fig-cap: "Pro Bono costs in last FY as portion of revenue by service type"
+#| echo: false
+#| warning: false
+
+last_fy <- "2024-2025"
+
+probono_detail_last_fy <- revenue_by_fy_and_service_type |>
+  filter(`FY` == last_fy) |>
+  left_join(
+      probono_combined |>
+      group_by(fiscal_year, revenue_source) |>
+      summarise(`Value of Pro Bono Services` = sum(value, na.rm = TRUE), .groups = "drop") |>
+      filter(fiscal_year == last_fy) |>
+      rename(
+        FY = "fiscal_year",
+        service_type = "revenue_source"
+      ) |>
+      mutate(service_type = if_else(service_type == "Annual Project Billing", 
+                                    "Annual REDCap Project Maintenance", 
+                                    service_type)
+            ) |>
+      ungroup(),
+      by = c("FY", "service_type")
+  ) |>
+  mutate(`Pro Bono as portion of revenue for this service type` = `Value of Pro Bono Services` / revenue) |>
+  rename(
+    `Revenue` = revenue,
+    `Service type` = service_type
+  ) |>
+  select(FY, `Service type`, `Revenue`, `Value of Pro Bono Services`, `Pro Bono as portion of revenue for this service type`)
+
+probono_detail_last_fy |>
+  gt::gt() |>
+  gt::fmt_currency(columns = c("Revenue", "Value of Pro Bono Services"), decimals = 0) |>
+  gt::fmt_percent(columns = "Pro Bono as portion of revenue for this service type", decimals = 0) |>
+  gt::tab_header(
+    title = paste0("Pro Bono Value and Portion of Revenue by Service Type for FY", last_fy)
+  )
+
 ```
 
 ## Aging Report
