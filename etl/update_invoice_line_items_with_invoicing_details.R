@@ -44,7 +44,7 @@ latest_payment_file_info <-
   fs::dir_ls(payment_dir) |>
   fs::file_info() |>
   arrange(desc(modification_time)) |>
-  filter(str_detect(path, "/CTSIT.*xls")) |>
+  filter(str_detect(path, "/CTSIT.*xlsx")) |>
   head(n=1) |>
   select("path", "size", "modification_time")
 latest_payment_file <- latest_payment_file_info |>
@@ -67,6 +67,49 @@ if(nrow(billable_details) > 0) {
     collect() %>%
     mutate_columns_to_posixct(c("creation_time", "updated"))
 
+  # identify data in billable_details we can't join to our extant line items
+  non_matching_data <- 
+  billable_details |>
+    mutate(row_number = row_number(), .before = "ctsi_study_id") |>
+    anti_join(initial_invoice_line_item,
+      by = join_condition
+    ) |>
+    filter(str_detect(invoice_number, "-[A-Za-z]{3,4}[0-9]{2}")) |>
+    left_join(initial_invoice_line_item |>
+      select(
+        service_instance_id,
+        name_of_service_instance,
+        fiscal_year,
+        month_invoiced,
+        created
+      ),
+      by = "service_instance_id",
+      suffix = c(".csbt", ".extant_line_item")
+    ) |>
+    # filter(date_of_pmt <= ymd("2022-10-01")) |>
+    select(-c(
+      auxiliary_name,
+      do_not_bill,
+      do_not_bill_reason,
+      do_not_bill_invoice_number
+    )) |>
+    select(
+      row_number,
+      ctsi_study_id,
+      contains("fiscal_year"),
+      contains("month_invoiced"),
+      created,
+      invoice_number,
+      everything()
+    )
+
+  if(nrow(non_matching_data) > 0) {
+    filename <- here::here("output", paste0("non_matching_data_", Sys.Date(), ".xlsx"))
+    non_matching_data  |>
+      writexl::write_xlsx(filename)
+    warning("non-matching data found in CSBT file. Review and annotate ", filename, " and send instructions to the CSBT.")
+  }
+  
   invoice_line_item_with_billable_details <- billable_details |>
     # Remove redundant fields from the CSBT we don't listen to
       select(-c(
@@ -75,10 +118,7 @@ if(nrow(billable_details) > 0) {
       )) |>
     inner_join(
       initial_invoice_line_item,
-      by = c("service_instance_id",
-             "fiscal_year",
-             "month_invoiced"
-      ),
+      by = join_condition,
       suffix = c(".billable", ".line_item")
     ) %>%
     mutate(status = if_else(!is.na(date_of_pmt), "paid", "invoiced")) %>%
