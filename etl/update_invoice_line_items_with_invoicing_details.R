@@ -63,6 +63,12 @@ billable_details <- transform_invoice_line_items_for_ctsit(csbt_billable_details
 
 if(nrow(billable_details) > 0) {
 
+  join_condition <- c(
+    "service_instance_id",
+    "fiscal_year",
+    "month_invoiced"
+  )
+
   initial_invoice_line_item <- tbl(rcc_billing_conn, "invoice_line_item") |>
     collect() %>%
     mutate_columns_to_posixct(c("creation_time", "updated"))
