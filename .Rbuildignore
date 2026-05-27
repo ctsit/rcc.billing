@@ -28,3 +28,4 @@ wip.*
 ^pkgdown$
 ^\.github$
 .zenodo.json
+^input/
