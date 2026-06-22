@@ -39,13 +39,13 @@ rc_conn <- connect_to_redcap_db()
 # rc_conn <- rc_conn_m
 
 # Read the data in the latest payment file in the directory ~/Downloads/
-payment_dir = "~/Downloads"
+payment_dir <- "~/Downloads"
 latest_payment_file_info <-
   fs::dir_ls(payment_dir) |>
   fs::file_info() |>
   arrange(desc(modification_time)) |>
-  filter(str_detect(path, "/CTSIT.*xls")) |>
-  head(n=1) |>
+  filter(str_detect(path, "/CTSIT.*xlsx")) |>
+  head(n = 1) |>
   select("path", "size", "modification_time")
 latest_payment_file <- latest_payment_file_info |>
   pull(path)
@@ -53,43 +53,154 @@ latest_payment_file_info
 
 csbt_billable_details <- readxl::read_excel(latest_payment_file)
 
-billable_details <- transform_invoice_line_items_for_ctsit(csbt_billable_details) |>
-  janitor::clean_names() |>
-  # The Billing Team changed date formats on us. Address the different data types we have seen
-  mutate(date_of_pmt = as.Date(lubridate::parse_date_time(date_of_pmt, orders = c("ymdHMS", "mdy"), truncated = 3))) |>
-  # HACK: when testing, in-memory data for dates are converted to int upon collection
-  mutate_columns_to_posixct(c("creation_time", "updated")) |>
-  filter(!is.na(service_instance_id))
+# Patch flawed data in CSBT data file
+data_patch_file <- here::here("input", "CTSIT_Invoiceables_data_patch.xlsx")
+data_patch <- readxl::read_excel(data_patch_file)
+data_patch_join_fields <- c(
+  "CTSI Study ID",
+  "Fiscal Year",
+  "Month Invoiced",
+  "Invoice #",
+  "Other System Billing ID"
+)
+data_patch_additional_fields <- c(
+  "Fiscal Year.correction",
+  "Month Invoiced.correction",
+  "status",
+  "date_patch_added"
+)
 
-if(nrow(billable_details) > 0) {
+if (nrow(csbt_billable_details) > 0) {
+  csbt_billable_details <- csbt_billable_details |>
+    left_join(
+      data_patch |> select(all_of(c(data_patch_join_fields, data_patch_additional_fields))),
+      by = data_patch_join_fields
+    ) |>
+    mutate(`Fiscal Year` = coalesce(`Fiscal Year.correction`, `Fiscal Year`)) |>
+    mutate(`Month Invoiced` = coalesce(`Month Invoiced.correction`, `Month Invoiced`)) |>
+    select(-any_of(data_patch_additional_fields)) |>
+    # Get rid of some rows with bad month values added on 2026-05-25
+    dplyr::filter(!stringr::str_detect(`Month Invoiced`, "Quote"))
+
+  billable_details <- transform_invoice_line_items_for_ctsit(
+    csbt_billable_details
+  ) |>
+    janitor::clean_names() |>
+    # The Billing Team changed date formats on us. Address the different data types we have seen
+    mutate(
+      date_of_pmt = as.Date(lubridate::parse_date_time(
+        date_of_pmt,
+        orders = c("ymdHMS", "mdy"),
+        truncated = 3
+      ))
+    ) |>
+    # HACK: when testing, in-memory data for dates are converted to int upon collection
+    mutate_columns_to_posixct(c("creation_time", "updated")) |>
+    filter(!is.na(service_instance_id))
+} else {
+  stop(
+    "The input data file ",
+    latest_payment_file_info$path,
+    " is empty. There is nothing to do."
+  )
+}
+
+if (nrow(billable_details) > 0) {
+  join_condition <- c(
+    "service_instance_id",
+    "fiscal_year",
+    "month_invoiced"
+  )
 
   initial_invoice_line_item <- tbl(rcc_billing_conn, "invoice_line_item") |>
     collect() %>%
     mutate_columns_to_posixct(c("creation_time", "updated"))
 
+  # identify data in billable_details we can't join to our extant line items
+  non_matching_data <-
+    billable_details |>
+    mutate(row_number = row_number(), .before = "ctsi_study_id") |>
+    anti_join(initial_invoice_line_item, by = join_condition) |>
+    filter(str_detect(invoice_number, "-[A-Za-z]{3,4}[0-9]{2}")) |>
+    left_join(
+      initial_invoice_line_item |>
+        select(
+          service_instance_id,
+          name_of_service_instance,
+          fiscal_year,
+          month_invoiced,
+          created
+        ),
+      by = "service_instance_id",
+      suffix = c(".csbt", ".extant_line_item")
+    ) |>
+    # filter(date_of_pmt <= ymd("2022-10-01")) |>
+    select(
+      -c(
+        auxiliary_name,
+        do_not_bill,
+        do_not_bill_reason,
+        do_not_bill_invoice_number
+      )
+    ) |>
+    select(
+      row_number,
+      ctsi_study_id,
+      contains("fiscal_year"),
+      contains("month_invoiced"),
+      created,
+      invoice_number,
+      everything()
+    )
+
+  if (nrow(non_matching_data) > 0) {
+    filename <- here::here(
+      "output",
+      paste0("non_matching_data_", Sys.Date(), ".xlsx")
+    )
+    non_matching_data |>
+      writexl::write_xlsx(filename)
+    warning(
+      "non-matching data found in CSBT file. Review and annotate ",
+      filename,
+      " and send instructions to the CSBT."
+    )
+  }
+
   invoice_line_item_with_billable_details <- billable_details |>
     # Remove redundant fields from the CSBT we don't listen to
-      select(-c(
+    select(
+      -c(
         "qty_provided",
         "amount_due"
-      )) |>
+      )
+    ) |>
     inner_join(
       initial_invoice_line_item,
-      by = c("service_instance_id",
-             "fiscal_year",
-             "month_invoiced"
-      ),
+      by = join_condition,
       suffix = c(".billable", ".line_item")
     ) %>%
     mutate(status = if_else(!is.na(date_of_pmt), "paid", "invoiced")) %>%
-    mutate(dnb_flag = if_else(
-      (do_not_bill != 0 | !is.na(do_not_bill_reason) | do_not_bill_reason != ""),
-      TRUE, FALSE, FALSE)
+    mutate(
+      dnb_flag = if_else(
+        (do_not_bill != 0 |
+          !is.na(do_not_bill_reason) |
+          do_not_bill_reason != ""),
+        TRUE,
+        FALSE,
+        FALSE
+      )
     ) |>
     mutate(status = if_else(dnb_flag, "canceled", status)) |>
     mutate(amount_due = if_else(dnb_flag, 0, amount_due)) |>
     mutate(qty_provided = if_else(dnb_flag, 0, qty_provided)) |>
-    mutate(reason = if_else(str_detect(deposit_or_je_number, "voucher"), "seeking voucher", coalesce(do_not_bill_reason, reason))) |>
+    mutate(
+      reason = if_else(
+        str_detect(deposit_or_je_number, "voucher"),
+        "seeking voucher",
+        coalesce(do_not_bill_reason, reason)
+      )
+    ) |>
     select(
       id,
       service_instance_id,
@@ -113,13 +224,15 @@ if(nrow(billable_details) > 0) {
   # NOTE: this is probably unnecessary due to use of sync_table_2
   invoice_line_item_diff <- redcapcustodian::dataset_diff(
     source = invoice_line_item_with_billable_details %>%
-      select(-c(
-        updated,
-        do_not_bill,
-        do_not_bill_reason,
-        pi_email,
-        gatorlink
-      )),
+      select(
+        -c(
+          updated,
+          do_not_bill,
+          do_not_bill_reason,
+          pi_email,
+          gatorlink
+        )
+      ),
     source_pk = "id",
     target = initial_invoice_line_item %>% select(-updated),
     target_pk = "id",
@@ -127,7 +240,8 @@ if(nrow(billable_details) > 0) {
     delete = F
   )
 
-  new_updates_to_invoice_line_items <- invoice_line_item_diff$update_records %>% mutate(updated = get_script_run_time())
+  new_updates_to_invoice_line_items <- invoice_line_item_diff$update_records %>%
+    mutate(updated = get_script_run_time())
 
   invoice_line_item_sync_activity <- redcapcustodian::sync_table_2(
     conn = rcc_billing_conn,
@@ -145,12 +259,17 @@ if(nrow(billable_details) > 0) {
     collect()
 
   # Write the communications records
-  max_invoice_line_item_communications_id = tbl(rcc_billing_conn, "invoice_line_item_communications") %>%
+  max_invoice_line_item_communications_id <- tbl(
+    rcc_billing_conn,
+    "invoice_line_item_communications"
+  ) %>%
     summarise(max_id = max(id)) %>%
     collect() %>%
     pull()
 
-  new_invoice_line_item_communications <- draft_communication_record_from_line_item(updated_invoice_line_items) %>%
+  new_invoice_line_item_communications <- draft_communication_record_from_line_item(
+    updated_invoice_line_items
+  ) %>%
     mutate(id = id + max_invoice_line_item_communications_id)
 
   redcapcustodian::write_to_sql_db(
@@ -195,7 +314,13 @@ if(nrow(billable_details) > 0) {
 
   banned_owners_updates <- invoice_line_item_with_billable_details %>%
     # identify people of interest
-    filter(do_not_bill_reason %in% c("27. PI no longer with UF", "45. PI Left UF and project should have been sequestered/not invoiced.")) %>%
+    filter(
+      do_not_bill_reason %in%
+        c(
+          "27. PI no longer with UF",
+          "45. PI Left UF and project should have been sequestered/not invoiced."
+        )
+    ) %>%
     distinct(pi_email, gatorlink) %>%
     rename(
       username = gatorlink,
@@ -219,7 +344,7 @@ if(nrow(billable_details) > 0) {
       reason
     )
 
-  if(nrow(banned_owners_updates) > 0) {
+  if (nrow(banned_owners_updates) > 0) {
     banned_owners_sync_activity <- redcapcustodian::sync_table_2(
       conn = rcc_billing_conn,
       table_name = "banned_owners",
@@ -236,10 +361,13 @@ if(nrow(billable_details) > 0) {
   # Update service instances with new CTSI Study IDs
   service_instance <- tbl(rcc_billing_conn, "service_instance") %>% collect()
   invoice_line_item <- tbl(rcc_billing_conn, "invoice_line_item") %>% collect()
-  service_instance_updates <- get_new_ctsi_study_ids(service_instance, invoice_line_item) |>
+  service_instance_updates <- get_new_ctsi_study_ids(
+    service_instance,
+    invoice_line_item
+  ) |>
     select(service_instance_id, ctsi_study_id)
 
-  if(nrow(service_instance_updates) > 0) {
+  if (nrow(service_instance_updates) > 0) {
     banned_owners_sync_activity <- redcapcustodian::sync_table_2(
       conn = rcc_billing_conn,
       table_name = "service_instance",

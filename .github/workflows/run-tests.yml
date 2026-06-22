@@ -12,18 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/ctsit/rstudio-ci:4.3.3
+      image: ghcr.io/ctsit/redcapcustodian:latest
 
     env:
       CI: "TRUE"
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Install devtools
-        run: Rscript -e 'install.packages("devtools")'
-
-      - name: Install public R dependencies
-        run: Rscript -e 'devtools::install_github("ctsit/redcapcustodian")'
-
       - uses: actions/checkout@v2
 
       - name: Check
