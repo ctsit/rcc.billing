@@ -28,6 +28,7 @@ An S4 object. Run ?dbConnect for more information
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 # connect to the RCC Billing database using RCCBILLING_* environment variables
 con <- connect_to_rcc_billing_db()

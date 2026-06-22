@@ -23,6 +23,7 @@ table
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 bad_recipients <- get_bad_emails_from_log(age_of_oldest_log_in_days = 31)
 } # }

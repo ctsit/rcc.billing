@@ -1,5 +1,25 @@
 # Changelog
 
+## rcc.billing 1.53.1 (released 2026-06-22)
+
+- Update update_invoice_line_items_with_invoicing_details.R
+  ([@pbchase](https://github.com/pbchase),
+  [\#291](https://github.com/ctsit/rcc.billing/issues/291))
+  - Add a test for bad data from CSBT; output an error file and issue a
+    warning.
+  - Fix correctable flaws in the CSBT input data file; add a patch file;
+    filter out bad rows.
+  - Test for rows in csbt_billable_details before attempting to do
+    anything.
+- Address Docker build warnings about platform and CMD parameters
+  ([@pbchase](https://github.com/pbchase))
+- Use ghcr.io/ctsit/redcapcustodian:latest in CI
+  ([@pbchase](https://github.com/pbchase))
+- Replace .zenodo.json with CITATION.cff
+  ([@pbchase](https://github.com/pbchase))
+- Add CLAUDE.md with codebase guidance for Claude Code
+  ([@pbchase](https://github.com/pbchase))
+
 ## rcc.billing 1.53.0 (released 2026-01-14)
 
 - Update revenue_status_and_projections.qmd
@@ -715,7 +735,7 @@
   banned_owners schema ([@ChemiKyle](https://github.com/ChemiKyle))
 - Embrace subdirectories for db specific tables in testing data
   ([@ChemiKyle](https://github.com/ChemiKyle))
-- Rename **conn to mem**\_conn in get_orphaned_projects test
+- Rename conn to mem\_conn in get_orphaned_projects test
   ([@ChemiKyle](https://github.com/ChemiKyle))
 - Prevent blank emails on new invoice line items
   ([@pbchase](https://github.com/pbchase))
