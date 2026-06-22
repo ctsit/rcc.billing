@@ -39,7 +39,7 @@ rc_conn <- connect_to_redcap_db()
 # rc_conn <- rc_conn_m
 
 # Read the data in the latest payment file in the directory ~/Downloads/
-payment_dir = "~/Downloads"
+payment_dir <- "~/Downloads"
 latest_payment_file_info <-
   fs::dir_ls(payment_dir) |>
   fs::file_info() |>
@@ -62,7 +62,7 @@ data_patch_join_fields <- c(
   "Month Invoiced",
   "Invoice #",
   "Other System Billing ID"
-  )
+)
 data_patch_additional_fields <- c(
   "Fiscal Year.correction",
   "Month Invoiced.correction",
@@ -70,32 +70,40 @@ data_patch_additional_fields <- c(
   "date_patch_added"
 )
 
-csbt_billable_details <- csbt_billable_details |>
-  left_join(
-    data_patch |> select(c(data_patch_join_fields, data_patch_additional_fields)),
-    by = data_patch_join_fields
-  ) |>
-  mutate(`Fiscal Year` = coalesce(`Fiscal Year.correction`, `Fiscal Year`)) |>
-  mutate(`Month Invoiced` = coalesce(`Month Invoiced.correction`, `Month Invoiced`)) |>
-  select(-any_of(data_patch_additional_fields)) |>
-  # Get rid of some rows with bad month values added on 2026-05-25
-  dplyr::filter(!stringr::str_detect(`Month Invoiced`, "Quote"))
+if (nrow(csbt_billable_details) > 0) {
+  csbt_billable_details <- csbt_billable_details |>
+    left_join(
+      data_patch |> select(all_of(c(data_patch_join_fields, data_patch_additional_fields))),
+      by = data_patch_join_fields
+    ) |>
+    mutate(`Fiscal Year` = coalesce(`Fiscal Year.correction`, `Fiscal Year`)) |>
+    mutate(`Month Invoiced` = coalesce(`Month Invoiced.correction`, `Month Invoiced`)) |>
+    select(-any_of(data_patch_additional_fields)) |>
+    # Get rid of some rows with bad month values added on 2026-05-25
+    dplyr::filter(!stringr::str_detect(`Month Invoiced`, "Quote"))
 
-billable_details <- transform_invoice_line_items_for_ctsit(
-  csbt_billable_details
-) |>
-  janitor::clean_names() |>
-  # The Billing Team changed date formats on us. Address the different data types we have seen
-  mutate(
-    date_of_pmt = as.Date(lubridate::parse_date_time(
-      date_of_pmt,
-      orders = c("ymdHMS", "mdy"),
-      truncated = 3
-    ))
+  billable_details <- transform_invoice_line_items_for_ctsit(
+    csbt_billable_details
   ) |>
-  # HACK: when testing, in-memory data for dates are converted to int upon collection
-  mutate_columns_to_posixct(c("creation_time", "updated")) |>
-  filter(!is.na(service_instance_id))
+    janitor::clean_names() |>
+    # The Billing Team changed date formats on us. Address the different data types we have seen
+    mutate(
+      date_of_pmt = as.Date(lubridate::parse_date_time(
+        date_of_pmt,
+        orders = c("ymdHMS", "mdy"),
+        truncated = 3
+      ))
+    ) |>
+    # HACK: when testing, in-memory data for dates are converted to int upon collection
+    mutate_columns_to_posixct(c("creation_time", "updated")) |>
+    filter(!is.na(service_instance_id))
+} else {
+  stop(
+    "The input data file ",
+    latest_payment_file_info$path,
+    " is empty. There is nothing to do."
+  )
+}
 
 if (nrow(billable_details) > 0) {
   join_condition <- c(
@@ -251,7 +259,7 @@ if (nrow(billable_details) > 0) {
     collect()
 
   # Write the communications records
-  max_invoice_line_item_communications_id = tbl(
+  max_invoice_line_item_communications_id <- tbl(
     rcc_billing_conn,
     "invoice_line_item_communications"
   ) %>%
