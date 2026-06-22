@@ -1,3 +1,13 @@
+# rcc.billing 1.53.1 (released 2026-06-22)
+- Update update_invoice_line_items_with_invoicing_details.R (@pbchase, #291)
+    - Add a test for bad data from CSBT; output an error file and issue a warning.
+    - Fix correctable flaws in the CSBT input data file; add a patch file; filter out bad rows.
+    - Test for rows in csbt_billable_details before attempting to do anything.
+- Address Docker build warnings about platform and CMD parameters (@pbchase)
+- Use ghcr.io/ctsit/redcapcustodian:latest in CI (@pbchase)
+- Replace .zenodo.json with CITATION.cff (@pbchase)
+- Add CLAUDE.md with codebase guidance for Claude Code (@pbchase)
+
 # rcc.billing 1.53.0 (released 2026-01-14)
 - Update revenue_status_and_projections.qmd (@pbchase, #289)
     - Split free Contractual work from free Support work.
