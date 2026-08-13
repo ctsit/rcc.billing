@@ -66,12 +66,15 @@ revenue <-
   collect() %>%
   mutate(invoice_month = lubridate::floor_date(created - dmonths(1), unit = "month")) %>%
   filter(status != "canceled") %>%
+  mutate(status = factor(status, levels = c("new", "sent", "invoiced", "paid"))) %>%
   group_by(status, invoice_month) %>%
   summarise(total = sum(amount_due)) %>%
   tidyr::pivot_wider(
     id_cols = c("invoice_month"),
     names_from = status,
-    values_from = total
+    values_from = total,
+    names_expand = TRUE,
+    values_fill = 0
   ) %>%
   mutate(
     invoices_sent = coalesce(invoiced, 0) + coalesce(paid, 0),
@@ -232,12 +235,15 @@ invoicing_by_service_type <-
        labels = service_type_data$service_type)) |>
   mutate(invoice_month = as.Date(lubridate::floor_date(created - dmonths(1), unit = "month"))) |>
   filter(!status %in% c("canceled", "sent")) |>
+  mutate(status = factor(status, levels = c("new", "invoiced", "paid"))) |>
    group_by(status, invoice_month, service_type) |>
   summarise(total = sum(amount_due, na.rm = T)) |>
   tidyr::pivot_wider(
     id_cols = c("invoice_month", "service_type"),
     names_from = status,
-    values_from = total
+    values_from = total,
+    names_expand = TRUE,
+    values_fill = 0
   ) |>
   mutate(
     invoices_sent = coalesce(invoiced, 0) + coalesce(paid, 0)
@@ -638,12 +644,15 @@ end_month <- invoiced_payable_consulting_with_invoice_month |> summarise(end_mon
     left_join(contract_support |> select(record_id, study_name), by = c("service_identifier" = "record_id")) |>
     # get the last 3 months of Contractual invoices
     filter(invoice_month >= start_month) |>
+    mutate(status = factor(status, levels = c("new", "invoiced", "paid"))) |>
     group_by(status, invoice_month, study_name) |>
     summarise(total = sum(amount_due, na.rm = T)) |>
     pivot_wider(
       id_cols = c("invoice_month", "study_name"),
       names_from = "status",
-      values_from = "total"
+      values_from = "total",
+      names_expand = TRUE,
+      values_fill = 0
     ) |>
     ungroup() |>
     arrange(invoice_month, desc(coalesce(paid, invoiced))) |>
