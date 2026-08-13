@@ -1,3 +1,12 @@
+# rcc.billing 1.53.2 (released 2026-08-13)
+- Fix pivot_wider dropping status columns in revenue report (@pbchase)
+pivot_wider(names_from = status) only emits a column for statuses
+actually present in a given slice, so coalesce(invoiced, 0) errored
+with "object 'invoiced' not found" whenever no row in that slice had
+status == "invoiced". Cast status to a factor with the full fixed
+level set and add names_expand = TRUE, values_fill = 0 so every
+expected status column always exists.
+
 # rcc.billing 1.53.1 (released 2026-06-22)
 - Update update_invoice_line_items_with_invoicing_details.R (@pbchase, #291)
     - Add a test for bad data from CSBT; output an error file and issue a warning.
