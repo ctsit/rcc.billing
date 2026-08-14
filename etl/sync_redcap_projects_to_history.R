@@ -11,10 +11,28 @@ init_etl("sync_redcap_projects_to_history")
 rc_conn <- connect_to_redcap_db()
 rc_billing_conn <- connect_to_rcc_billing_db()
 
-# create the target table and load it with data if it does not exist
+# create the target table from REDCap's live DDL if it does not exist
 if (!"redcap_projects_history" %in% DBI::dbListTables(rc_billing_conn)) {
-  redcap_projects_source <- tbl(rc_conn, "redcap_projects") |> collect()
-  result <- DBI::dbWriteTable(rc_billing_conn, "redcap_projects_history", redcap_projects_source)
+  create_redcap_projects_history <-
+    DBI::dbGetQuery(rc_conn, "SHOW CREATE TABLE redcap_projects") |>
+    janitor::clean_names() |>
+    mutate(create_table = str_replace(create_table, "`redcap_projects`", "`redcap_projects_history`")) |>
+    mutate(create_table = str_replace_all(create_table, ",\n  CONSTRAINT [^,]+ CASCADE", "")) |>
+    pull(create_table)
+  DBI::dbExecute(rc_billing_conn, create_redcap_projects_history)
+}
+
+# reconcile any drift between REDCap's live column definitions and the frozen history table
+# schema (e.g. widened VARCHARs or new ENUM values added by a REDCap upgrade) before syncing data
+schema_drift <- reconcile_redcap_projects_history_schema(
+  source_conn = rc_conn,
+  source_table = "redcap_projects",
+  target_conn = rc_billing_conn,
+  target_table = "redcap_projects_history"
+)
+
+if (nrow(schema_drift) > 0) {
+  log_job_success(jsonlite::toJSON(list(schema_columns_altered = schema_drift$column_name)))
 }
 
 redcap_projects_history <- tbl(rc_billing_conn, "redcap_projects_history") |> collect()

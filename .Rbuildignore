@@ -29,3 +29,6 @@ wip.*
 ^\.github$
 .zenodo.json
 ^input/
+^CITATION\.cff
+^CLAUDE\.md
+^.claude/

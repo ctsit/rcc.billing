@@ -1,3 +1,54 @@
+# rcc.billing 1.53.3 (released 2026-08-14)
+- Convert ENUM columns to VARCHAR when reconciling redcap_projects_history (@pbchase)
+Comparing COLUMN_TYPE literals between source and target still failed
+with "Data truncated for column 'survey_auth_min_fields' [1265]" even
+though schema_drift reported zero rows: both sides already declared
+enum('1','2','3'), but REDCap's live redcap_projects table already
+holds a legacy "" value for that row (predating strict mode) that
+isn't a member of the enum at all. No amount of widening the ENUM's
+member list fixes that, and REDCap will keep adding legal values over
+time regardless.
+
+Add desired_column_type(), which maps any ENUM source type to
+varchar(255) instead of mirroring it verbatim. get_column_type_drift()
+now flags an ENUM-typed target column as drifted even when its literal
+type matches the source, so reconciliation permanently migrates these
+columns off ENUM rather than chasing each new or pre-existing
+out-of-range value with another ALTER TABLE.
+
+Assisted-by: Claude:claude-sonnet-5
+
+- Stop tightening nullability when reconciling redcap_projects_history (@pbchase)
+Reconciling a column's nullability to match the live REDCap source
+(added in 8f103b0) failed with "Invalid use of NULL value [1138]" on
+allow_delete_record_from_log: the history table has legitimate legacy
+NULLs from before REDCap made that column NOT NULL, and MariaDB
+refuses to tighten a column to NOT NULL against existing NULL data.
+
+get_column_type_drift() now only flags drift on COLUMN_TYPE, and
+build_column_alter_statements() preserves the target's own current
+nullability instead of adopting the source's, so reconciliation only
+ever widens types (fixing truncation) and never fights existing rows.
+
+Assisted-by: Claude:claude-sonnet-5
+
+- Reconcile redcap_projects_history schema drift before sync (@pbchase)
+redcap_projects_history was created once as a frozen snapshot of
+REDCap's redcap_projects DDL, so upstream REDCap upgrades that widen
+columns or add ENUM values (e.g. survey_auth_min_fields) caused
+sync_redcap_projects_to_history.R to fail with "Data truncated for
+column" errors. Add reconcile_redcap_projects_history_schema(), which
+diffs information_schema.columns between source and target and issues
+ALTER TABLE MODIFY COLUMN statements to heal drift before each sync
+runs. Also switch the create-if-absent branch to copy REDCap's live
+DDL via SHOW CREATE TABLE instead of dbWriteTable's R-inferred types,
+so freshly created tables start from real column definitions.
+
+Also includes incidental R CMD check build-warning fixes (RoxygenNote,
+minimum R version, .Rbuildignore entries, tibble dependency).
+
+Assisted-by: Claude:claude-sonnet-5
+
 # rcc.billing 1.53.2 (released 2026-08-13)
 - Fix pivot_wider dropping status columns in revenue report (@pbchase)
 pivot_wider(names_from = status) only emits a column for statuses
