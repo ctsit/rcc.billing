@@ -2,6 +2,9 @@
 
 ## All functions
 
+- [`build_column_alter_statements()`](https://ctsit.github.io/rcc.billing/reference/build_column_alter_statements.md)
+  : build_column_alter_statements
+
 - [`connect_to_rcc_billing_db()`](https://ctsit.github.io/rcc.billing/reference/connect_to_rcc_billing_db.md)
   : Connect to the rcc_billing DB
 
@@ -13,6 +16,9 @@
 
 - [`ctsit_staff_employment_periods`](https://ctsit.github.io/rcc.billing/reference/ctsit_staff_employment_periods.md)
   : ctsit_staff_employment_periods
+
+- [`desired_column_type()`](https://ctsit.github.io/rcc.billing/reference/desired_column_type.md)
+  : desired_column_type
 
 - [`draft_communication_record_from_line_item()`](https://ctsit.github.io/rcc.billing/reference/draft_communication_record_from_line_item.md)
   :
@@ -28,6 +34,9 @@
 
 - [`get_billable_candidates()`](https://ctsit.github.io/rcc.billing/reference/get_billable_candidates.md)
   : get_billable_candidates
+
+- [`get_column_type_drift()`](https://ctsit.github.io/rcc.billing/reference/get_column_type_drift.md)
+  : get_column_type_drift
 
 - [`get_creators()`](https://ctsit.github.io/rcc.billing/reference/get_creators.md)
   : get_creators
@@ -121,6 +130,9 @@
 
 - [`previous_n_months()`](https://ctsit.github.io/rcc.billing/reference/previous_n_months.md)
   : previous_n_months
+
+- [`reconcile_redcap_projects_history_schema()`](https://ctsit.github.io/rcc.billing/reference/reconcile_redcap_projects_history_schema.md)
+  : reconcile_redcap_projects_history_schema
 
 - [`sequester_projects()`](https://ctsit.github.io/rcc.billing/reference/sequester_projects.md)
   : sequester_projects

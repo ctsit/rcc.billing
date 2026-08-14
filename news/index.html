@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.53.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.53.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,6 +54,18 @@
       <small>Source: <a href="https://github.com/ctsit/rcc.billing/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.53.3" id="rccbilling-1533-released-2026-08-14">rcc.billing 1.53.3 (released 2026-08-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1533-released-2026-08-14"></a></h2>
+<ul><li>Convert ENUM columns to VARCHAR when reconciling redcap_projects_history (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) Comparing COLUMN_TYPE literals between source and target still failed with “Data truncated for column ‘survey_auth_min_fields’ [1265]” even though schema_drift reported zero rows: both sides already declared enum(‘1’,‘2’,‘3’), but REDCap’s live redcap_projects table already holds a legacy “” value for that row (predating strict mode) that isn’t a member of the enum at all. No amount of widening the ENUM’s member list fixes that, and REDCap will keep adding legal values over time regardless.</li>
+</ul><p>Add desired_column_type(), which maps any ENUM source type to varchar(255) instead of mirroring it verbatim. get_column_type_drift() now flags an ENUM-typed target column as drifted even when its literal type matches the source, so reconciliation permanently migrates these columns off ENUM rather than chasing each new or pre-existing out-of-range value with another ALTER TABLE.</p>
+<p>Assisted-by: Claude:claude-sonnet-5</p>
+<ul><li>Stop tightening nullability when reconciling redcap_projects_history (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) Reconciling a column’s nullability to match the live REDCap source (added in 8f103b0) failed with “Invalid use of NULL value [1138]” on allow_delete_record_from_log: the history table has legitimate legacy NULLs from before REDCap made that column NOT NULL, and MariaDB refuses to tighten a column to NOT NULL against existing NULL data.</li>
+</ul><p>get_column_type_drift() now only flags drift on COLUMN_TYPE, and build_column_alter_statements() preserves the target’s own current nullability instead of adopting the source’s, so reconciliation only ever widens types (fixing truncation) and never fights existing rows.</p>
+<p>Assisted-by: Claude:claude-sonnet-5</p>
+<ul><li>Reconcile redcap_projects_history schema drift before sync (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) redcap_projects_history was created once as a frozen snapshot of REDCap’s redcap_projects DDL, so upstream REDCap upgrades that widen columns or add ENUM values (e.g. survey_auth_min_fields) caused sync_redcap_projects_to_history.R to fail with “Data truncated for column” errors. Add reconcile_redcap_projects_history_schema(), which diffs information_schema.columns between source and target and issues ALTER TABLE MODIFY COLUMN statements to heal drift before each sync runs. Also switch the create-if-absent branch to copy REDCap’s live DDL via SHOW CREATE TABLE instead of dbWriteTable’s R-inferred types, so freshly created tables start from real column definitions.</li>
+</ul><p>Also includes incidental R CMD check build-warning fixes (RoxygenNote, minimum R version, .Rbuildignore entries, tibble dependency).</p>
+<p>Assisted-by: Claude:claude-sonnet-5</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.53.2" id="rccbilling-1532-released-2026-08-13">rcc.billing 1.53.2 (released 2026-08-13)<a class="anchor" aria-label="anchor" href="#rccbilling-1532-released-2026-08-13"></a></h2>
 <ul><li>Fix pivot_wider dropping status columns in revenue report (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) pivot_wider(names_from = status) only emits a column for statuses actually present in a given slice, so coalesce(invoiced, 0) errored with “object ‘invoiced’ not found” whenever no row in that slice had status == “invoiced”. Cast status to a factor with the full fixed level set and add names_expand = TRUE, values_fill = 0 so every expected status column always exists.</li>
