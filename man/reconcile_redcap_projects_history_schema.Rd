@@ -25,8 +25,9 @@ a dataframe of the drifted columns that were altered, as returned by
   \code{\link{get_column_type_drift}}
 }
 \description{
-Detects columns shared between a source and target table whose type or nullability
-has drifted, and alters the target table to match the source. Used to keep
+Detects columns shared between a source and target table whose type has drifted, and
+alters the target table's type to match the source (preserving the target's existing
+nullability). Used to keep
 \code{redcap_projects_history} in sync with upstream DDL revisions to REDCap's own
 \code{redcap_projects} table (e.g. widened \code{VARCHAR}s or new \code{ENUM} values)
 so that syncing data no longer fails with truncation errors.
