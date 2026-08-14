@@ -17,14 +17,17 @@ get_column_type_drift(source_conn, source_table, target_conn, target_table)
 }
 \value{
 a dataframe with one row per drifted column: \code{column_name},
-  \code{source_column_type}, \code{target_column_type}, \code{target_is_nullable}
+  \code{source_column_type}, \code{target_column_type}, \code{desired_column_type},
+  \code{target_is_nullable}
 }
 \description{
 Compares the column definitions of a source table and a target table via
 \code{information_schema.columns} and returns the columns that are present in both
-tables but whose type differs. Used to detect when REDCap's own DDL revisions to
-\code{redcap_projects} (e.g. a widened \code{VARCHAR} or a new \code{ENUM} value) have
-drifted out from under the frozen \code{redcap_projects_history} mirror table.
+tables but whose target type differs from the type the target should have (see
+\code{\link{desired_column_type}}). Used to detect when REDCap's own DDL revisions to
+\code{redcap_projects} (e.g. a widened \code{VARCHAR}) have drifted out from under the
+frozen \code{redcap_projects_history} mirror table, and to migrate any \code{ENUM}
+column in the target to \code{VARCHAR}.
 }
 \details{
 Nullability is intentionally not compared: \code{redcap_projects_history} accumulates

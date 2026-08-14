@@ -25,12 +25,14 @@ a dataframe of the drifted columns that were altered, as returned by
   \code{\link{get_column_type_drift}}
 }
 \description{
-Detects columns shared between a source and target table whose type has drifted, and
-alters the target table's type to match the source (preserving the target's existing
-nullability). Used to keep
+Detects columns shared between a source and target table whose target type does not
+match its desired type (see \code{\link{desired_column_type}}), and alters the target
+table's type accordingly, preserving the target's existing nullability. Used to keep
 \code{redcap_projects_history} in sync with upstream DDL revisions to REDCap's own
-\code{redcap_projects} table (e.g. widened \code{VARCHAR}s or new \code{ENUM} values)
-so that syncing data no longer fails with truncation errors.
+\code{redcap_projects} table (e.g. widened \code{VARCHAR}s), and to migrate any
+\code{ENUM} column to \code{VARCHAR} so that syncing data no longer fails with
+truncation errors caused by new or pre-existing values outside the \code{ENUM}'s
+declared member list.
 }
 \examples{
 \dontrun{

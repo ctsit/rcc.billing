@@ -16,11 +16,10 @@ a character vector of \code{ALTER TABLE} statements, one per drifted column
 }
 \description{
 Builds the \code{ALTER TABLE ... MODIFY COLUMN} statements needed to bring a target
-table's drifted columns in line with the source table's current column types, while
-preserving each column's existing nullability on the target (see
-\code{\link{get_column_type_drift}} for why nullability is never tightened to match the
-source). Pure string-building function with no database access, given the output of
-\code{\link{get_column_type_drift}}.
+table's drifted columns to their desired column type, while preserving each column's
+existing nullability on the target (see \code{\link{get_column_type_drift}} for why
+nullability is never tightened to match the source). Pure string-building function with
+no database access, given the output of \code{\link{get_column_type_drift}}.
 }
 \examples{
 \dontrun{

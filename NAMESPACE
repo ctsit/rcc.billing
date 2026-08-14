@@ -2,6 +2,7 @@
 
 export(build_column_alter_statements)
 export(connect_to_rcc_billing_db)
+export(desired_column_type)
 export(draft_communication_record_from_line_item)
 export(get_bad_emails_from_log)
 export(get_billable_candidates)
