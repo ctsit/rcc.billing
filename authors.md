@@ -23,7 +23,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ctsit/rcc.billing/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ctsit/rcc.billing/blob/1.54.0/DESCRIPTION)
 
 Chase P, James-Woodley L, Chesney K, Bentz M, Kamma S (2026).
 *rcc.billing: REDCap Automated Billing*. R package version 1.54.0,
