@@ -44,7 +44,7 @@ The resulting banner looks like this:
 The billing policy is also communicated every time someone submits a support request with this reminder:
 
 ```
-Fee-based services ($130/hour):
+Fee-based services ($NNN/hour):
 - Any assistance over the one-hour of free time PER PROJECT (PID).
 - Assistance with data transformations and data imports.
 - Project building/configuration services.
