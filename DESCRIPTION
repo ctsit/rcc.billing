@@ -1,6 +1,6 @@
 Package: rcc.billing
 Title: REDCap Automated Billing
-Version: 1.53.3
+Version: 1.54.0
 Authors@R: c(
   person("Philip", "Chase",
         email = "pbc@ufl.edu",
