@@ -1,6 +1,6 @@
 -- upgrade for release 1.54.0
 alter table service_type
-  add column `start_date` datetime DEFAULT NULL AFTER `billing_frequency`
+  add column `start_date` date DEFAULT NULL AFTER `billing_frequency`
 ;
 
 update service_type set start_date = '2023-11-01' where start_date is null;

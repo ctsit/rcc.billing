@@ -3,5 +3,5 @@ CREATE TABLE `service_type` (
   `service_type` varchar(50) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `billing_frequency` double DEFAULT NULL,
-  `start_date` datetime DEFAULT NULL
+  `start_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
