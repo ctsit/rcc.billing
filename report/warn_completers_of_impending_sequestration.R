@@ -29,6 +29,12 @@ redcap_project_uri_home_base <- str_remove(Sys.getenv("URI"), "/api") %>%
 redcap_project_ownership_page <- str_remove(Sys.getenv("URI"), "/api") %>%
   paste0("index.php?action=project_ownership")
 
+current_annual_fee <- tbl(rcc_billing_conn, "service_type") %>%
+  collect() %>%
+  get_effective_service_type(get_script_run_time()) %>%
+  filter(service_type_code == 1) %>%
+  pull(price)
+
 completed_times_and_completers_of_targets <- tbl(rc_conn, "redcap_projects") %>%
   select(completed_time, completed_by) %>%
   collect() %>%
@@ -106,7 +112,7 @@ email_template_text <- "<p><owner_name>,<p>
 
 <table_of_projects_to_be_sequestered>
 
-<p>That status is no longer supported in our system. As it looks like you are done with this project, we are going to sequester it on 1/30 unless you ask us not to. If the project is not sequestered, you will be expected to pay the normal $130 annual fee to keep it on the REDCap system when it comes due. Sequestered projects will be automatically deleted after one year in sequestration.</p>
+<p>That status is no longer supported in our system. As it looks like you are done with this project, we are going to sequester it on 1/30 unless you ask us not to. If the project is not sequestered, you will be expected to pay the normal <annual_fee> annual fee to keep it on the REDCap system when it comes due. Sequestered projects will be automatically deleted after one year in sequestration.</p>
 
 <p>Regards,</p>
 <p>REDCap Support</p>
@@ -136,6 +142,7 @@ email_df <- email_tables %>%
   mutate(email_text =
            str_replace(email_template_text, "<owner_name>", project_completer_full_name) %>%
            str_replace("<table_of_projects_to_be_sequestered>", detail_table) %>%
+           str_replace("<annual_fee>", paste0("$", current_annual_fee)) %>%
            htmltools::HTML()
          ) %>%
   ungroup()

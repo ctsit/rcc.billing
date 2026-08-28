@@ -1,4 +1,4 @@
-testthat::test_that("get_new_project_invoice_line_items works", {
+get_new_project_invoice_line_items_for_test <- function(script_run_time) {
   test_tables <- c(
     "redcap_config",
     "redcap_projects",
@@ -24,7 +24,7 @@ testthat::test_that("get_new_project_invoice_line_items works", {
   initial_invoice_line_item <- dplyr::tbl(mem_rc_conn, "invoice_line_item") |>
     dplyr::collect()
 
-  redcapcustodian::set_script_run_time(lubridate::ymd_hms("2023-04-05 12:00:00"))
+  redcapcustodian::set_script_run_time(script_run_time)
 
   new_project_invoice_line_items <- get_new_project_invoice_line_items(
     projects_to_invoice = projects_to_invoice,
@@ -35,6 +35,16 @@ testthat::test_that("get_new_project_invoice_line_items works", {
   )
 
   DBI::dbDisconnect(mem_rc_conn, shutdown = TRUE)
+
+  new_project_invoice_line_items
+}
+
+testthat::test_that("get_new_project_invoice_line_items works", {
+  projects_to_invoice <- readRDS(testthat::test_path("get_new_project_invoice_line_items", "projects_to_invoice.rds"))
+
+  new_project_invoice_line_items <- get_new_project_invoice_line_items_for_test(
+    lubridate::ymd_hms("2023-04-05 12:00:00")
+  )
 
   testthat::expect_equal(
     new_project_invoice_line_items$service_identifier,
@@ -50,6 +60,8 @@ testthat::test_that("get_new_project_invoice_line_items works", {
     rep(TRUE, 4)
   )
   testthat::expect_equal(new_project_invoice_line_items$reason, rep("new_item", 4))
+  testthat::expect_equal(new_project_invoice_line_items$price_of_service, rep(130, 4))
+  testthat::expect_equal(new_project_invoice_line_items$amount_due, rep(130, 4))
   testthat::expect_equal(names(new_project_invoice_line_items), c(
     "service_identifier",
     "service_type_code",
@@ -73,4 +85,13 @@ testthat::test_that("get_new_project_invoice_line_items works", {
     "created",
     "updated"
   ))
+})
+
+testthat::test_that("get_new_project_invoice_line_items uses the rate effective on the invoicing date", {
+  new_project_invoice_line_items <- get_new_project_invoice_line_items_for_test(
+    lubridate::ymd_hms("2026-10-05 12:00:00")
+  )
+
+  testthat::expect_equal(new_project_invoice_line_items$price_of_service, rep(150, 4))
+  testthat::expect_equal(new_project_invoice_line_items$amount_due, rep(150, 4))
 })
