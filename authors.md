@@ -26,13 +26,13 @@ Source:
 [`DESCRIPTION`](https://github.com/ctsit/rcc.billing/blob/main/DESCRIPTION)
 
 Chase P, James-Woodley L, Chesney K, Bentz M, Kamma S (2026).
-*rcc.billing: REDCap Automated Billing*. R package version 1.53.3,
+*rcc.billing: REDCap Automated Billing*. R package version 1.54.0,
 <https://ctsit.github.io/rcc.billing/>.
 
     @Manual{,
       title = {rcc.billing: REDCap Automated Billing},
       author = {Philip Chase and Laurence James-Woodley and Kyle Chesney and Michael Bentz and Sai Pavan Kamma},
       year = {2026},
-      note = {R package version 1.53.3},
+      note = {R package version 1.54.0},
       url = {https://ctsit.github.io/rcc.billing/},
     }

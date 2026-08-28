@@ -44,6 +44,10 @@
 - [`get_ctsi_study_id_to_project_id_map()`](https://ctsit.github.io/rcc.billing/reference/get_ctsi_study_id_to_project_id_map.md)
   : Map CTSI Study IDs to Project IDs
 
+- [`get_effective_service_type()`](https://ctsit.github.io/rcc.billing/reference/get_effective_service_type.md)
+  : Reduce a service_type data frame to the row effective for each
+  service_type_code as of a given date
+
 - [`get_last_project_user()`](https://ctsit.github.io/rcc.billing/reference/get_last_project_user.md)
   : get_last_project_user
 

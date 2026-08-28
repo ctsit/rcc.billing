@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rcc.billing</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.53.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.54.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,6 +54,17 @@
       <small>Source: <a href="https://github.com/ctsit/rcc.billing/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.54.0" id="rccbilling-1540-released-2026-08-28">rcc.billing 1.54.0 (released 2026-08-28)<a class="anchor" aria-label="anchor" href="#rccbilling-1540-released-2026-08-28"></a></h2>
+<ul><li>Remove historic text from billing_for_support.Rmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Remove the specific pricing in billing_for_support.Rmd (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>)</li>
+<li>Use date instead of datetime for service_type.start_date (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) start_date only needs day precision, and datetime forces reasoning about time zones and DST that isn’t otherwise needed here.</li>
+</ul><p>Assisted-by: Claude:claude-sonnet-5</p>
+<ul><li>Record the 2026-10-01 REDCap consulting rate for completeness (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) service_type_code=2 (REDCap consulting) is also rising to $150/hr on 2026-10-01. No script reads this rate today, so service_type is not authoritative for it, but record the row anyway so the table reflects reality.</li>
+</ul><p>Assisted-by: Claude:claude-sonnet-5</p>
+<ul><li>Make service_type rate changes data-driven (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) Add a start_date column to service_type so a rate change is a matter of inserting a row instead of hand-editing code, as was done for the Fall 2023 change (github.com/ctsit/rcc.billing/milestone/19). Add get_effective_service_type() to resolve the row effective per service_type_code as of a given date, and wire it into new-project invoicing (effective the day a project is invoiced) and the two owner-facing email templates that previously hardcoded “$130” (effective one month ahead for the billing-warning email, and immediately for the sequestration-warning email). Seed the 2026-10-01 rate change to $150 for the annual project fee via inst/schema/upgrade-1.54.0.sql.</li>
+</ul><p>Assisted-by: Claude:claude-sonnet-5</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.53.3" id="rccbilling-1533-released-2026-08-14">rcc.billing 1.53.3 (released 2026-08-14)<a class="anchor" aria-label="anchor" href="#rccbilling-1533-released-2026-08-14"></a></h2>
 <ul><li>Convert ENUM columns to VARCHAR when reconciling redcap_projects_history (<a href="https://github.com/pbchase" class="external-link">@pbchase</a>) Comparing COLUMN_TYPE literals between source and target still failed with “Data truncated for column ‘survey_auth_min_fields’ [1265]” even though schema_drift reported zero rows: both sides already declared enum(‘1’,‘2’,‘3’), but REDCap’s live redcap_projects table already holds a legacy “” value for that row (predating strict mode) that isn’t a member of the enum at all. No amount of widening the ENUM’s member list fixes that, and REDCap will keep adding legal values over time regardless.</li>

@@ -1,5 +1,42 @@
 # Changelog
 
+## rcc.billing 1.54.0 (released 2026-08-28)
+
+- Remove historic text from billing_for_support.Rmd
+  ([@pbchase](https://github.com/pbchase))
+- Remove the specific pricing in billing_for_support.Rmd
+  ([@pbchase](https://github.com/pbchase))
+- Use date instead of datetime for service_type.start_date
+  ([@pbchase](https://github.com/pbchase)) start_date only needs day
+  precision, and datetime forces reasoning about time zones and DST that
+  isn’t otherwise needed here.
+
+Assisted-by: Claude:claude-sonnet-5
+
+- Record the 2026-10-01 REDCap consulting rate for completeness
+  ([@pbchase](https://github.com/pbchase)) service_type_code=2 (REDCap
+  consulting) is also rising to \$150/hr on 2026-10-01. No script reads
+  this rate today, so service_type is not authoritative for it, but
+  record the row anyway so the table reflects reality.
+
+Assisted-by: Claude:claude-sonnet-5
+
+- Make service_type rate changes data-driven
+  ([@pbchase](https://github.com/pbchase)) Add a start_date column to
+  service_type so a rate change is a matter of inserting a row instead
+  of hand-editing code, as was done for the Fall 2023 change
+  (github.com/ctsit/rcc.billing/milestone/19). Add
+  get_effective_service_type() to resolve the row effective per
+  service_type_code as of a given date, and wire it into new-project
+  invoicing (effective the day a project is invoiced) and the two
+  owner-facing email templates that previously hardcoded “\$130”
+  (effective one month ahead for the billing-warning email, and
+  immediately for the sequestration-warning email). Seed the 2026-10-01
+  rate change to \$150 for the annual project fee via
+  inst/schema/upgrade-1.54.0.sql.
+
+Assisted-by: Claude:claude-sonnet-5
+
 ## rcc.billing 1.53.3 (released 2026-08-14)
 
 - Convert ENUM columns to VARCHAR when reconciling
