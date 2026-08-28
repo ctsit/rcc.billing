@@ -44,7 +44,7 @@ The resulting banner looks like this:
 The billing policy is also communicated every time someone submits a support request with this reminder:
 
 ```
-Fee-based services ($130/hour):
+Fee-based services ($NNN/hour):
 - Any assistance over the one-hour of free time PER PROJECT (PID).
 - Assistance with data transformations and data imports.
 - Project building/configuration services.
@@ -57,7 +57,3 @@ Free services:
 - Quotes for grant applications.
 - Project un-sequestration.
 ```
-
-## Expanding the scope of support billing
-
-Historically, REDCap project build work has been logged in an Atlassian Jira system. It's very easy to log time in that system, but getting the data out would require yet another interface and related data transformations to make that data conform to the REDCap Automated Billing system. To save that effort, the REDCap project build work moved from Jira to the REDCap support request system the very first month the automated billing system started managing support requests. This will reduce the labor of generating invoices from manual exports of data from the JIRA system. Other projects will follow suit in the 3rd month of implementation.

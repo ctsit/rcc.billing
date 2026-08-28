@@ -46,7 +46,9 @@ get_new_project_invoice_line_items <- function(
   redcap_project_uri_base <- stringr::str_remove(api_uri, "/api") |>
     paste0("redcap_v", redcap_version, "/ProjectSetup/index.php?pid=")
 
-  service_type <- dplyr::tbl(rcc_billing_conn, "service_type") |> dplyr::collect()
+  service_type <- dplyr::tbl(rcc_billing_conn, "service_type") |>
+    dplyr::collect() |>
+    get_effective_service_type(redcapcustodian::get_script_run_time())
 
   updated_service_instance <- dplyr::tbl(rcc_billing_conn, "service_instance") |>
     dplyr::collect()
